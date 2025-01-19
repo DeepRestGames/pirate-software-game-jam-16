@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5p4evkgrownv"]
+
+[ext_resource type="Script" path="res://Scripts/Boomerang/Boomerang.gd" id="1_s7dak"]
+[ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="2_75c15"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38nh8"]
+size = Vector2(100, 100)
+
+[node name="Boomerang" type="Node2D"]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_s7dak")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 0.1
+linear_damp_mode = 1
+linear_damp = 0.7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_38nh8")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+modulate = Color(1, 1, 0, 1)
+texture = ExtResource("2_75c15")
