@@ -37,6 +37,7 @@ func _physics_process(delta: float) -> void:
 
 
 func disable_boomerang():
+	linear_velocity = Vector2.ZERO
 	process_mode = PROCESS_MODE_DISABLED
 	hide()
 
