@@ -122,6 +122,7 @@ position = Vector2(541, 317)
 flying_boomerang = NodePath("../Boomerang")
 
 [node name="Boomerang" parent="." instance=ExtResource("4_xbjpj")]
+visible = false
 position = Vector2(605, 291)
 
 [node name="UI" parent="." instance=ExtResource("3_cbco8")]

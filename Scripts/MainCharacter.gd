@@ -7,8 +7,8 @@ extends CharacterBody2D
 @export var flying_boomerang: Boomerang
 @onready var meelee_boomerang = $Boomerang
 
-const movement_speed: float = 500
-const meelee_boomerang_offset = 70
+const MOVEMENT_SPEED: float = 500
+const MEELEE_BOOMERANG_OFFSET = 70
 
 var boomerang_on_ground: bool = false
 var boomerang_in_hand: bool = true
@@ -25,10 +25,11 @@ func _input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	
 	# Get navigation agent path only if boomerang is on the ground
 	if boomerang_on_ground:
 		var direction = to_local(navigation_agent.get_next_path_position()).normalized()
-		velocity = direction * movement_speed
+		velocity = direction * MOVEMENT_SPEED
 	else:
 		velocity = Vector2.ZERO
 	
@@ -36,19 +37,14 @@ func _physics_process(delta: float) -> void:
 	if boomerang_in_hand:
 		var mouse_position = get_global_mouse_position()
 		var direction = (mouse_position - global_position).normalized()
-		meelee_boomerang.position = direction * meelee_boomerang_offset
+		meelee_boomerang.position = direction * MEELEE_BOOMERANG_OFFSET
 		meelee_boomerang.look_at(direction)
 	
 	if move_and_slide():
-		if boomerang_just_thrown:
-			boomerang_just_thrown = false
-			return
-			
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
 			
 			if collision.get_collider() is Boomerang:
-				print("Boomerang retrieved!")
 				boomerang_reached()
 
 

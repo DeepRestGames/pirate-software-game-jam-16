@@ -24,6 +24,11 @@ EventBus="*res://Scripts/EventBus.gd"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 
+[global_group]
+
+MainCharacter=""
+Boomerang=""
+
 [input]
 
 throw_boomerang={

@@ -6,13 +6,15 @@ extends RigidBody2D
 @export_range(2.5, 10) var max_fly_time: float = 2.5
 @export var speed = 300
 
-var is_flying = true
+var is_flying = false
 var remaining_fly_time = max_fly_time
 
 
 func _ready() -> void:
 	EventBus.connect("fly_time_reset", disable_boomerang)
 	EventBus.connect("throw_boomerang", enable_boomerang)
+	
+	disable_boomerang()
 
 
 func _physics_process(delta: float) -> void:
