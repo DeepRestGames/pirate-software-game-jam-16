@@ -1,15 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://edt3lay8k3tl"]
+[gd_scene load_steps=10 format=3 uid="uid://edt3lay8k3tl"]
 
 [ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="1_24xp7"]
+[ext_resource type="Script" path="res://Scripts/Enemies/EnemySpawner.gd" id="2_logu1"]
 [ext_resource type="PackedScene" uid="uid://blwtacw6rbdye" path="res://Scenes/MainCharacter.tscn" id="3_6x4vx"]
 [ext_resource type="PackedScene" uid="uid://dwmnwwfbcm0xb" path="res://Scenes/UI.tscn" id="3_cbco8"]
 [ext_resource type="PackedScene" uid="uid://b5p4evkgrownv" path="res://Scenes/Boomerang.tscn" id="4_xbjpj"]
-[ext_resource type="PackedScene" uid="uid://1jxgf3akb6ir" path="res://Scenes/EnemyBase.tscn" id="5_l3pjq"]
+[ext_resource type="PackedScene" uid="uid://1jxgf3akb6ir" path="res://Scenes/Enemies/EnemyWalking.tscn" id="5_l3pjq"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_41o6l"]
-vertices = PackedVector2Array(1061, 682, 1472, 801.992, -320, 801.992, 941, 682, 199, 473, 941, 262, 79, 473, -320, -154.992, 79, 53, 1472, -154.992, 199, 53, 1061, 262)
+vertices = PackedVector2Array(482.656, 355.344, 893.656, 475.328, -898.344, 475.328, 362.656, 355.344, -379.344, 146.344, 362.656, -64.6563, -499.344, 146.344, -898.344, -481.656, -499.344, -273.656, 893.656, -481.656, -379.344, -273.656, 482.656, -64.6563)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(6, 4, 2), PackedInt32Array(6, 2, 7, 8), PackedInt32Array(8, 7, 9, 10), PackedInt32Array(9, 1, 0, 11), PackedInt32Array(10, 9, 11, 5), PackedInt32Array(10, 5, 4)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-376, -216, -376, 856, 1528, 856, 1528, -216)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-933.333, -520, -938.333, 516.667, 940, 516.667, 930, -515)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3fm6"]
 
@@ -17,25 +18,22 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-376, -216, -376, 856, 
 size = Vector2(20, 20)
 
 [node name="MainScene" type="Node2D"]
-position = Vector2(384, 216)
+scale = Vector2(0.6, 0.6)
 
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Environment"]
-position = Vector2(1, 0)
 navigation_polygon = SubResource("NavigationPolygon_41o6l")
 
 [node name="Ground" type="Sprite2D" parent="Environment/NavigationRegion2D"]
 modulate = Color(0.184713, 0.184713, 0.184713, 1)
-position = Vector2(575, 327)
 scale = Vector2(19.06, 10.44)
 texture = ExtResource("1_24xp7")
 
 [node name="Walls" type="Node2D" parent="Environment/NavigationRegion2D"]
-position = Vector2(-1, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
-position = Vector2(-359, 331)
+position = Vector2(-938.333, 4.33334)
 scale = Vector2(3, 60)
 collision_layer = 8
 collision_mask = 0
@@ -48,7 +46,7 @@ modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
-position = Vector2(1513, 331)
+position = Vector2(933.667, 4.33334)
 scale = Vector2(3, 60)
 collision_layer = 8
 collision_mask = 0
@@ -61,7 +59,7 @@ modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
-position = Vector2(575, -195)
+position = Vector2(-4.33325, -521.667)
 rotation = -1.57079
 scale = Vector2(3, 100)
 collision_layer = 8
@@ -75,7 +73,7 @@ modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
-position = Vector2(575, 842)
+position = Vector2(-4.33325, 515.333)
 rotation = -1.57079
 scale = Vector2(3, 100)
 collision_layer = 8
@@ -89,7 +87,7 @@ modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
-position = Vector2(140, 263)
+position = Vector2(-439.333, -63.6667)
 scale = Vector2(5, 20)
 collision_layer = 8
 collision_mask = 0
@@ -102,7 +100,7 @@ modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
-position = Vector2(1002, 472)
+position = Vector2(422.667, 145.333)
 scale = Vector2(5, 20)
 collision_layer = 8
 collision_mask = 15
@@ -115,24 +113,20 @@ modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("2_logu1")
 
 [node name="EnemyBase" parent="EnemySpawner" instance=ExtResource("5_l3pjq")]
-position = Vector2(-167, 644)
+position = Vector2(-633.333, 336.667)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 324)
-zoom = Vector2(0.6, 0.6)
 
 [node name="MainCharacter" parent="." node_paths=PackedStringArray("flying_boomerang") instance=ExtResource("3_6x4vx")]
-position = Vector2(541, 317)
+position = Vector2(51.6667, -15.6667)
 flying_boomerang = NodePath("../Boomerang")
 
 [node name="Boomerang" parent="." instance=ExtResource("4_xbjpj")]
 visible = false
-position = Vector2(605, 291)
+position = Vector2(115.667, -41.6667)
 
 [node name="UI" parent="." instance=ExtResource("3_cbco8")]
-offset_left = 578.0
-offset_top = -191.0
-offset_right = 578.0
-offset_bottom = -191.0
+custom_minimum_size = Vector2(1920, 1080)

@@ -28,6 +28,7 @@ window/stretch/aspect="keep_width"
 
 MainCharacter=""
 Boomerang=""
+Enemies=""
 
 [input]
 

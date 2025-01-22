@@ -1,14 +1,8 @@
-extends CharacterBody2D
+class_name EnemyWalking
+extends EnemyBase
 
 
-const MOVEMENT_SPEED: float = 300
-var main_character: MainCharacter
-
-@onready var navigation_agent = $NavigationAgent2D as NavigationAgent2D
-
-
-func _ready() -> void:
-	main_character = get_tree().get_first_node_in_group("MainCharacter")
+@onready var path_calculation_timer = $PathCalculationTimer as Timer
 
 
 func _physics_process(delta: float) -> void:
@@ -23,8 +17,8 @@ func _physics_process(delta: float) -> void:
 				take_damage()
 
 
-func take_damage():
-	queue_free()
+func stop_chasing_player():
+	path_calculation_timer.stop()
 
 
 func make_path() -> void:

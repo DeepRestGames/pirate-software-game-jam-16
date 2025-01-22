@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5p4evkgrownv"]
 
-[ext_resource type="Script" path="res://Scripts/Boomerang/Boomerang.gd" id="1_s7dak"]
+[ext_resource type="Script" path="res://Scripts/Boomerang.gd" id="1_s7dak"]
 [ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="2_75c15"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tui1e"]
@@ -27,5 +27,5 @@ shape = SubResource("RectangleShape2D_38nh8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0, 1)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_75c15")

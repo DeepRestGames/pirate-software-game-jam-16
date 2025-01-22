@@ -11,7 +11,7 @@ radius = 30.0
 size = Vector2(30, 30)
 
 [node name="MainCharacter" type="CharacterBody2D" groups=["MainCharacter"]]
-collision_mask = 10
+collision_mask = 14
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_niili")
@@ -25,8 +25,6 @@ texture = ExtResource("2_puhgc")
 shape = SubResource("CircleShape2D_4meyu")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
-debug_use_custom = true
 debug_path_custom_color = Color(0, 1, 0, 1)
 debug_path_custom_line_width = 2.0
 
@@ -48,7 +46,7 @@ shape = SubResource("RectangleShape2D_38nh8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Boomerang"]
 modulate = Color(1, 1, 0, 1)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_6qemi")
 
 [connection signal="timeout" from="PathCalculationTimer" to="." method="_on_path_calculation_timer_timeout"]

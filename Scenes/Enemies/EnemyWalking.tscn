@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://1jxgf3akb6ir"]
 
 [ext_resource type="Texture2D" uid="uid://vrfkmlq6h0im" path="res://icon.svg" id="1_4y8ww"]
-[ext_resource type="Script" path="res://Scripts/EnemyBase.gd" id="1_5dndt"]
+[ext_resource type="Script" path="res://Scripts/Enemies/EnemyWalking.gd" id="1_5dndt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w56bn"]
 radius = 35.0
 
-[node name="EnemyBase" type="CharacterBody2D"]
+[node name="EnemyBase" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 4
 collision_mask = 10
 motion_mode = 1
@@ -22,8 +22,6 @@ texture = ExtResource("1_4y8ww")
 shape = SubResource("CircleShape2D_w56bn")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
-debug_use_custom = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 debug_path_custom_line_width = 2.0
 

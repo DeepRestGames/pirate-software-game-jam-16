@@ -1,20 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwmnwwfbcm0xb"]
+[gd_scene load_steps=3 format=3 uid="uid://dwmnwwfbcm0xb"]
 
-[ext_resource type="Script" path="res://Scripts/Boomerang/UI_BoomerangFlyTime.gd" id="1_bu7ua"]
+[ext_resource type="Script" path="res://Scripts/UI/UI_BoomerangFlyTime.gd" id="1_bu7ua"]
+[ext_resource type="Script" path="res://Scripts/UI/UI_PlayerDeath.gd" id="2_67205"]
 
 [node name="UI" type="Control"]
+custom_minimum_size = Vector2(1152, 648)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="BoomerangFlyTime" type="Control" parent="."]
-custom_minimum_size = Vector2(1152, 120)
+custom_minimum_size = Vector2(1152, 100)
 layout_mode = 1
 anchor_right = 1.0
-anchor_bottom = 0.111111
+anchor_bottom = 0.154321
 grow_horizontal = 2
 script = ExtResource("1_bu7ua")
 metadata/_edit_use_anchors_ = true
@@ -22,10 +25,10 @@ metadata/_edit_use_anchors_ = true
 [node name="FlyTimeContainer" type="ColorRect" parent="BoomerangFlyTime"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0140625
-anchor_top = 0.133333
-anchor_right = 0.985937
-anchor_bottom = 0.866667
+anchor_left = 0.0416667
+anchor_top = 0.04
+anchor_right = 0.958333
+anchor_bottom = 0.59
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
@@ -70,7 +73,41 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 45
 text = "RETRIEVING WEAPON"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerDeath" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_67205")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="PlayerDeath"]
+visible = false
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="PlayerDeath/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "YOU DIED
+Press R to try again"
 horizontal_alignment = 1
 vertical_alignment = 1

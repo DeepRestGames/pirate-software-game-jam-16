@@ -28,7 +28,6 @@ func _input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	
 	# Get navigation agent path only if boomerang is on the ground
 	if boomerang_on_ground:
 		var direction = to_local(navigation_agent.get_next_path_position()).normalized()
@@ -49,6 +48,14 @@ func _physics_process(delta: float) -> void:
 			
 			if collision.get_collider() is Boomerang:
 				boomerang_reached()
+			
+			if collision.get_collider().is_in_group("Enemies"):
+				take_damage()
+
+
+func take_damage():
+	EventBus.emit_signal("player_death")
+	hide()
 
 
 func throw_boomerang():
