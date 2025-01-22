@@ -59,6 +59,9 @@ func take_damage():
 
 
 func throw_boomerang():
+	if not boomerang_in_hand:
+		return
+	
 	boomerang_in_hand = false
 	meelee_boomerang.hide()
 	meelee_boomerang.process_mode = Node.PROCESS_MODE_DISABLED
