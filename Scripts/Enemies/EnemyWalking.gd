@@ -4,6 +4,8 @@ extends EnemyBase
 
 @onready var path_calculation_timer = $PathCalculationTimer as Timer
 
+@export var MOVEMENT_SPEED: float = 300
+
 
 func _ready() -> void:
 	super._ready()

@@ -2,7 +2,6 @@ class_name EnemyBase
 extends CharacterBody2D
 
 
-@export var MOVEMENT_SPEED: float = 300
 var main_character: MainCharacter
 
 @onready var navigation_agent = $NavigationAgent2D as NavigationAgent2D
