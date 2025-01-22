@@ -1,0 +1,131 @@
+[gd_scene load_steps=10 format=3 uid="uid://c3jbkcri07uof"]
+
+[ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="1_hk40k"]
+[ext_resource type="PackedScene" uid="uid://l8vxen63cqn3" path="res://Scenes/Enemies/EnemySpawnPoint.tscn" id="2_18122"]
+[ext_resource type="PackedScene" uid="uid://c4xmmv3ww4l3p" path="res://Scenes/Enemies/EnemyRanged.tscn" id="3_h2v8d"]
+[ext_resource type="PackedScene" uid="uid://blwtacw6rbdye" path="res://Scenes/MainCharacter.tscn" id="4_q26ii"]
+[ext_resource type="PackedScene" uid="uid://b5p4evkgrownv" path="res://Scenes/Boomerang.tscn" id="5_n8cy1"]
+[ext_resource type="PackedScene" uid="uid://dwmnwwfbcm0xb" path="res://Scenes/UI.tscn" id="6_3uvmg"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_41o6l"]
+vertices = PackedVector2Array(482.656, 355.344, 893.656, 475.328, -898.344, 475.328, 362.656, 355.344, -379.344, 146.344, 362.656, -64.6563, -499.344, 146.344, -898.344, -481.656, -499.344, -273.656, 893.656, -481.656, -379.344, -273.656, 482.656, -64.6563)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(6, 4, 2), PackedInt32Array(6, 2, 7, 8), PackedInt32Array(8, 7, 9, 10), PackedInt32Array(9, 1, 0, 11), PackedInt32Array(10, 9, 11, 5), PackedInt32Array(10, 5, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-933.333, -520, -938.333, 516.667, 940, 516.667, 930, -515)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3fm6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_sps2i"]
+size = Vector2(20, 20)
+
+[node name="MainScene" type="Node2D"]
+scale = Vector2(0.6, 0.6)
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Environment"]
+navigation_polygon = SubResource("NavigationPolygon_41o6l")
+
+[node name="Ground" type="Sprite2D" parent="Environment/NavigationRegion2D"]
+modulate = Color(0.184713, 0.184713, 0.184713, 1)
+scale = Vector2(19.06, 10.44)
+texture = ExtResource("1_hk40k")
+
+[node name="Walls" type="Node2D" parent="Environment/NavigationRegion2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-938.333, 4.33334)
+scale = Vector2(3, 60)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D"]
+modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(933.667, 4.33334)
+scale = Vector2(3, 60)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D2"]
+modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-4.33325, -521.667)
+rotation = -1.57079
+scale = Vector2(3, 100)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D3"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D3"]
+modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-4.33325, 515.333)
+rotation = -1.57079
+scale = Vector2(3, 100)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D4"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D4"]
+modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-439.333, -63.6667)
+scale = Vector2(5, 20)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D5"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D5"]
+modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(422.667, 145.333)
+scale = Vector2(5, 20)
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D6"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D6"]
+modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="EnemySpawnPoint" parent="." instance=ExtResource("2_18122")]
+position = Vector2(-685, 323.333)
+enemy_scene = ExtResource("3_h2v8d")
+max_enemies_number = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="MainCharacter" parent="." node_paths=PackedStringArray("flying_boomerang") instance=ExtResource("4_q26ii")]
+position = Vector2(51.6667, -15.6667)
+flying_boomerang = NodePath("../Boomerang")
+
+[node name="Boomerang" parent="." instance=ExtResource("5_n8cy1")]
+visible = false
+position = Vector2(115.667, -41.6667)
+
+[node name="UI" parent="." instance=ExtResource("6_3uvmg")]
+custom_minimum_size = Vector2(1920, 1080)
