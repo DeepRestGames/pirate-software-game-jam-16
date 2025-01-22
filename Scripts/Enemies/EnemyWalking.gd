@@ -5,6 +5,11 @@ extends EnemyBase
 @onready var path_calculation_timer = $PathCalculationTimer as Timer
 
 
+func _ready() -> void:
+	super._ready()
+	make_path()
+
+
 func _physics_process(delta: float) -> void:
 	var direction = to_local(navigation_agent.get_next_path_position()).normalized()
 	velocity = direction * MOVEMENT_SPEED
