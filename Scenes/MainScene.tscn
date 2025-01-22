@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://edt3lay8k3tl"]
 
 [ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="1_24xp7"]
-[ext_resource type="Script" path="res://Scripts/Enemies/EnemySpawner.gd" id="2_logu1"]
+[ext_resource type="PackedScene" uid="uid://l8vxen63cqn3" path="res://Scenes/Enemies/EnemySpawnPoint.tscn" id="2_ugaq6"]
 [ext_resource type="PackedScene" uid="uid://blwtacw6rbdye" path="res://Scenes/MainCharacter.tscn" id="3_6x4vx"]
 [ext_resource type="PackedScene" uid="uid://dwmnwwfbcm0xb" path="res://Scenes/UI.tscn" id="3_cbco8"]
 [ext_resource type="PackedScene" uid="uid://b5p4evkgrownv" path="res://Scenes/Boomerang.tscn" id="4_xbjpj"]
@@ -112,11 +112,20 @@ shape = SubResource("RectangleShape2D_k3fm6")
 modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
-[node name="EnemySpawner" type="Node2D" parent="."]
-script = ExtResource("2_logu1")
+[node name="EnemySpawnPoint" parent="." instance=ExtResource("2_ugaq6")]
+position = Vector2(-685, 323.333)
+enemy_scene = ExtResource("5_l3pjq")
+max_enemies_number = 5
 
-[node name="EnemyBase" parent="EnemySpawner" instance=ExtResource("5_l3pjq")]
-position = Vector2(-633.333, 336.667)
+[node name="EnemySpawnPoint2" parent="." instance=ExtResource("2_ugaq6")]
+position = Vector2(703.333, -241.667)
+enemy_scene = ExtResource("5_l3pjq")
+max_enemies_number = 5
+
+[node name="EnemySpawnPoint3" parent="." instance=ExtResource("2_ugaq6")]
+position = Vector2(606.667, 420)
+enemy_scene = ExtResource("5_l3pjq")
+max_enemies_number = 5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
