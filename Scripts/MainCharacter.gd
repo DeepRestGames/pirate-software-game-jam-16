@@ -19,6 +19,10 @@ var boomerang_on_ground: bool = false
 var boomerang_in_hand: bool = true
 var boomerang_just_thrown = false
 
+@export var avoidance_radius := 300
+@export var avoid_weight := 1.5
+var nearby_threats = []
+
 
 func _ready() -> void:
 	EventBus.connect("fly_time_finished", move_to_boomerang)
@@ -39,18 +43,20 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	# Get navigation agent path only if boomerang is on the ground
+	var move_vector = Vector2.ZERO
 	if boomerang_on_ground:
-		var direction = to_local(navigation_agent.get_next_path_position()).normalized()
-		velocity = direction * MOVEMENT_SPEED
-	else:
-		velocity = Vector2.ZERO
+		move_vector = to_local(navigation_agent.get_next_path_position()).normalized()
 	
-	# If boomerang is in hand, move boomerang around player
-	if boomerang_in_hand:
-		var mouse_position = get_global_mouse_position()
-		var direction = (mouse_position - global_position).normalized()
-		meelee_boomerang.position = direction * MEELEE_BOOMERANG_OFFSET
-		meelee_boomerang.look_at(direction)
+	var avoidance_vector = Vector2.ZERO
+	for threat in nearby_threats:
+		if not threat:
+			continue
+		var to_threat = global_position - threat.global_position
+		if to_threat.length() < avoidance_radius:
+			avoidance_vector += to_threat.normalized() / to_threat.length()
+	
+	var final_vector = (move_vector + avoidance_vector * avoid_weight).normalized()
+	velocity = final_vector * MOVEMENT_SPEED
 	
 	if move_and_slide():
 		for i in get_slide_collision_count():
@@ -62,14 +68,22 @@ func _physics_process(delta: float) -> void:
 			if collision.get_collider().is_in_group("Enemies"):
 				take_damage()
 	
+	
+	# If boomerang is in hand, move boomerang around player
+	if boomerang_in_hand:
+		var mouse_position = get_global_mouse_position()
+		var direction = (mouse_position - global_position).normalized()
+		meelee_boomerang.position = direction * MEELEE_BOOMERANG_OFFSET
+		meelee_boomerang.look_at(direction)
+	
+	# Teleport cooldown handling
 	if current_boomerang_teleport_cooldown > 0:
 		current_boomerang_teleport_cooldown -= delta
-		
 		var remaining_teleport_cooldown = (current_boomerang_teleport_cooldown * 100) / boomerang_teleport_cooldown
 		teleport_cooldown_progress_bar.value = remaining_teleport_cooldown
 	else:
 		teleport_cooldown_progress_bar.hide()
-	
+
 
 func take_damage():
 	EventBus.emit_signal("player_death")
@@ -119,3 +133,12 @@ func make_path() -> void:
 
 func _on_path_calculation_timer_timeout() -> void:
 	make_path()
+
+
+func _on_enemy_avoidance_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Enemies"):
+		nearby_threats.append(body)
+
+
+func _on_enemy_avoidance_area_body_exited(body: Node2D) -> void:
+	nearby_threats.erase(body)
