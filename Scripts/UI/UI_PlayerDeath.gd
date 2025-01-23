@@ -1,7 +1,7 @@
 extends Control
 
 
-@onready var player_death_sceen = $ColorRect
+@onready var player_death_sceen = $DeathScreen
 
 
 func _ready() -> void:
