@@ -3,7 +3,7 @@ extends RigidBody2D
 
 @onready var sprite = $Sprite2D
 
-@export_range(2.5, 10) var max_fly_time: float = 2.5
+@export var max_fly_time: float = 2.5
 @export var speed = 300
 
 var is_flying = false

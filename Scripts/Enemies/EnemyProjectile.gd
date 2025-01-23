@@ -14,5 +14,5 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(direction * PROJECTILE_SPEED * delta)
 	
-	if collision != null and collision.get_collider().is_in_group("Boomerang"):
+	if collision != null and not collision.get_collider().is_in_group("MainCharacter"):
 		queue_free()

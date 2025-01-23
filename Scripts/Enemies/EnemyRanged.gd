@@ -7,7 +7,7 @@ extends EnemyBase
 @onready var projectile_scene = preload("res://Scenes/Enemies/EnemyProjectile.tscn")
 
 @export var MOVEMENT_SPEED: float = 150
-@export var shooting_cooldown: float = 4
+@export var shooting_cooldown: float = 2.5
 var current_shooting_cooldown = 0
 
 
@@ -39,7 +39,6 @@ func _physics_process(delta: float) -> void:
 
 
 func shoot():
-	print("Shoot player!")
 	var projectile_instance = projectile_scene.instantiate()
 	add_child(projectile_instance)
 
