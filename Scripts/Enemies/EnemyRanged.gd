@@ -40,7 +40,8 @@ func _physics_process(delta: float) -> void:
 
 func shoot():
 	var projectile_instance = projectile_scene.instantiate()
-	add_child(projectile_instance)
+	projectile_instance.global_position = position
+	get_parent().add_child(projectile_instance)
 
 
 func stop_chasing_player():
