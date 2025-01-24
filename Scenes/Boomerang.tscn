@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="2_75c15"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tui1e"]
-bounce = 1.0
+bounce = 0.8
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38nh8"]
 size = Vector2(30, 30)
@@ -12,7 +12,7 @@ size = Vector2(30, 30)
 [node name="Boomerang" type="RigidBody2D" groups=["Boomerang"]]
 collision_layer = 2
 collision_mask = 12
-mass = 0.2
+mass = 0.3
 physics_material_override = SubResource("PhysicsMaterial_tui1e")
 contact_monitor = true
 max_contacts_reported = 50
@@ -21,6 +21,7 @@ linear_damp = 0.8
 angular_damp_mode = 1
 angular_damp = 0.5
 script = ExtResource("1_s7dak")
+speed = 500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_38nh8")
