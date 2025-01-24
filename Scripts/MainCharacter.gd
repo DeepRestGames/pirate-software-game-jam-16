@@ -28,7 +28,10 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("throw_boomerang"):
-		throw_boomerang()
+		if not boomerang_in_hand and not boomerang_on_ground:
+			drop_boomerang()
+		elif boomerang_in_hand:
+			throw_boomerang()
 	
 	if event.is_action_pressed("teleport_boomerang"):
 		teleport_boomerang()
@@ -86,10 +89,11 @@ func teleport_boomerang():
 		teleport_cooldown_progress_bar.show()
 
 
+func drop_boomerang():
+	flying_boomerang.drop_boomerang()
+
+
 func throw_boomerang():
-	if not boomerang_in_hand:
-		return
-	
 	boomerang_in_hand = false
 	meelee_boomerang.hide()
 	meelee_boomerang.process_mode = Node.PROCESS_MODE_DISABLED

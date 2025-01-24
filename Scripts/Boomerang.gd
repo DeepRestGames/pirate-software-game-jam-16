@@ -38,6 +38,10 @@ func _physics_process(delta: float) -> void:
 			EventBus.emit_signal("fly_time_update", remaining_fly_time_percentage)
 
 
+func drop_boomerang():
+	remaining_fly_time = 0
+
+
 func disable_boomerang():
 	linear_velocity = Vector2.ZERO
 	process_mode = PROCESS_MODE_DISABLED
