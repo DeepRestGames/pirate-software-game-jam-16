@@ -1,0 +1,127 @@
+[gd_scene load_steps=9 format=3 uid="uid://b08c00kj5vuhj"]
+
+[ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="1_de2tm"]
+[ext_resource type="PackedScene" uid="uid://blwtacw6rbdye" path="res://Scenes/MainCharacter.tscn" id="2_oqf4n"]
+[ext_resource type="PackedScene" uid="uid://b5p4evkgrownv" path="res://Scenes/Boomerang.tscn" id="3_cshhi"]
+[ext_resource type="PackedScene" uid="uid://wwc4re0x7ahn" path="res://Scenes/GameElements/Gateway.tscn" id="5_gmqru"]
+[ext_resource type="PackedScene" uid="uid://denw63bk82e73" path="res://Scenes/GameElements/Interactable.tscn" id="6_4x5vl"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_41o6l"]
+vertices = PackedVector2Array(482.656, 355.344, 3200, 2710.01, -3167.53, 2709.98, 362.656, 355.344, 3200, -2708.31, 482.656, -64.6563, -3181.66, -2708.33, 362.656, -64.6563, -379.344, -273.656, -379.344, 146.344, -499.344, 146.344, -3181.66, 1332.85, -499.344, -273.656)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 0, 5), PackedInt32Array(6, 4, 5, 7, 8), PackedInt32Array(3, 2, 9, 7), PackedInt32Array(10, 9, 2, 11), PackedInt32Array(10, 11, 6, 12), PackedInt32Array(7, 9, 8), PackedInt32Array(6, 8, 12)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-3233.74, -2767.27, -3177.24, 2738.51, 3275.51, 2765.75, 3252.72, -2749.11)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3fm6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_sps2i"]
+size = Vector2(20, 20)
+
+[node name="MainScene" type="Node2D"]
+scale = Vector2(0.6, 0.6)
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Environment"]
+scale = Vector2(3.5109, 4.40507)
+navigation_polygon = SubResource("NavigationPolygon_41o6l")
+
+[node name="Ground" type="Sprite2D" parent="Environment/NavigationRegion2D"]
+modulate = Color(0.184713, 0.184713, 0.184713, 1)
+scale = Vector2(66.3, 56.3667)
+texture = ExtResource("1_de2tm")
+
+[node name="Walls" type="Node2D" parent="Environment/NavigationRegion2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-3221.67, 20)
+scale = Vector2(3, 291.12)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D"]
+modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(3240, 4.33334)
+scale = Vector2(3, 300)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D2"]
+modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-4.33325, -2748.33)
+rotation = -1.57079
+scale = Vector2(3, 350)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D3"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D3"]
+modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-4.33325, 2750)
+rotation = -1.57079
+scale = Vector2(3, 350)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D4"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D4"]
+modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-439.333, -63.6667)
+scale = Vector2(5, 20)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D5"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D5"]
+modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(422.667, 145.333)
+scale = Vector2(5, 20)
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D6"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D6"]
+modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="MainCharacter" parent="." node_paths=PackedStringArray("flying_boomerang") instance=ExtResource("2_oqf4n")]
+position = Vector2(51.6667, -15.6667)
+flying_boomerang = NodePath("../Boomerang")
+
+[node name="Boomerang" parent="." instance=ExtResource("3_cshhi")]
+visible = false
+position = Vector2(115.667, -41.6667)
+
+[node name="Gateway" parent="." instance=ExtResource("5_gmqru")]
+position = Vector2(-623.333, 266.667)
+
+[node name="Interactable" parent="." instance=ExtResource("6_4x5vl")]
+position = Vector2(563.333, -265)
