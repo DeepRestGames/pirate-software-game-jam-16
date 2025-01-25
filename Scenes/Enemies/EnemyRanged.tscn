@@ -33,4 +33,12 @@ autostart = true
 [node name="RayCast2D" type="RayCast2D" parent="."]
 collision_mask = 9
 
+[node name="TrajectoryCheckLeft_RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-25, 0)
+collision_mask = 9
+
+[node name="TrajectoryCheckRight_RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(25, 0)
+collision_mask = 9
+
 [connection signal="timeout" from="PathCalculationTimer" to="." method="_on_path_calculation_timer_timeout"]
