@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://wwc4re0x7ahn"]
+
+[ext_resource type="Script" path="res://Scripts/GameElements/Gateway.gd" id="1_pec3o"]
+[ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="2_g57nl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cxrk"]
+size = Vector2(50, 50)
+
+[node name="Gateway" type="Area2D"]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_pec3o")
+off_color = Color(0.796078, 0, 0, 1)
+on_color = Color(0, 0.584051, 1.92523e-07, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2cxrk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_g57nl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

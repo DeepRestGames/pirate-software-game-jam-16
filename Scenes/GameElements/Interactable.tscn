@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://denw63bk82e73"]
+
+[ext_resource type="Script" path="res://Scripts/GameElements/Interactable.gd" id="1_fhe1i"]
+[ext_resource type="Texture2D" uid="uid://cicbcdqxw7oec" path="res://Assets/Placeholders/WhiteCircle.png" id="2_345pe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a8n0t"]
+radius = 30.0
+
+[node name="Interactable" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_fhe1i")
+off_color = Color(0.796078, 0, 0, 1)
+on_color = Color(0, 0.584051, 1.92523e-07, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a8n0t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_345pe")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
