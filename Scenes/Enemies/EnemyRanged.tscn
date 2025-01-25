@@ -8,17 +8,18 @@ radius = 35.0
 
 [node name="EnemyRanged" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 10
+collision_mask = 14
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_1at0e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.485003, 0.0242831, 0.532642, 1)
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_eejnf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_w56bn")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

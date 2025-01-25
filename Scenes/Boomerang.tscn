@@ -1,18 +1,17 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5p4evkgrownv"]
 
 [ext_resource type="Script" path="res://Scripts/Boomerang.gd" id="1_s7dak"]
-[ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="2_75c15"]
+[ext_resource type="Texture2D" uid="uid://b7oyj8163kmxq" path="res://Assets/Placeholders/YellowMjolnir.png" id="2_g35kf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tui1e"]
 bounce = 0.8
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_38nh8"]
-size = Vector2(30, 30)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ovxrp"]
 
 [node name="Boomerang" type="RigidBody2D" groups=["Boomerang"]]
 collision_layer = 2
-collision_mask = 12
-mass = 0.3
+collision_mask = 8
+mass = 0.2
 physics_material_override = SubResource("PhysicsMaterial_tui1e")
 contact_monitor = true
 max_contacts_reported = 50
@@ -21,12 +20,13 @@ linear_damp = 0.8
 angular_damp_mode = 1
 angular_damp = 0.5
 script = ExtResource("1_s7dak")
-speed = 500
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_38nh8")
+max_fly_time = 2.0
+speed = 400
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0, 1)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_75c15")
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("2_g35kf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ovxrp")

@@ -2,17 +2,16 @@
 
 [ext_resource type="Script" path="res://Scripts/MainCharacter.gd" id="1_niili"]
 [ext_resource type="Texture2D" uid="uid://vrfkmlq6h0im" path="res://icon.svg" id="2_puhgc"]
-[ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="3_6qemi"]
+[ext_resource type="Texture2D" uid="uid://b7oyj8163kmxq" path="res://Assets/Placeholders/YellowMjolnir.png" id="3_kcmxj"]
 [ext_resource type="Texture2D" uid="uid://cicbcdqxw7oec" path="res://Assets/Placeholders/WhiteCircle.png" id="4_rx0xj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4meyu"]
 radius = 30.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_38nh8"]
-size = Vector2(30, 30)
+[sub_resource type="CircleShape2D" id="CircleShape2D_30xh1"]
 
 [node name="MainCharacter" type="CharacterBody2D" groups=["MainCharacter"]]
-collision_mask = 14
+collision_mask = 30
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_niili")
@@ -37,7 +36,7 @@ wait_time = 0.2
 [node name="Boomerang" type="RigidBody2D" parent="." groups=["Boomerang"]]
 position = Vector2(61, -14)
 collision_layer = 2
-collision_mask = 12
+collision_mask = 8
 mass = 0.1
 contact_monitor = true
 max_contacts_reported = 50
@@ -45,12 +44,13 @@ linear_damp_mode = 1
 linear_damp = 0.8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boomerang"]
-shape = SubResource("RectangleShape2D_38nh8")
+scale = Vector2(1.3, 1.3)
+shape = SubResource("CircleShape2D_30xh1")
 
-[node name="Sprite2D" type="Sprite2D" parent="Boomerang"]
+[node name="Sprite2D2" type="Sprite2D" parent="Boomerang"]
 modulate = Color(1, 1, 0, 1)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("3_6qemi")
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("3_kcmxj")
 
 [node name="TeleportCooldown" type="Control" parent="."]
 layout_mode = 3
