@@ -136,5 +136,5 @@ position = Vector2(563.333, -265)
 [node name="EnemySpawnPoint" parent="." instance=ExtResource("2_i1ciy")]
 position = Vector2(45, 368.333)
 enemy_scene = ExtResource("8_2jj1b")
-spawn_cooldown = 5.0
+spawn_cooldown = 1.0
 hard_spawn_cooldown = 1.0

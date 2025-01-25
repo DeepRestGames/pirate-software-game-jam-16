@@ -6,6 +6,7 @@ extends Node2D
 
 @export var enemy_scene: PackedScene
 @export_custom(PROPERTY_HINT_NONE, "suffix:s") var spawn_cooldown: float = 1.5
+@export_custom(PROPERTY_HINT_NONE, "suffix:s") var initial_spawn_wait_time: float = 3
 ## To spawn enemies indefinitely, set this to -1
 @export var max_enemies_number: int = 3
 
@@ -25,6 +26,9 @@ func _ready() -> void:
 		hard_enemy_scene = enemy_scene
 	
 	EventBus.connect("difficulty_ramp_up", difficulty_ramp_up)
+	
+	await get_tree().create_timer(initial_spawn_wait_time).timeout
+	enemies_spawn_timer.start()
 
 
 func difficulty_ramp_up():

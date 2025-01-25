@@ -6,7 +6,6 @@
 script = ExtResource("1_ber4e")
 
 [node name="EnemiesSpawnTimer" type="Timer" parent="."]
-autostart = true
 
 [node name="EnemiesParentNode" type="Node2D" parent="."]
 
