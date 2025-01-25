@@ -9,3 +9,10 @@ signal fly_time_reset
 signal throw_boomerang(starting_global_position)
 
 signal player_death
+
+signal difficulty_ramp_up
+
+# Interactables
+signal start_opening_gateway
+
+signal next_level
