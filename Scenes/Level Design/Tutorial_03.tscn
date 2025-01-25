@@ -91,7 +91,7 @@ modulate = Color(0.247059, 0.301961, 0.356863, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
-position = Vector2(803.333, -371.667)
+position = Vector2(805, -371.667)
 rotation = -1.57079
 scale = Vector2(20, 10)
 collision_layer = 8
