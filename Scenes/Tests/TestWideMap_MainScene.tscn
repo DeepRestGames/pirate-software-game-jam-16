@@ -1,14 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://b08c00kj5vuhj"]
+[gd_scene load_steps=13 format=3 uid="uid://b08c00kj5vuhj"]
 
-[ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="1_de2tm"]
+[ext_resource type="Texture2D" uid="uid://2ax6ocl5od4u" path="res://Assets/Placeholders/Ground.png" id="1_j7ahr"]
+[ext_resource type="Texture2D" uid="uid://buep5kkwxu7cr" path="res://Assets/Placeholders/Environment_Wall.png" id="2_8xt8f"]
 [ext_resource type="PackedScene" uid="uid://blwtacw6rbdye" path="res://Scenes/MainCharacter.tscn" id="2_oqf4n"]
 [ext_resource type="PackedScene" uid="uid://b5p4evkgrownv" path="res://Scenes/Boomerang.tscn" id="3_cshhi"]
+[ext_resource type="Texture2D" uid="uid://dfpooy6ncbt58" path="res://Assets/Placeholders/WallL300Clean.png" id="3_sjliq"]
 [ext_resource type="PackedScene" uid="uid://wwc4re0x7ahn" path="res://Scenes/GameElements/Gateway.tscn" id="5_gmqru"]
 [ext_resource type="PackedScene" uid="uid://denw63bk82e73" path="res://Scenes/GameElements/Interactable.tscn" id="6_4x5vl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_41o6l"]
-vertices = PackedVector2Array(482.656, 355.344, 3200, 2710.01, -3167.53, 2709.98, 362.656, 355.344, 3200, -2708.31, 482.656, -64.6563, -3181.66, -2708.33, 362.656, -64.6563, -379.344, -273.656, -379.344, 146.344, -499.344, 146.344, -3181.66, 1332.85, -499.344, -273.656)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 0, 5), PackedInt32Array(6, 4, 5, 7, 8), PackedInt32Array(3, 2, 9, 7), PackedInt32Array(10, 9, 2, 11), PackedInt32Array(10, 11, 6, 12), PackedInt32Array(7, 9, 8), PackedInt32Array(6, 8, 12)])
+vertices = PackedVector2Array(482.656, 355.344, 3200, 2710.01, -3167.53, 2709.98, 362.656, 355.344, 1010, -545.844, 1010, -676.656, 3200, -2708.3, -3181.67, -2708.33, -1010, -676.656, 482.656, -64.6563, -1010, -545.844, 362.656, -64.6563, -379.344, -273.656, -3181.67, 1332.27, -379.344, 146.344, -499.344, 146.344, -499.344, -273.656)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 1), PackedInt32Array(7, 6, 5, 8), PackedInt32Array(4, 1, 0, 9), PackedInt32Array(10, 4, 9, 11, 12), PackedInt32Array(13, 7, 8, 10), PackedInt32Array(3, 2, 14, 11), PackedInt32Array(15, 14, 2, 13), PackedInt32Array(15, 13, 10, 16), PackedInt32Array(11, 14, 12), PackedInt32Array(16, 10, 12)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-3233.74, -2767.27, -3177.24, 2738.51, 3275.51, 2765.75, 3252.72, -2749.11)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3fm6"]
@@ -16,21 +18,28 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-3233.74, -2767.27, -31
 [sub_resource type="QuadMesh" id="QuadMesh_sps2i"]
 size = Vector2(20, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npc86"]
+size = Vector2(2000, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8vs0"]
+size = Vector2(2000, 60)
+
 [node name="MainScene" type="Node2D"]
 scale = Vector2(0.6, 0.6)
 
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Environment"]
-scale = Vector2(3.5109, 4.40507)
 navigation_polygon = SubResource("NavigationPolygon_41o6l")
 
 [node name="Ground" type="Sprite2D" parent="Environment/NavigationRegion2D"]
-modulate = Color(0.184713, 0.184713, 0.184713, 1)
-scale = Vector2(66.3, 56.3667)
-texture = ExtResource("1_de2tm")
+texture_repeat = 2
+texture = ExtResource("1_j7ahr")
+region_enabled = true
+region_rect = Rect2(0, 0, 7000, 6000)
 
 [node name="Walls" type="Node2D" parent="Environment/NavigationRegion2D"]
+visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
 position = Vector2(-3221.67, 20)
@@ -59,6 +68,7 @@ modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+visible = false
 position = Vector2(-4.33325, -2748.33)
 rotation = -1.57079
 scale = Vector2(3, 350)
@@ -71,6 +81,22 @@ shape = SubResource("RectangleShape2D_k3fm6")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D3"]
 modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
 mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-4.33325, -2748.33)
+rotation = -1.57079
+scale = Vector2(3, 350)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D7"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D7"]
+texture_repeat = 2
+texture = ExtResource("2_8xt8f")
+region_enabled = true
+region_rect = Rect2(24.3, 0, 50, 10)
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
 position = Vector2(-4.33325, 2750)
@@ -111,6 +137,34 @@ shape = SubResource("RectangleShape2D_k3fm6")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D6"]
 modulate = Color(0.0648403, 0.0648403, 0.0648403, 1)
 mesh = SubResource("QuadMesh_sps2i")
+
+[node name="NewWalls" type="Node2D" parent="Environment/NavigationRegion2D"]
+
+[node name="NorthWall" type="StaticBody2D" parent="Environment/NavigationRegion2D/NewWalls"]
+position = Vector2(0, -638.333)
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/NavigationRegion2D/NewWalls/NorthWall"]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("3_sjliq")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 165)
+
+[node name="CollisionShape2D_low" type="CollisionShape2D" parent="Environment/NavigationRegion2D/NewWalls/NorthWall"]
+position = Vector2(0, 62)
+shape = SubResource("RectangleShape2D_npc86")
+debug_color = Color(0, 0.809867, 0.253981, 0.42)
+
+[node name="NorthWall_high" type="StaticBody2D" parent="Environment/NavigationRegion2D/NewWalls/NorthWall"]
+collision_layer = 40
+collision_mask = 0
+
+[node name="CollisionShape2D_high" type="CollisionShape2D" parent="Environment/NavigationRegion2D/NewWalls/NorthWall/NorthWall_high"]
+position = Vector2(0, 1.66638)
+shape = SubResource("RectangleShape2D_r8vs0")
+debug_color = Color(0.558245, 0.618652, 3.85046e-07, 0.42)
 
 [node name="MainCharacter" parent="." node_paths=PackedStringArray("flying_boomerang") instance=ExtResource("2_oqf4n")]
 position = Vector2(51.6667, -15.6667)

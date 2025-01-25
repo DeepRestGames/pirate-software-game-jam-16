@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Wooferang"
-run/main_scene="res://Scenes/Tests/TestRangedEnemies_MainScene.tscn"
+run/main_scene="res://Scenes/Tests/TestWideMap_MainScene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -54,6 +54,8 @@ teleport_boomerang={
 2d_physics/layer_2="Boomerang"
 2d_physics/layer_3="Enemies"
 2d_physics/layer_4="Environment"
+2d_physics/layer_5="Environment_high"
+2d_physics/layer_6="Environment_high"
 
 [physics]
 
