@@ -12,7 +12,7 @@ func _ready() -> void:
 	make_path()
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction = to_local(navigation_agent.get_next_path_position()).normalized()
 	velocity = direction * MOVEMENT_SPEED
 	
