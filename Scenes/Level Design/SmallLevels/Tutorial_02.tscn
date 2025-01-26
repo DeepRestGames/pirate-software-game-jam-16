@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://1jxgf3akb6ir" path="res://Scenes/Enemies/EnemyWalking.tscn" id="3_pjsis"]
 [ext_resource type="PackedScene" uid="uid://blwtacw6rbdye" path="res://Scenes/MainCharacter.tscn" id="4_i8d4h"]
 [ext_resource type="PackedScene" uid="uid://b5p4evkgrownv" path="res://Scenes/Boomerang.tscn" id="5_d0q67"]
-[ext_resource type="PackedScene" uid="uid://dwmnwwfbcm0xb" path="res://Scenes/UI.tscn" id="6_6pfor"]
+[ext_resource type="PackedScene" uid="uid://dwmnwwfbcm0xb" path="res://Scenes/UI/HUD.tscn" id="6_6pfor"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_41o6l"]
 vertices = PackedVector2Array(893.656, -76.5234, 893.656, 68.1875, 309.398, 68.1875, -762.727, -76.5313, 309.398, 171.523, -309.398, 171.523, -309.398, 68.2031, -898.344, 68.1875, -898.344, -481.656, -762.727, -481.656)

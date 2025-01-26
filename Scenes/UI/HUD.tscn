@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwmnwwfbcm0xb"]
 
-[ext_resource type="Script" path="res://Scripts/UI/UI_BoomerangFlyTime.gd" id="1_bu7ua"]
-[ext_resource type="Script" path="res://Scripts/UI/UI_PlayerDeath.gd" id="2_67205"]
+[ext_resource type="Script" path="res://Scripts/UI/HUD_BoomerangFlyTime.gd" id="1_bu7ua"]
+[ext_resource type="Script" path="res://Scripts/UI/HUD_PlayerDeath.gd" id="2_67205"]
 
-[node name="UI" type="Control"]
+[node name="HUD" type="Control"]
 custom_minimum_size = Vector2(1152, 648)
 layout_mode = 3
 anchors_preset = 15
