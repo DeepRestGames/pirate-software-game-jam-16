@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://q3djbt1u8x1v"]
+[gd_scene load_steps=15 format=3 uid="uid://q3djbt1u8x1v"]
 
+[ext_resource type="Script" path="res://Scripts/GameManagement/GameLevel.gd" id="1_13k5a"]
 [ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="1_ly12d"]
 [ext_resource type="Texture2D" uid="uid://dyyked7oujucm" path="res://Assets/Placeholders/Ground300.png" id="2_7tblh"]
 [ext_resource type="PackedScene" uid="uid://l8vxen63cqn3" path="res://Scenes/Enemies/EnemySpawnPoint.tscn" id="3_7je3n"]
@@ -24,6 +25,9 @@ size = Vector2(20, 20)
 
 [node name="MainScene" type="Node2D"]
 scale = Vector2(0.6, 0.6)
+script = ExtResource("1_13k5a")
+level_number = 3
+level_name = "test2"
 
 [node name="Environment" type="Node2D" parent="."]
 

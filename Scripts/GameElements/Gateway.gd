@@ -19,6 +19,8 @@ func _ready() -> void:
 
 
 func start_opening_gateway():
+	EventBus.emit_signal("send_gateway_global_position", global_position)
+	
 	var tween = get_tree().create_tween()
 	tween.tween_property(sprite, "modulate", on_color, opening_time)
 	await tween.finished
@@ -28,4 +30,11 @@ func start_opening_gateway():
 func _on_body_entered(body: Node2D) -> void:
 	if opened and body is MainCharacter:
 		EventBus.emit_signal("next_level")
-		print("Next level!")
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	EventBus.emit_signal("gateway_on_screen")
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	EventBus.emit_signal("gateway_off_screen")

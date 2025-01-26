@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://1jxgf3akb6ir" path="res://Scenes/Enemies/EnemyWalking.tscn" id="3_3l8mp"]
 [ext_resource type="PackedScene" uid="uid://blwtacw6rbdye" path="res://Scenes/MainCharacter.tscn" id="4_mgw23"]
 [ext_resource type="PackedScene" uid="uid://b5p4evkgrownv" path="res://Scenes/Boomerang.tscn" id="5_vrgsd"]
-[ext_resource type="PackedScene" uid="uid://dwmnwwfbcm0xb" path="res://Scenes/UI.tscn" id="6_hbxnc"]
+[ext_resource type="PackedScene" uid="uid://dwmnwwfbcm0xb" path="res://Scenes/UI/HUD.tscn" id="6_hbxnc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_41o6l"]
 vertices = PackedVector2Array(44.8828, -89.7734, -31.3516, -94.6797, -265.539, -266.109, -41.2969, -458.344, 56.5703, -458.344, 280.438, -284.461, 795, 288.344, 893.656, 288.344, 893.656, 378.344, 508.344, 378.344, 508.344, 475.328, 421.656, 475.328, 421.656, 378.344, 301.656, 378.344, 301.656, 475.328, 88.3438, 475.328, 88.3438, 378.344, 121.328, 2.72656, -31.6563, 378.344, -31.6563, 475.328, -120, 475.328, -120, 378.344, -102.242, 2.14844, -240, 378.344, -240, 475.328, -340, 475.328, -340, 378.344, -460, 378.344, -460, 475.328, -898.344, 475.328, -795, 381.656, -898.344, 381.656, -795, 261.656, -696.078, -47.8438, -605.461, -146.148, -361.82, -187.883, -898.344, 261.656, -898.344, 146.133, 845.258, -226.492, 876.867, -156.43, 697.242, -69.9531, 385.094, -215.273, -926.578, -303.398, -899.82, -333.641, 795, 173.609)

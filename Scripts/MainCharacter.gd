@@ -19,11 +19,18 @@ var boomerang_on_ground: bool = false
 var boomerang_in_hand: bool = true
 var boomerang_just_thrown = false
 
+@onready var camera = $Camera2D
+const default_camera_zoom = 1
+const minimum_camera_zoom = .75
+var current_camera_zoom: float
+const camera_zoom_modifier = .0002
+
 
 func _ready() -> void:
 	EventBus.connect("fly_time_finished", move_to_boomerang)
 	
 	boomerang_teleport_timer.wait_time = boomerang_teleport_cooldown
+	flying_boomerang.global_position = global_position
 
 
 func _input(event: InputEvent) -> void:
@@ -35,9 +42,13 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("teleport_boomerang"):
 		teleport_boomerang()
-	
-	if event.is_action_pressed("restart"):
-		get_tree().reload_current_scene()
+
+
+func _process(delta: float) -> void:
+	var vector_to_boomerang = to_local(flying_boomerang.global_position)
+	camera.position = lerp(camera.position, vector_to_boomerang / 2, delta * 10)
+	current_camera_zoom = maxf(minimum_camera_zoom, default_camera_zoom - (vector_to_boomerang.length() * camera_zoom_modifier))
+	camera.zoom = lerp(camera.zoom, Vector2(current_camera_zoom, current_camera_zoom), delta * 2) 
 
 
 func _physics_process(delta: float) -> void:

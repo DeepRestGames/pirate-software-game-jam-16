@@ -1,8 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bbnmuxwg3t7rf"]
+[gd_scene load_steps=16 format=3 uid="uid://bbnmuxwg3t7rf"]
 
+[ext_resource type="Script" path="res://Scripts/GameManagement/GameLevel.gd" id="1_hxb6x"]
 [ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="1_lspot"]
 [ext_resource type="PackedScene" uid="uid://l8vxen63cqn3" path="res://Scenes/Enemies/EnemySpawnPoint.tscn" id="2_go8vq"]
 [ext_resource type="Texture2D" uid="uid://dyyked7oujucm" path="res://Assets/Placeholders/Ground300.png" id="2_jjqs4"]
+[ext_resource type="PackedScene" uid="uid://q3djbt1u8x1v" path="res://Scenes/Level Design/LageLevels/HorizontalWalls.tscn" id="2_nwybd"]
 [ext_resource type="PackedScene" uid="uid://c4xmmv3ww4l3p" path="res://Scenes/Enemies/EnemyRanged.tscn" id="3_37s78"]
 [ext_resource type="PackedScene" uid="uid://blwtacw6rbdye" path="res://Scenes/MainCharacter.tscn" id="4_x7goc"]
 [ext_resource type="PackedScene" uid="uid://1jxgf3akb6ir" path="res://Scenes/Enemies/EnemyWalking.tscn" id="5_8gdeu"]
@@ -24,6 +26,10 @@ size = Vector2(20, 20)
 
 [node name="MainScene" type="Node2D"]
 scale = Vector2(0.6, 0.6)
+script = ExtResource("1_hxb6x")
+level_number = 1
+level_name = "test1"
+next_level_scene = ExtResource("2_nwybd")
 
 [node name="Environment" type="Node2D" parent="."]
 
