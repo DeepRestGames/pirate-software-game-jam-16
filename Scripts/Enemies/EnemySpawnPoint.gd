@@ -16,7 +16,7 @@ extends Node2D
 ## To spawn enemies indefinitely, set this to -1
 @export var hard_max_enemies_number: int = -1
 
-var enemies_left_to_spawn: int = max_enemies_number
+var enemies_left_to_spawn: int
 var is_difficulty_ramped_up = false
 
 
@@ -25,6 +25,8 @@ func _ready() -> void:
 	if hard_enemy_scene == null:
 		hard_enemy_scene = enemy_scene
 	
+	enemies_left_to_spawn = max_enemies_number
+	
 	EventBus.connect("difficulty_ramp_up", difficulty_ramp_up)
 	
 	await get_tree().create_timer(initial_spawn_wait_time).timeout
@@ -32,6 +34,7 @@ func _ready() -> void:
 
 
 func difficulty_ramp_up():
+	is_difficulty_ramped_up = true
 	enemies_left_to_spawn = hard_max_enemies_number
 	enemies_spawn_timer.wait_time = hard_spawn_cooldown
 	enemies_spawn_timer.start()
