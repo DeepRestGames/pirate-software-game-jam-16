@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://3aa1qwnwseh8"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/EnemyProjectile.gd" id="1_nyg1c"]
-[ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="1_xmc1s"]
+[ext_resource type="Texture2D" uid="uid://cicbcdqxw7oec" path="res://Assets/Placeholders/WhiteCircle.png" id="2_64niy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5tgb4"]
-size = Vector2(10, 20)
+[sub_resource type="CircleShape2D" id="CircleShape2D_bi23y"]
+radius = 24.0
 
 [node name="EnemyProjectile" type="StaticBody2D" groups=["Enemies"]]
 collision_layer = 16
@@ -13,8 +13,8 @@ script = ExtResource("1_nyg1c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.934969, 0.000710795, 0.934963, 1)
-scale = Vector2(0.1, 0.2)
-texture = ExtResource("1_xmc1s")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_64niy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_5tgb4")
+shape = SubResource("CircleShape2D_bi23y")

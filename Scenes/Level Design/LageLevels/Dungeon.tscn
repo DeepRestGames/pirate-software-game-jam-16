@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cirgvpcix7non"]
+[gd_scene load_steps=15 format=3 uid="uid://4jgh1yqcs67e"]
 
-[ext_resource type="Texture2D" uid="uid://bq0k3i76q5h76" path="res://Assets/Sketches/5814201863044712060.jpg" id="2_n68ya"]
+[ext_resource type="Script" path="res://Scripts/GameManagement/GameLevel.gd" id="1_85dpi"]
+[ext_resource type="PackedScene" uid="uid://bbnmuxwg3t7rf" path="res://Scenes/Level Design/LageLevels/V.tscn" id="2_pioy5"]
 [ext_resource type="Texture2D" uid="uid://dyyked7oujucm" path="res://Assets/Placeholders/Ground300.png" id="2_q6kne"]
 [ext_resource type="PackedScene" uid="uid://l8vxen63cqn3" path="res://Scenes/Enemies/EnemySpawnPoint.tscn" id="3_ap2cq"]
 [ext_resource type="PackedScene" uid="uid://1jxgf3akb6ir" path="res://Scenes/Enemies/EnemyWalking.tscn" id="4_svmh1"]
@@ -24,6 +25,8 @@ size = Vector2(20, 20)
 
 [node name="MainScene" type="Node2D"]
 scale = Vector2(0.6, 0.6)
+script = ExtResource("1_85dpi")
+next_level_scene = ExtResource("2_pioy5")
 
 [node name="Environment" type="Node2D" parent="."]
 rotation = -1.5708
@@ -34,14 +37,6 @@ navigation_polygon = SubResource("NavigationPolygon_41o6l")
 [node name="Ground300" type="Sprite2D" parent="Environment/NavigationRegion2D"]
 position = Vector2(-1.66666, 5)
 texture = ExtResource("2_q6kne")
-
-[node name="5814201863044712060" type="Sprite2D" parent="Environment/NavigationRegion2D"]
-visible = false
-modulate = Color(1, 1, 1, 0.309804)
-position = Vector2(-243.333, -205.001)
-rotation = 3.14159
-scale = Vector2(8, 8)
-texture = ExtResource("2_n68ya")
 
 [node name="Walls" type="Node2D" parent="Environment/NavigationRegion2D"]
 

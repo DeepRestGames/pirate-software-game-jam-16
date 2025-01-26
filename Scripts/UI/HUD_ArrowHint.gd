@@ -29,7 +29,7 @@ func show_arrow():
 		show()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var gateway_direction = main_character.global_position.direction_to(gateway_position)
 	
 	position = starting_position + (gateway_direction * starting_position) - (gateway_direction * Vector2(screen_margin, screen_margin))

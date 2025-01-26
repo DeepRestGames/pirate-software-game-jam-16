@@ -6,9 +6,9 @@ extends EnemyBase
 @onready var line_of_sight = $RayCast2D as RayCast2D
 @onready var trajectory_check_left = $TrajectoryCheckLeft_RayCast2D as RayCast2D
 @onready var trajectory_check_right = $TrajectoryCheckRight_RayCast2D as RayCast2D
-const trajectory_checks_offset = 20
+const trajectory_checks_offset = 30
 
-@onready var projectile_scene = preload("res://Scenes/Enemies/EnemyProjectile.tscn")
+@export var projectile_scene = preload("res://Scenes/Enemies/EnemyProjectile.tscn")
 
 @export var MOVEMENT_SPEED: float = 150
 @export var shooting_cooldown: float = 2.5
