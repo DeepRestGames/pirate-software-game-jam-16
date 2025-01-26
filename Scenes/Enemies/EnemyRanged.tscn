@@ -15,11 +15,10 @@ script = ExtResource("1_1at0e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.485003, 0.0242831, 0.532642, 1)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_eejnf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_w56bn")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -34,11 +33,11 @@ autostart = true
 collision_mask = 9
 
 [node name="TrajectoryCheckLeft_RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(-25, 0)
+position = Vector2(-20, 0)
 collision_mask = 9
 
 [node name="TrajectoryCheckRight_RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(25, 0)
+position = Vector2(38, 0)
 collision_mask = 9
 
 [connection signal="timeout" from="PathCalculationTimer" to="." method="_on_path_calculation_timer_timeout"]

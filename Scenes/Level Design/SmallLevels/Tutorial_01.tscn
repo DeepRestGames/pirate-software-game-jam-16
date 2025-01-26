@@ -1,0 +1,186 @@
+[gd_scene load_steps=10 format=3 uid="uid://c1y05ha5btve0"]
+
+[ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="1_x3jns"]
+[ext_resource type="PackedScene" uid="uid://l8vxen63cqn3" path="res://Scenes/Enemies/EnemySpawnPoint.tscn" id="2_y5mug"]
+[ext_resource type="PackedScene" uid="uid://1jxgf3akb6ir" path="res://Scenes/Enemies/EnemyWalking.tscn" id="3_unsny"]
+[ext_resource type="PackedScene" uid="uid://blwtacw6rbdye" path="res://Scenes/MainCharacter.tscn" id="4_caa84"]
+[ext_resource type="PackedScene" uid="uid://b5p4evkgrownv" path="res://Scenes/Boomerang.tscn" id="5_nfrdw"]
+[ext_resource type="PackedScene" uid="uid://dwmnwwfbcm0xb" path="res://Scenes/UI.tscn" id="6_ol3lm"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_41o6l"]
+vertices = PackedVector2Array(320, -85, 606.656, -85, 606.656, 80, 320, 80, -320, 78.3438, 320, 475.328, -320, 475.328, -606.656, 78.3438, -606.656, -85, -320, -85, 320, -481.656, -320, -481.656)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(3, 5, 6, 4), PackedInt32Array(4, 7, 8, 9), PackedInt32Array(0, 4, 9, 10), PackedInt32Array(10, 9, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-933.333, -520, -938.333, 516.667, 940, 516.667, 930, -515)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3fm6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_sps2i"]
+size = Vector2(20, 20)
+
+[node name="MainScene" type="Node2D"]
+scale = Vector2(0.6, 0.6)
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Environment"]
+navigation_polygon = SubResource("NavigationPolygon_41o6l")
+
+[node name="Ground" type="Sprite2D" parent="Environment/NavigationRegion2D"]
+modulate = Color(0.0980392, 0.12549, 0.172549, 1)
+position = Vector2(-1.66667, 0)
+scale = Vector2(19.06, 10.44)
+texture = ExtResource("1_x3jns")
+
+[node name="Walls" type="Node2D" parent="Environment/NavigationRegion2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-938.333, 4.33334)
+scale = Vector2(3, 60)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+position = Vector2(0.555454, 0.011111)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(933.667, 4.33334)
+scale = Vector2(3, 60)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D2"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-4.33325, -521.667)
+rotation = -1.57079
+scale = Vector2(3, 100)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D3"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D3"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-4.33325, 515.333)
+rotation = -1.57079
+scale = Vector2(3, 100)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D4"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D4"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-620, -295)
+scale = Vector2(29, 20)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D5"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D5"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-906.667, -3.33333)
+scale = Vector2(29, 20)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D8"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D8"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-620, 288.333)
+scale = Vector2(29, 20)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D7"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D7"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(620, -295)
+scale = Vector2(29, 20)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D9"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D9"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(906.667, -3.33333)
+scale = Vector2(29, 20)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D10"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D10"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(620, 290)
+scale = Vector2(29, 20)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D11"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/StaticBody2D11"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="EnemySpawnPoint" parent="." instance=ExtResource("2_y5mug")]
+position = Vector2(480, -5)
+enemy_scene = ExtResource("3_unsny")
+spawn_cooldown = 3.0
+max_enemies_number = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="MainCharacter" parent="." node_paths=PackedStringArray("flying_boomerang") instance=ExtResource("4_caa84")]
+position = Vector2(-500, -1.66667)
+flying_boomerang = NodePath("../Boomerang")
+
+[node name="Boomerang" parent="." instance=ExtResource("5_nfrdw")]
+visible = false
+position = Vector2(115.667, -41.6667)
+
+[node name="UI" parent="." instance=ExtResource("6_ol3lm")]
+custom_minimum_size = Vector2(1920, 1080)
