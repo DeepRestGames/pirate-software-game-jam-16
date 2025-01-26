@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwmnwwfbcm0xb"]
+[gd_scene load_steps=6 format=3 uid="uid://dwmnwwfbcm0xb"]
 
 [ext_resource type="Script" path="res://Scripts/UI/HUD_BoomerangFlyTime.gd" id="1_bu7ua"]
 [ext_resource type="Script" path="res://Scripts/UI/HUD_PlayerDeath.gd" id="2_67205"]
 [ext_resource type="Texture2D" uid="uid://dvwso0bdxj1i4" path="res://Assets/UI/ArrowE.png" id="3_3u4vj"]
 [ext_resource type="Script" path="res://Scripts/UI/HUD_ArrowHint.gd" id="4_5ebxq"]
+[ext_resource type="FontFile" uid="uid://vqr151sphmyi" path="res://Assets/UI/Fonts/CaesarDressing-Regular.ttf" id="4_rruvu"]
 
 [node name="HUD" type="Control"]
 custom_minimum_size = Vector2(1152, 648)
@@ -80,22 +81,57 @@ text = "RETRIEVING WEAPON"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ArrowHint" type="TextureRect" parent="."]
+[node name="ArrowHint" type="Control" parent="."]
 visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_5ebxq")
+
+[node name="ArrowHintTexture" type="TextureRect" parent="ArrowHint"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.47541
-anchor_top = 0.4625
-anchor_right = 0.52459
-anchor_bottom = 0.5375
-offset_right = 6.10352e-05
-offset_bottom = -3.05176e-05
+anchor_left = -0.25
+anchor_top = -0.25
+anchor_right = 1.25
+anchor_bottom = 1.25
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(30, 30)
 texture = ExtResource("3_3u4vj")
 stretch_mode = 5
 flip_h = true
-script = ExtResource("4_5ebxq")
+metadata/_edit_use_anchors_ = true
+
+[node name="TimeLeftLabel" type="Label" parent="ArrowHint"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.7
+anchor_top = 1.2
+anchor_right = 1.7
+anchor_bottom = 2.425
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_rruvu")
+theme_override_font_sizes/font_size = 40
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="PlayerDeath" type="Control" parent="."]
 layout_mode = 1

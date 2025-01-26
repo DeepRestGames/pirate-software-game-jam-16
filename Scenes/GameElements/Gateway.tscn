@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://wwc4re0x7ahn"]
+[gd_scene load_steps=5 format=3 uid="uid://wwc4re0x7ahn"]
 
 [ext_resource type="Script" path="res://Scripts/GameElements/Gateway.gd" id="1_pec3o"]
 [ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="2_g57nl"]
+[ext_resource type="FontFile" uid="uid://vqr151sphmyi" path="res://Assets/UI/Fonts/CaesarDressing-Regular.ttf" id="3_jjjjx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cxrk"]
 size = Vector2(50, 50)
@@ -22,6 +23,23 @@ texture = ExtResource("2_g57nl")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(2.5, 2.5)
+
+[node name="TimeLeftLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = 31.0
+offset_right = 48.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_jjjjx")
+theme_override_font_sizes/font_size = 40
+text = "00:00"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

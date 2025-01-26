@@ -33,6 +33,9 @@ signal send_gateway_global_position(gateway_global_position)
 signal start_opening_gateway
 
 @warning_ignore("unused_signal")
+signal gateway_time_left(time_left)
+
+@warning_ignore("unused_signal")
 signal gateway_on_screen
 
 @warning_ignore("unused_signal")
