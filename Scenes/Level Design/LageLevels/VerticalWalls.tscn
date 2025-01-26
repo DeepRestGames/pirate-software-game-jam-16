@@ -558,7 +558,7 @@ spawn_cooldown = 1.0
 initial_spawn_wait_time = 0.0
 max_enemies_number = 1
 hard_enemy_scene = ExtResource("5_ulyds")
-hard_spawn_cooldown = 1.0
+hard_spawn_cooldown = 3.0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint10"]
 modulate = Color(1, 0, 0, 1)
@@ -571,7 +571,7 @@ position = Vector2(-1508.33, 1490)
 flying_boomerang = NodePath("../Boomerang")
 
 [node name="Boomerang" parent="." instance=ExtResource("7_n8v4d")]
-position = Vector2(116.667, -40)
+position = Vector2(-1508.33, 1490)
 max_fly_time = 3.0
 
 [node name="Gateway" parent="." instance=ExtResource("8_2rvbi")]

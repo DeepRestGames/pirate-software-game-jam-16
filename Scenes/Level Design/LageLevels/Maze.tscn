@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://c43qs5v6eft4k"]
 
-[ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="1_5yck5"]
 [ext_resource type="Texture2D" uid="uid://dyyked7oujucm" path="res://Assets/Placeholders/Ground300.png" id="2_e45b6"]
+[ext_resource type="Texture2D" uid="uid://bq0k3i76q5h76" path="res://Assets/Sketches/5814201863044712060.jpg" id="2_ukth3"]
 [ext_resource type="PackedScene" uid="uid://l8vxen63cqn3" path="res://Scenes/Enemies/EnemySpawnPoint.tscn" id="3_cais4"]
 [ext_resource type="PackedScene" uid="uid://1jxgf3akb6ir" path="res://Scenes/Enemies/EnemyWalking.tscn" id="4_eil2l"]
 [ext_resource type="PackedScene" uid="uid://c4xmmv3ww4l3p" path="res://Scenes/Enemies/EnemyRanged.tscn" id="5_v7boi"]
@@ -31,15 +31,16 @@ rotation = -1.5708
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Environment"]
 navigation_polygon = SubResource("NavigationPolygon_41o6l")
 
-[node name="Ground" type="Sprite2D" parent="Environment/NavigationRegion2D"]
-modulate = Color(0.0980392, 0.12549, 0.172549, 1)
-position = Vector2(-1.66667, 0)
-scale = Vector2(19.06, 10.44)
-texture = ExtResource("1_5yck5")
-
 [node name="Ground300" type="Sprite2D" parent="Environment/NavigationRegion2D"]
 position = Vector2(-1.66666, 5)
 texture = ExtResource("2_e45b6")
+
+[node name="5814201863044712060" type="Sprite2D" parent="Environment/NavigationRegion2D"]
+modulate = Color(1, 1, 1, 0.309804)
+position = Vector2(-243.333, -205.001)
+rotation = 3.14159
+scale = Vector2(8, 8)
+texture = ExtResource("2_ukth3")
 
 [node name="Walls" type="Node2D" parent="Environment/NavigationRegion2D"]
 
@@ -480,3 +481,6 @@ position = Vector2(493.333, -1865)
 
 [node name="Interactable" parent="." instance=ExtResource("9_skqb7")]
 position = Vector2(-1743.33, 1658.33)
+
+[node name="EnemyWalking" parent="." instance=ExtResource("4_eil2l")]
+position = Vector2(-1888.33, 553.333)
