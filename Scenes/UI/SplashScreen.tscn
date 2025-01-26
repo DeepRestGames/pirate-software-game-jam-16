@@ -1,8 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://dlpfx2oiixl44"]
 
 [ext_resource type="Script" path="res://Scripts/UI/SplashScreen.gd" id="1_561m1"]
-[ext_resource type="Texture2D" path="res://icon.svg" id="2_2y2lc"]
+[ext_resource type="Texture2D" uid="uid://vrfkmlq6h0im" path="res://icon.svg" id="2_2y2lc"]
 [ext_resource type="Texture2D" uid="uid://dkw7c428a7w2" path="res://Assets/Logos/240423_DRG_Full_Logo_white.png" id="2_jupup"]
+[ext_resource type="FontFile" uid="uid://vqr151sphmyi" path="res://Assets/UI/Fonts/CaesarDressing-Regular.ttf" id="4_4t2gy"]
 
 [sub_resource type="Animation" id="Animation_sbd65"]
 length = 0.001
@@ -182,24 +183,23 @@ metadata/_edit_use_anchors_ = true
 [node name="GodotLogo_AspectRatioContainer" type="AspectRatioContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.348177
-anchor_top = 0.281944
-anchor_right = 0.626354
-anchor_bottom = 0.703889
-offset_left = -8.5
-offset_top = -64.5002
-offset_right = 57.4
-offset_bottom = 79.8003
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.7, 0.7)
-pivot_offset = Vector2(300, 300)
-metadata/_edit_use_anchors_ = true
 
 [node name="Logo_TextureRect" type="TextureRect" parent="GodotLogo_AspectRatioContainer"]
 layout_mode = 2
 texture = ExtResource("2_2y2lc")
+expand_mode = 1
+stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -210,15 +210,18 @@ autoplay = "splash_screen"
 
 [node name="MadeWith_RichTextLabel" type="RichTextLabel" parent="."]
 modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(470, 109)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.307292
-anchor_top = 0.201852
-anchor_right = 0.692708
-anchor_bottom = 0.289815
+anchor_left = 0.307377
+anchor_top = 0.175
+anchor_right = 0.692623
+anchor_bottom = 0.31125
 grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/default_color = Color(0.929412, 0.690196, 0.4, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("4_4t2gy")
 theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
 text = "[center]Made with[/center]"
@@ -227,15 +230,19 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Godot_RichTextLabel" type="RichTextLabel" parent="."]
 modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(470, 105)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.307292
-anchor_top = 0.710185
-anchor_right = 0.692708
-anchor_bottom = 0.798148
+anchor_left = 0.307377
+anchor_top = 0.67
+anchor_right = 0.692623
+anchor_bottom = 0.80125
+offset_top = 3.05176e-05
 grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/default_color = Color(0.929412, 0.690196, 0.4, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("4_4t2gy")
 theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
 text = "[center]godot[/center]"
