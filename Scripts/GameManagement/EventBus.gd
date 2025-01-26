@@ -48,3 +48,8 @@ signal next_level
 
 @warning_ignore("unused_signal")
 signal level_started(game_level: GameLevel)
+
+
+# Particles
+@warning_ignore("unused_signal")
+signal spawn_projectile_deflection_particles(global_position)
