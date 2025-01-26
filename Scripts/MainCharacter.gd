@@ -30,6 +30,7 @@ func _ready() -> void:
 	EventBus.connect("fly_time_finished", move_to_boomerang)
 	
 	boomerang_teleport_timer.wait_time = boomerang_teleport_cooldown
+	flying_boomerang.global_position = global_position
 
 
 func _input(event: InputEvent) -> void:
@@ -41,9 +42,6 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("teleport_boomerang"):
 		teleport_boomerang()
-	
-	if event.is_action_pressed("restart"):
-		get_tree().reload_current_scene()
 
 
 func _process(delta: float) -> void:

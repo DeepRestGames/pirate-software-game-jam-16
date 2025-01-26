@@ -28,4 +28,3 @@ func start_opening_gateway():
 func _on_body_entered(body: Node2D) -> void:
 	if opened and body is MainCharacter:
 		EventBus.emit_signal("next_level")
-		print("Next level!")

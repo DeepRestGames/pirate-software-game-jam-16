@@ -24,3 +24,6 @@ signal start_opening_gateway
 
 @warning_ignore("unused_signal")
 signal next_level
+
+@warning_ignore("unused_signal")
+signal level_started(game_level: GameLevel)
