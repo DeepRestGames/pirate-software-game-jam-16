@@ -2,6 +2,7 @@ class_name Boomerang
 extends RigidBody2D
 
 @onready var sprite = $Sprite2D
+@onready var hammer_retrieval_particles = $HammerRetrieval_GPUParticles2D
 
 @export var max_fly_time: float = 2.5
 @export var speed = 300
@@ -24,6 +25,7 @@ func _physics_process(delta: float) -> void:
 		if remaining_fly_time <= 0:
 			is_flying = false
 			linear_damp = 3
+			hammer_retrieval_particles.show()
 			EventBus.emit_signal("fly_time_finished")
 		
 		else:
@@ -60,6 +62,7 @@ func enable_boomerang(starting_global_position):
 	apply_central_force(motion_vector)
 	rotate(.05)
 	
+	hammer_retrieval_particles.hide()
 	show()
 	remaining_fly_time = max_fly_time
 	is_flying = true
