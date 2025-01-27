@@ -17,4 +17,5 @@ func stop_chasing_player():
 
 
 func take_damage():
+	EventBus.emit_signal("spawn_blood_particles", global_position)
 	queue_free()

@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://1jxgf3akb6ir"]
+[gd_scene load_steps=4 format=3 uid="uid://1jxgf3akb6ir"]
 
-[ext_resource type="Texture2D" uid="uid://vrfkmlq6h0im" path="res://icon.svg" id="1_4y8ww"]
 [ext_resource type="Script" path="res://Scripts/Enemies/EnemyWalking.gd" id="1_5dndt"]
 [ext_resource type="Texture2D" uid="uid://dv363jdnrymb4" path="res://Assets/Sprites/Enemies/AxeGiant1.png" id="2_r8nx1"]
 
@@ -8,6 +7,7 @@
 radius = 35.0
 
 [node name="EnemyWalking" type="CharacterBody2D" groups=["Enemies"]]
+z_index = 10
 collision_layer = 4
 collision_mask = 14
 motion_mode = 1
@@ -20,12 +20,6 @@ modulate = Color(0.7, 0.7, 0.7, 1)
 position = Vector2(6, 14)
 scale = Vector2(0.46, 0.46)
 texture = ExtResource("2_r8nx1")
-
-[node name="GodotSprite" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0.764706, 0.243137, 0.0941176, 1)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("1_4y8ww")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.4, 1.4)

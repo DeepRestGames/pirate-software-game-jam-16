@@ -8,6 +8,7 @@
 size = Vector2(50, 50)
 
 [node name="Gateway" type="Area2D"]
+z_index = 7
 collision_layer = 0
 monitorable = false
 script = ExtResource("1_pec3o")

@@ -47,6 +47,7 @@ position = Vector2(-1.66666, 5)
 texture = ExtResource("2_jjqs4")
 
 [node name="Walls" type="Node2D" parent="Environment/NavigationRegion2D"]
+z_index = 10
 
 [node name="FrameWall1" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
 position = Vector2(-2000, 0)

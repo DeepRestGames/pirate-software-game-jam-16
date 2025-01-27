@@ -15,5 +15,5 @@ func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(direction * PROJECTILE_SPEED * delta)
 	
 	if collision != null and not collision.get_collider().is_in_group("MainCharacter"):
-		EventBus.emit_signal("spawn_projectile_deflection_particles", global_position)
+		EventBus.emit_signal("spawn_spark_particles", global_position)
 		queue_free()
