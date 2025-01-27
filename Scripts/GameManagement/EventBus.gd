@@ -24,6 +24,9 @@ signal player_death
 @warning_ignore("unused_signal")
 signal difficulty_ramp_up
 
+@warning_ignore("unused_signal")
+signal screen_shake
+
 
 # Interactables
 @warning_ignore("unused_signal")
