@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 EventBus="*res://Scripts/GameManagement/EventBus.gd"
 GameManager="*res://Scripts/GameManagement/GameManager.gd"
+ParticlesSpawner="*res://Scripts/GameManagement/ParticlesSpawner.gd"
 
 [display]
 

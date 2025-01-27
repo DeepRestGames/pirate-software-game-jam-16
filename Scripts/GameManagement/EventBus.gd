@@ -52,4 +52,7 @@ signal level_started(game_level: GameLevel)
 
 # Particles
 @warning_ignore("unused_signal")
-signal spawn_projectile_deflection_particles(global_position)
+signal spawn_spark_particles(global_position)
+
+@warning_ignore("unused_signal")
+signal spawn_blood_particles(global_position)

@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://b5p4evkgrownv" path="res://Scenes/Boomerang.tscn" id="5_jiuxc"]
 [ext_resource type="PackedScene" uid="uid://wwc4re0x7ahn" path="res://Scenes/GameElements/Gateway.tscn" id="7_vewx5"]
 [ext_resource type="PackedScene" uid="uid://denw63bk82e73" path="res://Scenes/GameElements/Interactable.tscn" id="8_n6co5"]
-[ext_resource type="PackedScene" uid="uid://ch1ceu83k6vt4" path="res://Scenes/Particles/ParticlesSpawner.tscn" id="12_clj6e"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_41o6l"]
 vertices = PackedVector2Array(1025, 276.609, -1305, -291.609, -271.93, -296.344, 275.273, -296.328, 1338.34, -291.609, 1365, 276.609, 1678.34, -291.609, 1678.34, -338.391, 1960, -979.656, 1960, 1960, 1545, 985.047, 1545, 938.281, 1365, 323.391, 1660, -979.656, 1338.34, -338.391, -1960, 1959.98, 1205, 985.047, 1205, 938.273, -1158.34, 985.047, 1025, 323.391, -1498.34, 985.047, -1498.34, 938.273, -1960, -979.656, -1645, -291.609, 939.523, -1609.66, 939.523, -1653.66, 1960, -1959.98, 1960, -1023.66, 1660, -1023.66, -1960, -1960, -936.18, -1653.67, 603.523, -979.656, 603.523, -1023.66, -936.18, -1609.67, -600.18, -1023.67, -1658.34, -1023.66, -1960, -1023.66, -1658.34, -979.656, -600.18, -979.672, -1305, -338.391, -1645, -338.391, -271.93, -340.344, 275.273, -340.328, -960, 323.391, -1158.34, 938.281, -960, 276.609, -1300, 276.609, -1300, 323.391)
@@ -374,5 +373,3 @@ position = Vector2(0, -1850)
 
 [node name="Interactable" parent="." instance=ExtResource("8_n6co5")]
 position = Vector2(0, 1850)
-
-[node name="ParticlesSpawner" parent="." instance=ExtResource("12_clj6e")]

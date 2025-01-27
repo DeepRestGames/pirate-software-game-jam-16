@@ -68,4 +68,4 @@ func enable_boomerang(starting_global_position):
 func _on_body_entered(body: Node) -> void:
 	# Collision layer 8 is environment
 	if body.collision_layer == 8:
-		EventBus.emit_signal("spawn_projectile_deflection_particles", global_position)
+		EventBus.emit_signal("spawn_spark_particles", global_position)

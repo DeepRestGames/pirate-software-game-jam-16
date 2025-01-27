@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bqxv5tu8ryafp"]
 
-[ext_resource type="Texture2D" uid="uid://j71vgjvg3uia" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/spark_05.png" id="1_xhph6"]
+[ext_resource type="Texture2D" uid="uid://j71vgjvg3uia" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/spark_05.png" id="1_p7tv4"]
 
 [sub_resource type="Curve" id="Curve_rgaso"]
 _data = [Vector2(0.43771, 0.523745), 0.0, 1.70566, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -28,11 +28,12 @@ emission_curve = SubResource("CurveTexture_1x0c0")
 hue_variation_min = -0.02
 hue_variation_max = 0.05
 
-[node name="ProjectileDeflection_GPUParticles2D" type="GPUParticles2D"]
+[node name="Spark_GPUParticles2D" type="GPUParticles2D"]
+z_index = 15
 emitting = false
 amount = 30
 process_material = SubResource("ParticleProcessMaterial_dgv7o")
-texture = ExtResource("1_xhph6")
+texture = ExtResource("1_p7tv4")
 lifetime = 0.1
 one_shot = true
 randomness = 1.0

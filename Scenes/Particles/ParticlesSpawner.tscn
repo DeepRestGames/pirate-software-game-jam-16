@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://ch1ceu83k6vt4"]
-
-[ext_resource type="Script" path="res://Scripts/GameManagement/ParticlesSpawner.gd" id="1_acyn8"]
-[ext_resource type="PackedScene" uid="uid://bqxv5tu8ryafp" path="res://Scenes/Particles/ProjectileDeflectionParticles.tscn" id="2_toi85"]
-
-[node name="ParticlesSpawner" type="Node2D"]
-script = ExtResource("1_acyn8")
-projectile_deflection_particles = ExtResource("2_toi85")
