@@ -1,6 +1,63 @@
-[gd_scene load_steps=2 format=3 uid="uid://l8vxen63cqn3"]
+[gd_scene load_steps=15 format=3 uid="uid://l8vxen63cqn3"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/EnemySpawnPoint.gd" id="1_ber4e"]
+[ext_resource type="Texture2D" uid="uid://bg6mxyh4bxw88" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/magic_01.png" id="2_08prh"]
+
+[sub_resource type="Curve" id="Curve_77gy5"]
+_data = [Vector2(0.238325, 0), 0.0, 0.349748, 0, 0, Vector2(1, 1), 3.02371, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_g2f86"]
+curve = SubResource("Curve_77gy5")
+
+[sub_resource type="Curve" id="Curve_30do8"]
+_data = [Vector2(0.322866, 0), 0.0, 0.437185, 0, 0, Vector2(1, 1), 3.69706, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xjxfa"]
+curve = SubResource("Curve_30do8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_racaa"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.4
+scale_max = 0.4
+color = Color(0.635294, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_g2f86")
+emission_curve = SubResource("CurveTexture_xjxfa")
+
+[sub_resource type="Curve" id="Curve_akdvv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -7.86259, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_sn62s"]
+curve = SubResource("Curve_akdvv")
+
+[sub_resource type="Curve" id="Curve_3b14s"]
+_data = [Vector2(0, 0), 0.0, 2.07772, 0, 0, Vector2(1, 1), -1.68844, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0gwvn"]
+curve = SubResource("Curve_3b14s")
+
+[sub_resource type="Curve" id="Curve_hj0ra"]
+min_value = 1.0
+max_value = 1.1
+_data = [Vector2(0, 1), 0.0, 0.253944, 0, 0, Vector2(1, 1.08636), -0.175675, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_uobgk"]
+curve = SubResource("Curve_hj0ra")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7grtx"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.4
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_uobgk")
+color = Color(0.635294, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_sn62s")
+emission_curve = SubResource("CurveTexture_0gwvn")
 
 [node name="EnemySpawnPoint" type="Node2D"]
 script = ExtResource("1_ber4e")
@@ -8,5 +65,27 @@ script = ExtResource("1_ber4e")
 [node name="EnemiesSpawnTimer" type="Timer" parent="."]
 
 [node name="EnemiesParentNode" type="Node2D" parent="."]
+
+[node name="EnemySpawnBuildup_GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 5
+z_as_relative = false
+emitting = false
+amount = 80
+process_material = SubResource("ParticleProcessMaterial_racaa")
+texture = ExtResource("2_08prh")
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+
+[node name="EnemySpawnFlare_GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 5
+z_as_relative = false
+emitting = false
+amount = 80
+process_material = SubResource("ParticleProcessMaterial_7grtx")
+texture = ExtResource("2_08prh")
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
 
 [connection signal="timeout" from="EnemiesSpawnTimer" to="." method="_on_enemies_spawn_timer_timeout"]
