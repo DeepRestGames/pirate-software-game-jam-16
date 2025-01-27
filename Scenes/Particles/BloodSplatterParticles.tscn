@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyum1saxcgxd6"]
+
+[ext_resource type="Texture2D" uid="uid://bx3eqpioivmkn" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/smoke_04.png" id="1_2rfhh"]
+
+[sub_resource type="Curve" id="Curve_nf2pr"]
+_data = [Vector2(0.154882, 0.250339), 0.0, 0.163712, 0, 0, Vector2(0.996633, 0.823609), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_gt105"]
+curve = SubResource("Curve_nf2pr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dgv7o"]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 100.0
+emission_ring_inner_radius = 0.0
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.3
+color = Color(0.384314, 0, 0, 1)
+emission_curve = SubResource("CurveTexture_gt105")
+hue_variation_min = -0.2
+hue_variation_max = -2.23517e-08
+
+[node name="BloodSplatter_GPUParticles2D" type="GPUParticles2D"]
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_dgv7o")
+texture = ExtResource("1_2rfhh")
+lifetime = 5.0
+one_shot = true
+explosiveness = 0.95
