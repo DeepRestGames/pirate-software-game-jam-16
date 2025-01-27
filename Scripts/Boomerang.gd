@@ -63,3 +63,9 @@ func enable_boomerang(starting_global_position):
 	show()
 	remaining_fly_time = max_fly_time
 	is_flying = true
+
+
+func _on_body_entered(body: Node) -> void:
+	# Collision layer 8 is environment
+	if body.collision_layer == 8:
+		EventBus.emit_signal("spawn_projectile_deflection_particles", global_position)

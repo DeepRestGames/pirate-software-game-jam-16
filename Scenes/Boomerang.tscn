@@ -32,3 +32,5 @@ texture = ExtResource("2_g35kf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(3.2, 3.2)
 shape = SubResource("CircleShape2D_ovxrp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
