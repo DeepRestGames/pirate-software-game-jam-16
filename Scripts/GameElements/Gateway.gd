@@ -16,6 +16,7 @@ var opened = false
 
 func _ready() -> void:
 	sprite.modulate = off_color
+	time_left = opening_time
 	
 	EventBus.connect("start_opening_gateway", start_opening_gateway)
 
@@ -41,7 +42,6 @@ func start_opening_gateway():
 	var tween = get_tree().create_tween()
 	tween.tween_property(sprite, "modulate", on_color, opening_time)
 	
-	time_left = opening_time
 	is_opening = true
 
 
