@@ -5,6 +5,7 @@ extends EnemyBase
 @onready var path_calculation_timer = $PathCalculationTimer as Timer
 
 @export var MOVEMENT_SPEED: float = 300
+@export var ROTATION_SPEED: float = 3
 
 
 func _ready() -> void:
@@ -12,9 +13,17 @@ func _ready() -> void:
 	make_path()
 
 
-func _physics_process(_delta: float) -> void:
-	var direction = to_local(navigation_agent.get_next_path_position()).normalized()
+func _physics_process(delta: float) -> void:
+	
+	var next_point = navigation_agent.get_next_path_position()
+	var direction = (next_point - global_position).normalized()
+	
+	rotation = lerp_angle(rotation, direction.angle(), ROTATION_SPEED * delta)
+	
 	velocity = direction * MOVEMENT_SPEED
+	
+	print("Direction after rotation: ", str(direction))
+
 	
 	if move_and_slide():
 		for i in get_slide_collision_count():
