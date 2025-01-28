@@ -16,6 +16,6 @@ func _physics_process(delta: float) -> void:
 	
 	if collision != null:
 		if collision.get_collider().collision_layer == 2:
-		EventBus.emit_signal("spawn_spark_particles", global_position)
+			EventBus.emit_signal("spawn_spark_particles", global_position)
 		
 		queue_free()
