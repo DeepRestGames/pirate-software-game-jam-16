@@ -1,13 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://1jxgf3akb6ir"]
+[gd_scene load_steps=3 format=3 uid="uid://1jxgf3akb6ir"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/EnemyWalking.gd" id="1_5dndt"]
-[ext_resource type="Texture2D" uid="uid://dv363jdnrymb4" path="res://Assets/Sprites/Enemies/AxeGiant1.png" id="2_r8nx1"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_w56bn"]
-radius = 35.0
+[ext_resource type="Texture2D" uid="uid://bxmwbl1jw68op" path="res://Assets/Sprites/Enemies/AxeGiant1_RIGHT.png" id="2_lqgl5"]
 
 [node name="EnemyWalking" type="CharacterBody2D" groups=["Enemies"]]
 z_index = 10
+scale = Vector2(0.45, 0.45)
 collision_layer = 4
 collision_mask = 14
 motion_mode = 1
@@ -15,19 +13,18 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_5dndt")
 MOVEMENT_SPEED = 75.0
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(156.5, -27.1, 156.5, -70.3, 136.8, -120.4, 120.5, -117.3, 120.5, -113.3, 102.9, -100.8, 63.4, -108, 51.7, -108, 50.8, -53.8, 4.5, -97.3, 4.5, -102.4, -62.6, -114, -71, -114, -114.3, -80, -156.5, -80, -156.5, -61.6, -137, -38.7, -144.5, 51.6, -144.5, 56.2, -156.5, 77, -156.5, 97.2, -119.2, 96, -117.2, 96, -47.7, 136, -11.8, 136, 46.1, 108.1, 50.8, 126, 67.7, 126, 74.4, 92.4, 94.4, 74, 99.5, 74, 103, 58.4, 81, 48, 84.5, 0.399994, 84.5, -5.3, 135.7, 3, 145.5, 3)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.7, 0.7, 0.7, 1)
-position = Vector2(6, 14)
-scale = Vector2(0.46, 0.46)
-texture = ExtResource("2_r8nx1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1.4, 1.4)
-shape = SubResource("CircleShape2D_w56bn")
+texture = ExtResource("2_lqgl5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_use_custom = true
 debug_path_custom_color = Color(1, 0, 0, 1)
-debug_path_custom_line_width = 2.0
+debug_path_custom_point_size = 15.0
+debug_path_custom_line_width = 10.0
 
 [node name="PathCalculationTimer" type="Timer" parent="."]
 wait_time = 0.3
