@@ -14,6 +14,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(direction * PROJECTILE_SPEED * delta)
 	
-	if collision != null and not collision.get_collider().is_in_group("MainCharacter"):
+	if collision != null:
+		if collision.get_collider().collision_layer == 2:
 		EventBus.emit_signal("spawn_spark_particles", global_position)
+		
 		queue_free()
