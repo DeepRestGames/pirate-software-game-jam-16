@@ -15,6 +15,10 @@ func _ready() -> void:
 	EventBus.connect("fly_time_reset", disable_boomerang)
 	EventBus.connect("throw_boomerang", enable_boomerang)
 	
+	# Pretty ugly, but needed to fix first time instancing stuttering
+	hammer_retrieval_particles.show()
+	hammer_retrieval_particles.hide()
+	
 	disable_boomerang()
 
 

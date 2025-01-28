@@ -38,6 +38,12 @@ func _ready() -> void:
 	if enemy_scene != null:
 		enemy_spawn_buildup_particles.lifetime = spawn_cooldown
 		enemy_spawn_buildup_particles.restart()
+	
+	# Pretty ugly, but needed to fix first time instancing stuttering
+	enemy_spawn_buildup_particles.emitting = true
+	enemy_spawn_buildup_particles.emitting = false
+	enemy_spawn_flare_particles.emitting = true
+	enemy_spawn_flare_particles.emitting = false
 
 
 func difficulty_ramp_up():
