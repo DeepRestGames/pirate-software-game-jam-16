@@ -16,3 +16,6 @@ mono_crash.*.json
 
 # Temporary files
 *.tmp
+
+#Builds
+/Builds
