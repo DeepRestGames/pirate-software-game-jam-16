@@ -70,12 +70,18 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	if(open):
+	if always_open:
+		return
+	
+	if open:
 		EventBus.emit_signal("gateway_on_screen")
 		time_left_label.show()
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	if(open):
+	if always_open:
+		return
+	
+	if open:
 		EventBus.emit_signal("gateway_off_screen")
 		time_left_label.hide()

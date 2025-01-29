@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://wwc4re0x7ahn"]
+[gd_scene load_steps=23 format=3 uid="uid://wwc4re0x7ahn"]
 
 [ext_resource type="Script" path="res://Scripts/GameElements/Gateway.gd" id="1_pec3o"]
 [ext_resource type="Texture2D" uid="uid://jhfkp53cpkup" path="res://Assets/Sprites/Environment/Gateway.png" id="2_8q2c7"]
@@ -50,6 +50,9 @@ scale_curve = SubResource("CurveTexture_fqxoq")
 color_ramp = SubResource("GradientTexture1D_ouuo3")
 alpha_curve = SubResource("CurveTexture_4l2ba")
 emission_curve = SubResource("CurveTexture_707uw")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_83dlp"]
+blend_mode = 1
 
 [sub_resource type="Curve" id="Curve_d5jgu"]
 min_value = 0.3
@@ -124,6 +127,7 @@ local_coords = true
 
 [node name="Glow_GPUParticles2D" type="GPUParticles2D" parent="."]
 visible = false
+material = SubResource("CanvasItemMaterial_83dlp")
 amount = 3
 process_material = SubResource("ParticleProcessMaterial_ds63o")
 texture = ExtResource("4_ay0ip")
