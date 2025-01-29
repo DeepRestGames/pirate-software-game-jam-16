@@ -12,6 +12,12 @@ var activated = false
 
 func _ready() -> void:
 	sprite.modulate = off_color
+	EventBus.connect("difficulty_down", interactable_off)
+
+
+func interactable_off():
+	activated = false
+	sprite.modulate = off_color
 
 
 func _on_body_entered(body: Node2D) -> void:

@@ -25,6 +25,9 @@ signal player_death
 signal difficulty_ramp_up
 
 @warning_ignore("unused_signal")
+signal difficulty_down
+
+@warning_ignore("unused_signal")
 signal screen_shake
 
 

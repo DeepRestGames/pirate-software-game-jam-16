@@ -30,6 +30,7 @@ func set_gateway_position(gateway_global_position: Vector2):
 func update_time_left(time_left: float):
 	if time_left < 0:
 		time_left_label.hide()
+		arrow_texture.hide()
 		return
 	
 	var minutes = time_left / 60

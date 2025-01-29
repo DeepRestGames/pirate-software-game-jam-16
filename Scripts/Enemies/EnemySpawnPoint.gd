@@ -24,13 +24,10 @@ var is_difficulty_ramped_up = false
 
 func _ready() -> void:
 	enemies_spawn_timer.wait_time = spawn_cooldown
-	
-	if hard_enemy_scene == null:
-		hard_enemy_scene = enemy_scene
-	
 	enemies_left_to_spawn = max_enemies_number
 	
 	EventBus.connect("difficulty_ramp_up", difficulty_ramp_up)
+	EventBus.connect("difficulty_down", difficulty_down)
 	
 	await get_tree().create_timer(initial_spawn_wait_time).timeout
 	enemies_spawn_timer.start()
@@ -57,25 +54,35 @@ func difficulty_ramp_up():
 	enemy_spawn_buildup_particles.restart()
 
 
+func difficulty_down():
+	is_difficulty_ramped_up = false
+	enemies_left_to_spawn = max_enemies_number
+	enemies_spawn_timer.wait_time = spawn_cooldown
+	
+	enemy_spawn_buildup_particles.lifetime = spawn_cooldown
+	
+	enemies_spawn_timer.start()
+	enemy_spawn_buildup_particles.restart()
+
+
 func _on_enemies_spawn_timer_timeout() -> void:
 	var enemy_instance
 	
 	if not is_difficulty_ramped_up:
-		enemies_left_to_spawn -= 1
-		if enemies_left_to_spawn == 0:
-			enemies_spawn_timer.stop()
-		
+		if enemy_scene == null:
+			return
 		enemy_instance = enemy_scene.instantiate()
-		
 	else:
-		enemies_left_to_spawn -= 1
-		if enemies_left_to_spawn == 0:
-			enemies_spawn_timer.stop()
-		
+		if hard_enemy_scene == null:
+			return
 		enemy_instance = hard_enemy_scene.instantiate()
 	
 	enemies_parent_node.add_child(enemy_instance)
 	enemy_spawn_flare_particles.restart()
+	
+	enemies_left_to_spawn -= 1
+	if enemies_left_to_spawn == 0:
+		enemies_spawn_timer.stop()
 	
 	if not enemies_spawn_timer.is_stopped():
 		enemy_spawn_buildup_particles.restart()
