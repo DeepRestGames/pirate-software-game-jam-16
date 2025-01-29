@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://btucrtvkkaoei"]
+
+[ext_resource type="Script" path="res://Scripts/GameManagement/SoundManager.gd" id="1_5wpjm"]
+[ext_resource type="AudioStream" uid="uid://fedryd7utkcg" path="res://Assets/SFX/elemental-magic-spell-impact-outgoing-228342.mp3" id="2_mfpqq"]
+
+[node name="Sound" type="Node"]
+script = ExtResource("1_5wpjm")
+
+[node name="Music_StreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 2
+bus = &"SFX"
+
+[node name="SFX_StreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mfpqq")
+max_polyphony = 50
+bus = &"SFX"
