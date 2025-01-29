@@ -1,10 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwmnwwfbcm0xb"]
+[gd_scene load_steps=11 format=3 uid="uid://dwmnwwfbcm0xb"]
 
 [ext_resource type="Script" path="res://Scripts/UI/HUD_BoomerangFlyTime.gd" id="1_bu7ua"]
 [ext_resource type="Script" path="res://Scripts/UI/HUD_PlayerDeath.gd" id="2_67205"]
 [ext_resource type="Texture2D" uid="uid://dvwso0bdxj1i4" path="res://Assets/UI/ArrowE.png" id="3_3u4vj"]
 [ext_resource type="Script" path="res://Scripts/UI/HUD_ArrowHint.gd" id="4_5ebxq"]
 [ext_resource type="FontFile" uid="uid://vqr151sphmyi" path="res://Assets/UI/Fonts/CaesarDressing-Regular.ttf" id="4_rruvu"]
+[ext_resource type="Script" path="res://Scripts/UI/HUD_PauseMenu.gd" id="6_4bvjg"]
+[ext_resource type="Texture2D" uid="uid://d0yrpvomc7iwu" path="res://Assets/UI/Corner2.png" id="6_xwnob"]
+[ext_resource type="Texture2D" uid="uid://bsppvsvauu8iq" path="res://Assets/UI/Border1.png" id="7_rvwrw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwlqo"]
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yalfr"]
+bg_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="HUD" type="Control"]
 custom_minimum_size = Vector2(1152, 648)
@@ -166,3 +183,255 @@ text = "YOU DIED
 Press R to try again"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PauseMenu" type="Control" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_4bvjg")
+
+[node name="Panel" type="Panel" parent="PauseMenu"]
+process_mode = 2
+visible = false
+custom_minimum_size = Vector2(400, 500)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.336066
+anchor_top = 0.1875
+anchor_right = 0.663934
+anchor_bottom = 0.8125
+offset_left = 180.0
+offset_top = 230.0
+offset_right = -180.0
+offset_bottom = -230.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fwlqo")
+metadata/_edit_use_anchors_ = true
+
+[node name="Style" type="Control" parent="PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -38.0
+offset_right = 40.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BorderUP" type="Panel" parent="PauseMenu/Panel/Style"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yalfr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/Panel/Style/BorderUP"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Corner1" type="TextureRect" parent="PauseMenu/Panel/Style/BorderUP/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_xwnob")
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Border1" type="TextureRect" parent="PauseMenu/Panel/Style/BorderUP/HBoxContainer"]
+texture_repeat = 2
+custom_minimum_size = Vector2(290, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_rvwrw")
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Corner2" type="TextureRect" parent="PauseMenu/Panel/Style/BorderUP/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_xwnob")
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Corner3" type="TextureRect" parent="PauseMenu/Panel/Style"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.833333
+anchor_top = 0.861111
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(40, 40)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("6_xwnob")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Corner4" type="TextureRect" parent="PauseMenu/Panel/Style"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.861111
+anchor_right = 0.166667
+anchor_bottom = 1.0
+grow_vertical = 0
+pivot_offset = Vector2(40, 40)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("6_xwnob")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Border2" type="TextureRect" parent="PauseMenu/Panel/Style"]
+texture_repeat = 2
+custom_minimum_size = Vector2(290, 80)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.197917
+anchor_top = 0.861111
+anchor_right = 0.802083
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(145, 40)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("7_rvwrw")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.5
+offset_top = -200.0
+offset_right = 100.5
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_rruvu")
+theme_override_font_sizes/font_size = 50
+text = "PAUSE MENU"
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_color = Color(0.294118, 0.92549, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.294118, 0.698039, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_rruvu")
+theme_override_font_sizes/font_size = 40
+text = "Continue"
+flat = true
+
+[node name="MusicSetting" type="HBoxContainer" parent="PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="MusicLabel" type="Label" parent="PauseMenu/Panel/VBoxContainer/MusicSetting"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_rruvu")
+theme_override_font_sizes/font_size = 40
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="PauseMenu/Panel/VBoxContainer/MusicSetting"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 4
+value = 50.0
+
+[node name="SFXSetting" type="HBoxContainer" parent="PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="SFXLabel" type="Label" parent="PauseMenu/Panel/VBoxContainer/SFXSetting"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_rruvu")
+theme_override_font_sizes/font_size = 40
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="PauseMenu/Panel/VBoxContainer/SFXSetting"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 4
+value = 50.0
+
+[node name="LevelSelectionButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_color = Color(0.294118, 0.92549, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.294118, 0.698039, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_rruvu")
+theme_override_font_sizes/font_size = 40
+text = "Level Selection"
+flat = true
+
+[node name="MainMenuButton" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_color = Color(0.294118, 0.92549, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.294118, 0.698039, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_rruvu")
+theme_override_font_sizes/font_size = 40
+text = "Main Menu"
+flat = true
+
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/ContinueButton" to="PauseMenu" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/LevelSelectionButton" to="PauseMenu" method="_on_level_selection_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/MainMenuButton" to="PauseMenu" method="_on_main_menu_button_pressed"]
