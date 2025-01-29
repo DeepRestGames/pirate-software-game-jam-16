@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo8vbq2ju5cn0"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/EnemyRangedStatic.gd" id="1_4fjkt"]
+[ext_resource type="Texture2D" uid="uid://vrfkmlq6h0im" path="res://icon.svg" id="2_lmwd1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w56bn"]
+radius = 35.0
+
+[node name="EnemyRangedStatic" type="StaticBody2D"]
+z_index = 10
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_4fjkt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.485003, 0.0242831, 0.532642, 1)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_lmwd1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w56bn")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 9
