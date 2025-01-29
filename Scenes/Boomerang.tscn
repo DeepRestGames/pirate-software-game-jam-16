@@ -1,22 +1,43 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5p4evkgrownv"]
+[gd_scene load_steps=12 format=3 uid="uid://b5p4evkgrownv"]
 
 [ext_resource type="Script" path="res://Scripts/Boomerang.gd" id="1_s7dak"]
-[ext_resource type="Texture2D" uid="uid://b7oyj8163kmxq" path="res://Assets/Placeholders/YellowMjolnir.png" id="2_g35kf"]
+[ext_resource type="Texture2D" uid="uid://c2igej31slwgk" path="res://Assets/Sprites/Character/Mjolnir_v2.png" id="3_1jyn6"]
 [ext_resource type="Texture2D" uid="uid://c7qlmk0qn3g2o" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/star_09.png" id="3_bp24n"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tui1e"]
 bounce = 0.8
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ovxrp"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kuv3s"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_tkuvb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.504026, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vgiey"]
+curve = SubResource("Curve_tkuvb")
+
+[sub_resource type="Curve" id="Curve_ycbe7"]
+min_value = 1.0
+max_value = 1.2
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1.2), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_dr03i"]
+curve = SubResource("Curve_ycbe7")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tn60r"]
 particle_flag_disable_z = true
 gravity = Vector3(0, 0, 0)
-scale_min = 0.35
+scale_min = 0.4
 scale_max = 0.4
+scale_curve = SubResource("CurveTexture_dr03i")
 color = Color(1, 0.803922, 0, 1)
+alpha_curve = SubResource("CurveTexture_vgiey")
 hue_variation_min = -0.01
 hue_variation_max = -2.23517e-08
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ovxrp"]
 
 [node name="Boomerang" type="RigidBody2D" groups=["Boomerang"]]
 z_index = 20
@@ -34,21 +55,25 @@ script = ExtResource("1_s7dak")
 max_fly_time = 2.0
 speed = 400
 
+[node name="HammerRetrieval_GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 15
+z_as_relative = false
+material = SubResource("CanvasItemMaterial_kuv3s")
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_tn60r")
+texture = ExtResource("3_bp24n")
+lifetime = 3.0
+preprocess = 3.0
+local_coords = true
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 0, 1)
+z_index = 20
 position = Vector2(0, 3)
-scale = Vector2(0.06, 0.06)
-texture = ExtResource("2_g35kf")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_1jyn6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(3.2, 3.2)
 shape = SubResource("CircleShape2D_ovxrp")
-
-[node name="HammerRetrieval_GPUParticles2D" type="GPUParticles2D" parent="."]
-z_index = 15
-z_as_relative = false
-process_material = SubResource("ParticleProcessMaterial_tn60r")
-texture = ExtResource("3_bp24n")
-local_coords = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
