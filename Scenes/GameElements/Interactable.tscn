@@ -48,8 +48,6 @@ collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("1_fhe1i")
-off_color = Color(0.796078, 0, 0, 1)
-on_color = Color(0, 0.584051, 1.92523e-07, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_a8n0t")
