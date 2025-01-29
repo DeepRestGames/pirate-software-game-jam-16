@@ -23,6 +23,11 @@ func _on_rich_text_label_meta_clicked(meta):
 	OS.shell_open(str(meta))
 
 
+func _unhandled_key_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_cancel") and credits_panel.visible:
+		credits_panel.hide()
+
+
 func _on_credits_panel_mask_pressed():
 	credits_panel.hide()
 
