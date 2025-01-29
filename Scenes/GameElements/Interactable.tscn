@@ -1,10 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://denw63bk82e73"]
+[gd_scene load_steps=11 format=3 uid="uid://denw63bk82e73"]
 
 [ext_resource type="Script" path="res://Scripts/GameElements/Interactable.gd" id="1_fhe1i"]
-[ext_resource type="Texture2D" uid="uid://cicbcdqxw7oec" path="res://Assets/Placeholders/WhiteCircle.png" id="2_345pe"]
+[ext_resource type="Texture2D" uid="uid://nh5mpihe4tvu" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/circle_01.png" id="2_lv1ss"]
+[ext_resource type="Texture2D" uid="uid://d2jvvht4bhfvo" path="res://Assets/Sprites/Environment/Interactable.png" id="2_scgsr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a8n0t"]
 radius = 30.0
+
+[sub_resource type="Curve" id="Curve_6vh6x"]
+min_value = 0.2
+_data = [Vector2(0, 0.2), 0.0, 0.0, 0, 0, Vector2(0.504237, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.2), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vxjqv"]
+curve = SubResource("Curve_6vh6x")
+
+[sub_resource type="Curve" id="Curve_stw30"]
+min_value = 1.0
+max_value = 1.1
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.504237, 1.1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_b4xke"]
+curve = SubResource("Curve_stw30")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6qamb"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_b4xke")
+color = Color(0, 1, 0, 1)
+alpha_curve = SubResource("CurveTexture_vxjqv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e5ybl"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_b4xke")
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_vxjqv")
 
 [node name="Interactable" type="Area2D"]
 z_index = 7
@@ -18,8 +54,25 @@ on_color = Color(0, 0.584051, 1.92523e-07, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_a8n0t")
 
+[node name="ButtonON_GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_6qamb")
+texture = ExtResource("2_lv1ss")
+lifetime = 5.0
+preprocess = 5.0
+local_coords = true
+
+[node name="ButtonOFF_GPUParticles2D2" type="GPUParticles2D" parent="."]
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_e5ybl")
+texture = ExtResource("2_lv1ss")
+lifetime = 5.0
+preprocess = 5.0
+local_coords = true
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.12, 0.12)
-texture = ExtResource("2_345pe")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_scgsr")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
