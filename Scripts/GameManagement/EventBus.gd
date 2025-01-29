@@ -16,6 +16,12 @@ signal fly_time_reset
 @warning_ignore("unused_signal")
 signal throw_boomerang(starting_global_position)
 
+@warning_ignore("unused_signal")
+signal hammer_recall_cooldown_update(remaining_cooldown_time)
+
+@warning_ignore("unused_signal")
+signal hammer_recall_cooldown_reset
+
 
 # General events
 @warning_ignore("unused_signal")

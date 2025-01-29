@@ -4,7 +4,6 @@ extends CharacterBody2D
 @onready var navigation_agent = $NavigationAgent2D as NavigationAgent2D
 @onready var path_calculation_timer = $PathCalculationTimer as Timer
 @onready var boomerang_teleport_timer = $BoomerangTeleportTimer as Timer
-@onready var teleport_cooldown_progress_bar = $TeleportCooldown/TextureProgressBar
 
 @export var flying_boomerang: Boomerang
 @onready var meelee_boomerang = $Boomerang
@@ -79,10 +78,10 @@ func _physics_process(delta: float) -> void:
 	if current_boomerang_teleport_cooldown > 0:
 		current_boomerang_teleport_cooldown -= delta
 		
-		var remaining_teleport_cooldown = (current_boomerang_teleport_cooldown * 100) / boomerang_teleport_cooldown
-		teleport_cooldown_progress_bar.value = remaining_teleport_cooldown
+		var remaining_teleport_cooldown = 100 - ((current_boomerang_teleport_cooldown * 100) / boomerang_teleport_cooldown)
+		EventBus.emit_signal("hammer_recall_cooldown_update", remaining_teleport_cooldown)
 	else:
-		teleport_cooldown_progress_bar.hide()
+		EventBus.emit_signal("hammer_recall_cooldown_reset")
 	
 
 func take_damage():
@@ -97,7 +96,7 @@ func teleport_boomerang():
 	if current_boomerang_teleport_cooldown <= 0:
 		boomerang_reached()
 		current_boomerang_teleport_cooldown = boomerang_teleport_cooldown
-		teleport_cooldown_progress_bar.show()
+		EventBus.emit_signal("hammer_recall_cooldown_update", current_boomerang_teleport_cooldown)
 
 
 func drop_boomerang():
