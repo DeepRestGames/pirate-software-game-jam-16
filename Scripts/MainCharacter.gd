@@ -13,7 +13,7 @@ extends CharacterBody2D
 var current_boomerang_teleport_cooldown: float = 0
 
 const MOVEMENT_SPEED: float = 300
-const MEELEE_BOOMERANG_OFFSET = 150
+const MEELEE_BOOMERANG_OFFSET = 100
 
 var boomerang_on_ground: bool = false
 var boomerang_in_hand: bool = true

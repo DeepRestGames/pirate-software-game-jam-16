@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bbnmuxwg3t7rf"]
+[gd_scene load_steps=16 format=3 uid="uid://bbnmuxwg3t7rf"]
 
 [ext_resource type="Script" path="res://Scripts/GameManagement/GameLevel.gd" id="1_hxb6x"]
 [ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="1_lspot"]
