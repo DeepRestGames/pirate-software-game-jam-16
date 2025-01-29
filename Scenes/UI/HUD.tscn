@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwmnwwfbcm0xb"]
+[gd_scene load_steps=14 format=3 uid="uid://dwmnwwfbcm0xb"]
 
 [ext_resource type="Script" path="res://Scripts/UI/HUD_BoomerangFlyTime.gd" id="1_bu7ua"]
 [ext_resource type="Script" path="res://Scripts/UI/HUD_PlayerDeath.gd" id="2_67205"]
@@ -22,6 +22,12 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ywubh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g5s8p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bb6tm"]
 
 [node name="HUD" type="Control"]
 custom_minimum_size = Vector2(1152, 648)
@@ -367,6 +373,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("4_rruvu")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ywubh")
 text = "Continue"
 flat = true
 
@@ -424,6 +431,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("4_rruvu")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g5s8p")
 text = "Level Selection"
 flat = true
 
@@ -437,6 +445,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("4_rruvu")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bb6tm")
 text = "Main Menu"
 flat = true
 
