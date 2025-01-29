@@ -21,10 +21,7 @@ func _physics_process(delta: float) -> void:
 	rotation = lerp_angle(rotation, direction.angle(), ROTATION_SPEED * delta)
 	
 	velocity = direction * MOVEMENT_SPEED
-	
-	print("Direction after rotation: ", str(direction))
 
-	
 	if move_and_slide():
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
