@@ -226,12 +226,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BorderUP" type="Panel" parent="PauseMenu/Panel/Style"]
-custom_minimum_size = Vector2(0, 80)
+custom_minimum_size = Vector2(444, 80)
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
+anchors_preset = -1
+anchor_left = 0.0375
+anchor_right = 0.9625
+anchor_bottom = 0.138889
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yalfr")
+metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/Panel/Style/BorderUP"]
 layout_mode = 1
@@ -254,12 +257,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Border1" type="TextureRect" parent="PauseMenu/Panel/Style/BorderUP/HBoxContainer"]
 texture_repeat = 2
-custom_minimum_size = Vector2(290, 80)
+custom_minimum_size = Vector2(290, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("7_rvwrw")
-expand_mode = 5
+expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
@@ -273,54 +276,59 @@ expand_mode = 5
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Corner3" type="TextureRect" parent="PauseMenu/Panel/Style"]
-custom_minimum_size = Vector2(80, 80)
+[node name="BorderDOWN" type="Panel" parent="PauseMenu/Panel/Style"]
+custom_minimum_size = Vector2(444, 80)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.833333
-anchor_top = 0.861111
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 0
-pivot_offset = Vector2(40, 40)
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource("6_xwnob")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Corner4" type="TextureRect" parent="PauseMenu/Panel/Style"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.861111
-anchor_right = 0.166667
-anchor_bottom = 1.0
-grow_vertical = 0
-pivot_offset = Vector2(40, 40)
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource("6_xwnob")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Border2" type="TextureRect" parent="PauseMenu/Panel/Style"]
-texture_repeat = 2
-custom_minimum_size = Vector2(290, 80)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.197917
-anchor_top = 0.861111
-anchor_right = 0.802083
-anchor_bottom = 1.0
+offset_left = -222.0
+offset_top = -80.0
+offset_right = 222.0
 grow_horizontal = 2
 grow_vertical = 0
-pivot_offset = Vector2(145, 40)
-size_flags_horizontal = 0
-size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yalfr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/Panel/Style/BorderDOWN"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Corner1" type="TextureRect" parent="PauseMenu/Panel/Style/BorderDOWN/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_xwnob")
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Border1" type="TextureRect" parent="PauseMenu/Panel/Style/BorderDOWN/HBoxContainer"]
+texture_repeat = 2
+custom_minimum_size = Vector2(290, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("7_rvwrw")
 expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Corner2" type="TextureRect" parent="PauseMenu/Panel/Style/BorderDOWN/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_xwnob")
+expand_mode = 5
+stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel"]
