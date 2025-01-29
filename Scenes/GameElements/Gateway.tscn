@@ -1,29 +1,100 @@
-[gd_scene load_steps=5 format=3 uid="uid://wwc4re0x7ahn"]
+[gd_scene load_steps=22 format=3 uid="uid://wwc4re0x7ahn"]
 
 [ext_resource type="Script" path="res://Scripts/GameElements/Gateway.gd" id="1_pec3o"]
-[ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="2_g57nl"]
+[ext_resource type="Texture2D" uid="uid://jhfkp53cpkup" path="res://Assets/Sprites/Environment/Gateway.png" id="2_8q2c7"]
 [ext_resource type="FontFile" uid="uid://vqr151sphmyi" path="res://Assets/UI/Fonts/CaesarDressing-Regular.ttf" id="3_jjjjx"]
+[ext_resource type="Texture2D" uid="uid://cudg8ldkwnlxw" path="res://Assets/Particles/kenney_particle-pack/PNG (Transparent)/circle_05.png" id="4_ay0ip"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cxrk"]
-size = Vector2(50, 50)
+[sub_resource type="CircleShape2D" id="CircleShape2D_kvg35"]
+radius = 90.0
+
+[sub_resource type="Curve" id="Curve_tl8mv"]
+min_value = 0.3
+_data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(0.495763, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.3), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4l2ba"]
+curve = SubResource("Curve_tl8mv")
+
+[sub_resource type="Gradient" id="Gradient_yd7ch"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ouuo3"]
+gradient = SubResource("Gradient_yd7ch")
+
+[sub_resource type="Curve" id="Curve_bfk0k"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.504237, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_707uw"]
+curve = SubResource("Curve_bfk0k")
+
+[sub_resource type="Curve" id="Curve_it2n6"]
+min_value = 1.0
+max_value = 1.05
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1.05), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fqxoq"]
+curve = SubResource("Curve_it2n6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_761la"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_fqxoq")
+color_ramp = SubResource("GradientTexture1D_ouuo3")
+alpha_curve = SubResource("CurveTexture_4l2ba")
+emission_curve = SubResource("CurveTexture_707uw")
+
+[sub_resource type="Curve" id="Curve_d5jgu"]
+min_value = 0.3
+_data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(0.495763, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.3), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ti38s"]
+curve = SubResource("Curve_d5jgu")
+
+[sub_resource type="Curve" id="Curve_2iigg"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.504237, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_1mbhl"]
+curve = SubResource("Curve_2iigg")
+
+[sub_resource type="Curve" id="Curve_d5cyj"]
+min_value = 0.8
+max_value = 1.1
+_data = [Vector2(0, 0.8), 0.0, 0.0, 0, 0, Vector2(0.5, 1.1), 0.0, 0.0, 0, 0, Vector2(1, 0.8), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wumrn"]
+curve = SubResource("Curve_d5cyj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ds63o"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_wumrn")
+alpha_curve = SubResource("CurveTexture_ti38s")
+emission_curve = SubResource("CurveTexture_1mbhl")
 
 [node name="Gateway" type="Area2D"]
 z_index = 7
 collision_layer = 0
 monitorable = false
 script = ExtResource("1_pec3o")
-off_color = Color(0.796078, 0, 0, 1)
-on_color = Color(0, 0.584051, 1.92523e-07, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_2cxrk")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_g57nl")
+shape = SubResource("CircleShape2D_kvg35")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-scale = Vector2(2.5, 2.5)
+scale = Vector2(5, 5)
 
 [node name="TimeLeftLabel" type="Label" parent="."]
 visible = false
@@ -32,15 +103,38 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -48.0
-offset_top = 31.0
-offset_right = 48.0
-offset_bottom = 80.0
+offset_left = -71.5
+offset_top = 96.0
+offset_right = 71.5
+offset_bottom = 170.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_jjjjx")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 60
 text = "00:00"
+
+[node name="Gateway_GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_761la")
+texture = ExtResource("2_8q2c7")
+lifetime = 5.0
+preprocess = 5.0
+local_coords = true
+
+[node name="Glow_GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_ds63o")
+texture = ExtResource("4_ay0ip")
+lifetime = 3.0
+preprocess = 3.0
+local_coords = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.784314, 0.784314, 0.784314, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_8q2c7")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
