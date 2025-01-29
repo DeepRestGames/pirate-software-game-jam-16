@@ -94,6 +94,7 @@ func teleport_boomerang():
 		return
 	
 	if current_boomerang_teleport_cooldown <= 0:
+		flying_boomerang.global_position = global_position
 		boomerang_reached()
 		current_boomerang_teleport_cooldown = boomerang_teleport_cooldown
 		EventBus.emit_signal("hammer_recall_cooldown_update", current_boomerang_teleport_cooldown)
