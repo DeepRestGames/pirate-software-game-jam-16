@@ -72,6 +72,9 @@ signal spawn_blood_particles(global_position)
 
 # Audio
 @warning_ignore("unused_signal")
+signal play_music
+
+@warning_ignore("unused_signal")
 signal update_music_volume(music_volume)
 
 @warning_ignore("unused_signal")

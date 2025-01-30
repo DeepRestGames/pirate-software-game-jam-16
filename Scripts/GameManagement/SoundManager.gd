@@ -26,9 +26,11 @@ var max_pitch_scale
 var gate_open_sfx_id: int
 
 
-func _ready() -> void:
+func _ready() -> void:	
 	EventBus.connect("update_music_volume", update_music_volume)
 	EventBus.connect("update_sfx_volume", update_sfx_volume)
+	
+	EventBus.connect("play_music", play_music)
 	
 	EventBus.connect("play_lightning_sfx", play_lightning_sfx)
 	EventBus.connect("play_thunder_sfx", play_thunder_sfx)
@@ -51,6 +53,10 @@ func update_music_volume(new_music_volume: float):
 
 func update_sfx_volume(new_sfx_volume: float):
 	AudioServer.set_bus_volume_db(sfx_audio_bus, new_sfx_volume)
+
+
+func play_music():
+	music_stream_player.play()
 
 
 func play_lightning_sfx(volume):
@@ -92,3 +98,8 @@ func play_pickup_sound():
 func play_enemy_spawn_sound():
 	var playback = sfx_stream_player.get_stream_playback() as AudioStreamPlaybackPolyphonic
 	playback.play_stream(sfx_enemy_spawn, 0, 0, randf_range(min_pitch_scale, max_pitch_scale))
+
+
+func _on_music_stream_player_finished() -> void:
+	music_stream_player.stream = music_slain_norse_loop
+	music_stream_player.play()
