@@ -1,9 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://doekc1fh2fvsm"]
+[gd_scene load_steps=15 format=3 uid="uid://doekc1fh2fvsm"]
 
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu.gd" id="1_l4b7b"]
+[ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="2_8v5u1"]
 [ext_resource type="Texture2D" uid="uid://dkw7c428a7w2" path="res://Assets/Logos/240423_DRG_Full_Logo_white.png" id="4_3smou"]
+[ext_resource type="Texture2D" uid="uid://dho3co05kxway" path="res://Assets/UI/Godin.png" id="4_jrqbc"]
 [ext_resource type="FontFile" uid="uid://vqr151sphmyi" path="res://Assets/UI/Fonts/CaesarDressing-Regular.ttf" id="5_71go0"]
-[ext_resource type="Texture2D" uid="uid://7t2ufubddmll" path="res://Assets/Placeholders/pizza time.png" id="6_s3o1f"]
+[ext_resource type="Texture2D" uid="uid://d0yrpvomc7iwu" path="res://Assets/UI/Corner2.png" id="6_nr8yl"]
+[ext_resource type="Texture2D" uid="uid://bsppvsvauu8iq" path="res://Assets/UI/Border1.png" id="7_fjg4e"]
 
 [sub_resource type="Animation" id="Animation_xk87y"]
 length = 0.001
@@ -51,15 +54,19 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_754aw"]
-bg_color = Color(0.290196, 0, 0.396078, 1)
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-shadow_size = 4
-shadow_offset = Vector2(2, 2)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ki6nt"]
+bg_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cihf"]
+bg_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -84,7 +91,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="TextureRect" parent="HUD"]
+[node name="Background" type="TextureRect" parent="HUD"]
+modulate = Color(0.156863, 0.156863, 0.156863, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8v5u1")
+
+[node name="DRG_Logo" type="TextureRect" parent="HUD"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 1
 anchors_preset = -1
@@ -99,7 +116,7 @@ expand_mode = 1
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel3" type="TextureRect" parent="HUD"]
+[node name="Title" type="Label" parent="HUD"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 1
 anchors_preset = -1
@@ -107,11 +124,33 @@ anchor_left = 0.202056
 anchor_top = 0.0375
 anchor_right = 0.797944
 anchor_bottom = 0.2875
+offset_right = 0.000732422
 grow_horizontal = 2
-texture = ExtResource("6_s3o1f")
-expand_mode = 3
-stretch_mode = 4
+theme_override_colors/font_color = Color(0.690196, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 15
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("5_71go0")
+theme_override_font_sizes/font_size = 120
+text = "MJÖLLNIR"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="Godot_Logo" type="TextureRect" parent="HUD"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -362.0
+offset_right = 315.0
+grow_vertical = 0
+texture = ExtResource("4_jrqbc")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="MenuItems" type="VBoxContainer" parent="HUD"]
 layout_mode = 1
@@ -122,7 +161,7 @@ anchor_right = 0.963934
 anchor_bottom = 0.90125
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 25
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -134,11 +173,11 @@ alignment_vertical = 2
 visible = false
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0.929412, 0.690196, 0.4, 1)
+theme_override_colors/font_hover_color = Color(0.294118, 0.92549, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.294118, 0.698039, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("5_71go0")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxFlat_6wl68")
@@ -155,19 +194,20 @@ alignment_vertical = 2
 [node name="NEWGAME" type="Button" parent="HUD/MenuItems/NewGameButtonContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0.929412, 0.690196, 0.4, 1)
+theme_override_colors/font_hover_color = Color(0.294118, 0.92549, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.294118, 0.698039, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("5_71go0")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxFlat_6wl68")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_6wl68")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6wl68")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_6wl68")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6wl68")
 text = "New Game"
+flat = true
 
 [node name="LevelSelectionButtonContainer" type="AspectRatioContainer" parent="HUD/MenuItems"]
 layout_mode = 2
@@ -176,38 +216,69 @@ alignment_vertical = 2
 [node name="LEVEL_SELECTION" type="Button" parent="HUD/MenuItems/LevelSelectionButtonContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0.929412, 0.690196, 0.4, 1)
+theme_override_colors/font_hover_color = Color(0.294118, 0.92549, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.294118, 0.698039, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("5_71go0")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxFlat_6wl68")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_6wl68")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6wl68")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_6wl68")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6wl68")
 text = "Level Selection"
+flat = true
 
 [node name="MUSICSliderContainer" type="VBoxContainer" parent="HUD/MenuItems"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = -5
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="MUSIC_Label" type="Label" parent="HUD/MenuItems/MUSICSliderContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.929412, 0.690196, 0.4, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("5_71go0")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_6wl68")
 text = "Music"
+horizontal_alignment = 1
 
 [node name="MusicVolumeSlider" type="HSlider" parent="HUD/MenuItems/MUSICSliderContainer"]
 clip_contents = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ar8qn")
+min_value = -30.0
+max_value = 0.0
+
+[node name="SFXSliderContainer" type="VBoxContainer" parent="HUD/MenuItems"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="SFX_Label" type="Label" parent="HUD/MenuItems/SFXSliderContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("5_71go0")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_6wl68")
+text = "SFX
+"
+horizontal_alignment = 1
+
+[node name="SFXVolumeSlider" type="HSlider" parent="HUD/MenuItems/SFXSliderContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
@@ -222,42 +293,34 @@ alignment_vertical = 2
 [node name="CREDITS" type="Button" parent="HUD/MenuItems/CREDITSButtonContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0.929412, 0.690196, 0.4, 1)
+theme_override_colors/font_hover_color = Color(0.294118, 0.92549, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.294118, 0.698039, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("5_71go0")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxFlat_6wl68")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_6wl68")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6wl68")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_6wl68")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6wl68")
 text = "Credits"
-
-[node name="ColorRect" type="ColorRect" parent="HUD"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
+flat = true
 
 [node name="CreditsPanel" type="Panel" parent="HUD"]
 visible = false
-custom_minimum_size = Vector2(600, 600)
+custom_minimum_size = Vector2(530, 610)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = -1
+anchor_left = 0.282787
+anchor_top = 0.11875
+anchor_right = 0.717213
+anchor_bottom = 0.88125
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_754aw")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ki6nt")
+metadata/_edit_use_anchors_ = true
 
 [node name="CreditsPanelMask" type="Button" parent="HUD/CreditsPanel"]
 layout_mode = 1
@@ -281,14 +344,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -300.0
-offset_top = -250.0
+offset_top = -281.0
 offset_right = 300.0
-offset_bottom = 250.0
+offset_bottom = 281.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(0.929412, 0.690196, 0.4, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/normal_font = ExtResource("5_71go0")
 bbcode_enabled = true
 text = "[center]
 
@@ -311,7 +375,136 @@ text = "[center]
 [/center]"
 scroll_active = false
 
+[node name="Style" type="Control" parent="HUD/CreditsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -38.0
+offset_right = 40.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BorderUP" type="Panel" parent="HUD/CreditsPanel/Style"]
+custom_minimum_size = Vector2(558, 80)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0426229
+anchor_right = 0.957377
+anchor_bottom = 0.111732
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4cihf")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/CreditsPanel/Style/BorderUP"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="Corner1" type="TextureRect" parent="HUD/CreditsPanel/Style/BorderUP/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_nr8yl")
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Border1" type="TextureRect" parent="HUD/CreditsPanel/Style/BorderUP/HBoxContainer"]
+custom_minimum_size = Vector2(293.32, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_fjg4e")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Corner2" type="TextureRect" parent="HUD/CreditsPanel/Style/BorderUP/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_nr8yl")
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="BorderDOWN" type="Panel" parent="HUD/CreditsPanel/Style"]
+custom_minimum_size = Vector2(558, 80)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0426229
+anchor_top = 0.888268
+anchor_right = 0.957377
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4cihf")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/CreditsPanel/Style/BorderDOWN"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="Corner1" type="TextureRect" parent="HUD/CreditsPanel/Style/BorderDOWN/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_nr8yl")
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Border1" type="TextureRect" parent="HUD/CreditsPanel/Style/BorderDOWN/HBoxContainer"]
+texture_repeat = 2
+custom_minimum_size = Vector2(290, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_fjg4e")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Corner2" type="TextureRect" parent="HUD/CreditsPanel/Style/BorderDOWN/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_nr8yl")
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [connection signal="pressed" from="HUD/MenuItems/NewGameButtonContainer/NEWGAME" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="HUD/MenuItems/LevelSelectionButtonContainer/LEVEL_SELECTION" to="." method="_on_level_selection_pressed"]
 [connection signal="pressed" from="HUD/MenuItems/CREDITSButtonContainer/CREDITS" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="HUD/CreditsPanel/CreditsPanelMask" to="." method="_on_credits_panel_mask_pressed"]
 [connection signal="meta_clicked" from="HUD/CreditsPanel/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
