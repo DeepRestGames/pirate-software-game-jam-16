@@ -579,3 +579,9 @@ position = Vector2(-1365, -915)
 
 [node name="Interactable" parent="." instance=ExtResource("9_6tcpw")]
 position = Vector2(1161.67, 481.667)
+
+[node name="EnemyRanged" parent="." instance=ExtResource("5_ulyds")]
+position = Vector2(-1190, 1166.67)
+
+[node name="EnemyWalking" parent="." instance=ExtResource("4_4ihp7")]
+position = Vector2(-1628.33, 1105)

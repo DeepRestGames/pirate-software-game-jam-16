@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://1jxgf3akb6ir"]
+[gd_scene load_steps=4 format=3 uid="uid://scjdi4s2tsu"]
 
-[ext_resource type="Script" path="res://Scripts/Enemies/EnemyWalking.gd" id="1_5dndt"]
-[ext_resource type="Texture2D" uid="uid://cw23857gd5mpl" path="res://Assets/Sprites/Enemies/AxeGiant_v2.png" id="3_hmma1"]
+[ext_resource type="Script" path="res://Scripts/Enemies/EnemyWalking.gd" id="1_oxpao"]
+[ext_resource type="Texture2D" uid="uid://b8rgotcrvainl" path="res://Assets/Sprites/Enemies/Assassin_v1.png" id="2_s6d6p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6hjse"]
-radius = 110.0
+radius = 50.0
 
 [node name="EnemyWalking" type="CharacterBody2D" groups=["Enemies"]]
 z_index = 10
@@ -13,15 +13,15 @@ collision_layer = 4
 collision_mask = 14
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_5dndt")
-MOVEMENT_SPEED = 75.0
+script = ExtResource("1_oxpao")
+MOVEMENT_SPEED = 150.0
 
-[node name="AxeGiantV2" type="Sprite2D" parent="."]
+[node name="AssassinV1" type="Sprite2D" parent="."]
 rotation = -1.57079
-texture = ExtResource("3_hmma1")
+texture = ExtResource("2_s6d6p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-33.3333, 13.3333)
+position = Vector2(-3.63636, 1.81818)
 shape = SubResource("CircleShape2D_6hjse")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
