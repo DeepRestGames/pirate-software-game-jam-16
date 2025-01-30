@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://tguiaccuehlo" path="res://Assets/Sprites/Enemies/ThrowingAxeGiant_v1.png" id="2_vn5kx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w56bn"]
-radius = 110.0
+radius = 145.0
 
 [node name="EnemyRanged" type="CharacterBody2D"]
 z_index = 10
@@ -20,6 +20,7 @@ rotation = -1.57079
 texture = ExtResource("2_vn5kx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, 0)
 shape = SubResource("CircleShape2D_w56bn")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

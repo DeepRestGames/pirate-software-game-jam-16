@@ -6,11 +6,13 @@ extends EnemyBase
 @onready var line_of_sight = $RayCast2D as RayCast2D
 @onready var trajectory_check_left = $TrajectoryCheckLeft_RayCast2D as RayCast2D
 @onready var trajectory_check_right = $TrajectoryCheckRight_RayCast2D as RayCast2D
-const trajectory_checks_offset = 60
+const trajectory_checks_offset = 70
 
 @export var projectile_scene = preload("res://Scenes/Enemies/EnemyProjectile.tscn")
 
 @export var MOVEMENT_SPEED: float = 150
+@export var ROTATION_SPEED: float = 3
+
 @export var shooting_cooldown: float = 2.5
 var current_shooting_cooldown = 0
 
@@ -21,17 +23,21 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	current_shooting_cooldown -= delta
-	handle_line_of_sight()
+	handle_line_of_sight(delta)
 	handle_collisions()
 
 
-func handle_line_of_sight():
+func handle_line_of_sight(delta):
 	line_of_sight.target_position = to_local(main_character.global_position)
 	trajectory_check_left.position = line_of_sight.target_position.orthogonal().normalized() * (-trajectory_checks_offset)
 	trajectory_check_right.position = line_of_sight.target_position.orthogonal().normalized() * (trajectory_checks_offset)
 	
 	if line_of_sight.is_colliding():
 		if line_of_sight.get_collider().is_in_group("MainCharacter"):
+			
+			var rotation_direction = (main_character.global_position - global_position).normalized()
+			rotation = lerp_angle(rotation, rotation_direction.angle(), ROTATION_SPEED * delta)
+			
 			if can_shoot(main_character):
 				velocity = Vector2.ZERO
 				if current_shooting_cooldown <= 0:
@@ -39,7 +45,7 @@ func handle_line_of_sight():
 					current_shooting_cooldown = shooting_cooldown
 				return
 				
-		move_to_next_path_position()
+		move_to_next_path_position(delta)
 
 
 func can_shoot(target) -> bool:
@@ -54,8 +60,12 @@ func can_shoot(target) -> bool:
 	return true
 
 
-func move_to_next_path_position():
-	var direction = to_local(navigation_agent.get_next_path_position()).normalized()
+func move_to_next_path_position(delta):
+	var next_point = navigation_agent.get_next_path_position()
+	var direction = (next_point - global_position).normalized()
+	
+	rotation = lerp_angle(rotation, direction.angle(), ROTATION_SPEED * delta)
+	
 	velocity = direction * MOVEMENT_SPEED
 
 
