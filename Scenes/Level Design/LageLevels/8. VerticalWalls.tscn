@@ -1,14 +1,18 @@
-[gd_scene load_steps=14 format=3 uid="uid://6ybqjauplq3j"]
+[gd_scene load_steps=18 format=3 uid="uid://6ybqjauplq3j"]
 
-[ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="1_e4r51"]
-[ext_resource type="Texture2D" uid="uid://dyyked7oujucm" path="res://Assets/Placeholders/Ground300.png" id="2_afatp"]
-[ext_resource type="PackedScene" uid="uid://l8vxen63cqn3" path="res://Scenes/Enemies/EnemySpawnPoint.tscn" id="3_i3xkv"]
-[ext_resource type="PackedScene" uid="uid://1jxgf3akb6ir" path="res://Scenes/Enemies/EnemyWalking.tscn" id="4_4ihp7"]
-[ext_resource type="PackedScene" uid="uid://c4xmmv3ww4l3p" path="res://Scenes/Enemies/EnemyRanged.tscn" id="5_ulyds"]
-[ext_resource type="PackedScene" uid="uid://blwtacw6rbdye" path="res://Scenes/MainCharacter.tscn" id="6_6l7fb"]
-[ext_resource type="PackedScene" uid="uid://b5p4evkgrownv" path="res://Scenes/Boomerang.tscn" id="7_n8v4d"]
-[ext_resource type="PackedScene" uid="uid://wwc4re0x7ahn" path="res://Scenes/GameElements/Gateway.tscn" id="8_2rvbi"]
-[ext_resource type="PackedScene" uid="uid://denw63bk82e73" path="res://Scenes/GameElements/Interactable.tscn" id="9_6tcpw"]
+[ext_resource type="Script" path="res://Scripts/GameManagement/GameLevel.gd" id="1_7jrmr"]
+[ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="1_fxpc2"]
+[ext_resource type="PackedScene" uid="uid://buwqh3wkqqwjq" path="res://Scenes/Level Design/LageLevels/0. Empty Level.tscn" id="2_1wdtt"]
+[ext_resource type="Texture2D" uid="uid://dyyked7oujucm" path="res://Assets/Placeholders/Ground300.png" id="2_54wto"]
+[ext_resource type="PackedScene" uid="uid://l8vxen63cqn3" path="res://Scenes/Enemies/EnemySpawnPoint.tscn" id="3_v8you"]
+[ext_resource type="PackedScene" uid="uid://1jxgf3akb6ir" path="res://Scenes/Enemies/EnemyWalking.tscn" id="4_8ww7u"]
+[ext_resource type="Texture2D" uid="uid://ciyl2vabrbgyf" path="res://Assets/UI/MouseCursorD.png" id="5_7l7us"]
+[ext_resource type="PackedScene" uid="uid://c4xmmv3ww4l3p" path="res://Scenes/Enemies/EnemyRanged.tscn" id="5_rx8fs"]
+[ext_resource type="PackedScene" uid="uid://blwtacw6rbdye" path="res://Scenes/MainCharacter.tscn" id="6_spuai"]
+[ext_resource type="PackedScene" uid="uid://b5p4evkgrownv" path="res://Scenes/Boomerang.tscn" id="7_3qbcp"]
+[ext_resource type="Texture2D" uid="uid://kb8bo6vnh7cf" path="res://Assets/UI/ArrowC.png" id="7_gjfym"]
+[ext_resource type="PackedScene" uid="uid://wwc4re0x7ahn" path="res://Scenes/GameElements/Gateway.tscn" id="8_xkyuj"]
+[ext_resource type="PackedScene" uid="uid://denw63bk82e73" path="res://Scenes/GameElements/Interactable.tscn" id="9_ucyf3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_41o6l"]
 vertices = PackedVector2Array(372.969, -1609.66, 1369.35, -1609.67, 1960, -1609.67, 1960, -1342, 1587.3, -1342, 288.883, -1297.99, 1587.3, -1298, 1960, -1298, 1960, -1023.67, 1350.12, -1023.67, 1125.32, -658.672, 555.477, -979.656, 1350.12, -979.672, 1960, -979.672, 1960, -658.656, -1960, 1959.98, -840.656, 1643.39, -134.617, 1643.38, 1960, 1643.38, 1960, 1960, 1960, -296.328, 1960, 276.609, 1801.1, 20.3438, 1801.1, -23.6563, 1960, 985.047, 1960, 1596.6, 1741.23, 1305.06, 1741.23, 1258.28, 1670, 985.047, 115.43, 1258.27, -134.617, 1596.6, 115.43, 1305.05, 1661.66, 276.609, 1098.9, 20.3281, -174.781, -296.344, 1098.9, -23.6719, 394.68, 323.391, 712.469, 20.3438, 1661.66, 323.391, 335, 938.281, 225.383, 660.063, 225.383, 613.281, 394.68, 276.609, -269.133, 20.3281, -488.023, 276.609, 335, 985.047, 1670, 938.273, -5, 985.047, -919.32, 985.063, 1125.32, -614.672, 860.781, -614.656, 860.781, -658.656, 712.469, -23.6563, -269.133, -23.6719, 555.477, -1023.66, -374.117, -658.672, -958.82, -979.672, 372.969, -1653.66, 1369.35, -1653.67, -1960, 1258.27, -1960, 985.047, -1037.34, 1258.28, -840.656, 1596.61, 1960, -614.656, 1960, -340.328, -174.781, -340.344, -374.117, -614.672, -1761.52, -338.391, -1960, 938.273, -1960, 660.047, -919.32, 938.281, 288.883, -1341.99, -909.633, -1609.67, -1112.22, -1342.01, -1792.66, 1643.39, -1960, 1305.05, -1792.66, 1596.61, -1037.34, 1305.06, -958.82, -1023.67, -1112.22, -1298.01, 1960, -1959.98, 1960, -1653.67, -1960, -1960, -909.633, -1653.67, -1960, -1023.66, -1315.13, -1023.66, -1315.13, -979.656, 1960, 323.391, 1960, 938.273, -1960, 613.273, -1960, 323.391, -1526.78, 323.391, -1526.78, 276.609, -1960, 276.609, -1960, 20.3438, -1660.47, 20.3438, -1660.47, -23.6563, -1960, -23.6563, -1960, -291.609, -1761.52, -291.609, -1960, -338.391, -1960, -614.656, -1750.65, -614.656, -1750.65, -658.656, -1960, -658.656, -1960, -979.656, -488.023, 323.391, -5, 938.273)
@@ -24,6 +28,8 @@ size = Vector2(20, 20)
 
 [node name="MainScene" type="Node2D"]
 scale = Vector2(0.6, 0.6)
+script = ExtResource("1_7jrmr")
+next_level_scene = ExtResource("2_1wdtt")
 
 [node name="Environment" type="Node2D" parent="."]
 rotation = -1.5708
@@ -35,11 +41,11 @@ navigation_polygon = SubResource("NavigationPolygon_41o6l")
 modulate = Color(0.0980392, 0.12549, 0.172549, 1)
 position = Vector2(-1.66667, 0)
 scale = Vector2(19.06, 10.44)
-texture = ExtResource("1_e4r51")
+texture = ExtResource("1_fxpc2")
 
 [node name="Ground300" type="Sprite2D" parent="Environment/NavigationRegion2D"]
 position = Vector2(-1.66666, 5)
-texture = ExtResource("2_afatp")
+texture = ExtResource("2_54wto")
 
 [node name="Walls" type="Node2D" parent="Environment/NavigationRegion2D"]
 
@@ -476,112 +482,113 @@ shape = SubResource("RectangleShape2D_k3fm6")
 modulate = Color(0.247059, 0.301961, 0.356863, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
-[node name="EnemySpawnPoint" parent="." instance=ExtResource("3_i3xkv")]
+[node name="EnemySpawnPoint" parent="." instance=ExtResource("3_v8you")]
 position = Vector2(-811.667, 1851.67)
-enemy_scene = ExtResource("4_4ihp7")
+enemy_scene = ExtResource("4_8ww7u")
 spawn_cooldown = 5.0
 initial_spawn_wait_time = 0.0
 max_enemies_number = -1
-hard_enemy_scene = ExtResource("4_4ihp7")
-hard_spawn_cooldown = 3.0
+hard_enemy_scene = ExtResource("4_8ww7u")
+hard_spawn_cooldown = 4.0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint"]
 modulate = Color(1, 0, 0, 1)
 visibility_layer = 2
-scale = Vector2(20, 20)
+scale = Vector2(40, 40)
 mesh = SubResource("QuadMesh_mwujv")
+texture = ExtResource("5_7l7us")
 
-[node name="EnemySpawnPoint6" parent="." instance=ExtResource("3_i3xkv")]
+[node name="EnemySpawnPoint6" parent="." instance=ExtResource("3_v8you")]
 position = Vector2(143.333, 1840)
-enemy_scene = ExtResource("4_4ihp7")
+enemy_scene = ExtResource("4_8ww7u")
 spawn_cooldown = 5.0
 initial_spawn_wait_time = 0.0
 max_enemies_number = -1
-hard_enemy_scene = ExtResource("4_4ihp7")
-hard_spawn_cooldown = 3.0
+hard_enemy_scene = ExtResource("4_8ww7u")
+hard_spawn_cooldown = 4.0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint6"]
 modulate = Color(1, 0, 0, 1)
 visibility_layer = 2
-scale = Vector2(20, 20)
+scale = Vector2(40, 40)
 mesh = SubResource("QuadMesh_mwujv")
+texture = ExtResource("5_7l7us")
 
-[node name="EnemySpawnPoint7" parent="." instance=ExtResource("3_i3xkv")]
+[node name="EnemySpawnPoint7" parent="." instance=ExtResource("3_v8you")]
 position = Vector2(1125, 1861.67)
-enemy_scene = ExtResource("4_4ihp7")
+enemy_scene = ExtResource("4_8ww7u")
 spawn_cooldown = 5.0
 initial_spawn_wait_time = 0.0
 max_enemies_number = -1
-hard_enemy_scene = ExtResource("4_4ihp7")
-hard_spawn_cooldown = 3.0
+hard_enemy_scene = ExtResource("4_8ww7u")
+hard_spawn_cooldown = 4.0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint7"]
 modulate = Color(1, 0, 0, 1)
 visibility_layer = 2
-scale = Vector2(20, 20)
+scale = Vector2(40, 40)
 mesh = SubResource("QuadMesh_mwujv")
+texture = ExtResource("5_7l7us")
 
-[node name="EnemySpawnPoint8" parent="." instance=ExtResource("3_i3xkv")]
+[node name="EnemySpawnPoint8" parent="." instance=ExtResource("3_v8you")]
 position = Vector2(1823.33, -1833.33)
-enemy_scene = ExtResource("4_4ihp7")
+enemy_scene = ExtResource("4_8ww7u")
 spawn_cooldown = 5.0
 initial_spawn_wait_time = 0.0
 max_enemies_number = -1
-hard_enemy_scene = ExtResource("4_4ihp7")
-hard_spawn_cooldown = 3.0
+hard_enemy_scene = ExtResource("4_8ww7u")
+hard_spawn_cooldown = 4.0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint8"]
 modulate = Color(1, 0, 0, 1)
 visibility_layer = 2
-scale = Vector2(20, 20)
+scale = Vector2(40, 40)
 mesh = SubResource("QuadMesh_mwujv")
+texture = ExtResource("5_7l7us")
 
-[node name="EnemySpawnPoint9" parent="." instance=ExtResource("3_i3xkv")]
+[node name="EnemySpawnPoint9" parent="." instance=ExtResource("3_v8you")]
 position = Vector2(-478.334, -1825)
-enemy_scene = ExtResource("4_4ihp7")
+enemy_scene = ExtResource("4_8ww7u")
 spawn_cooldown = 5.0
 initial_spawn_wait_time = 0.0
 max_enemies_number = -1
-hard_enemy_scene = ExtResource("4_4ihp7")
-hard_spawn_cooldown = 3.0
+hard_enemy_scene = ExtResource("4_8ww7u")
+hard_spawn_cooldown = 4.0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint9"]
 modulate = Color(1, 0, 0, 1)
 visibility_layer = 2
-scale = Vector2(20, 20)
+scale = Vector2(40, 40)
 mesh = SubResource("QuadMesh_mwujv")
+texture = ExtResource("5_7l7us")
 
-[node name="EnemySpawnPoint10" parent="." instance=ExtResource("3_i3xkv")]
+[node name="EnemySpawnPoint10" parent="." instance=ExtResource("3_v8you")]
 position = Vector2(-1805, -1810)
-enemy_scene = ExtResource("5_ulyds")
+enemy_scene = ExtResource("5_rx8fs")
 spawn_cooldown = 1.0
 initial_spawn_wait_time = 0.0
 max_enemies_number = 1
-hard_enemy_scene = ExtResource("5_ulyds")
-hard_spawn_cooldown = 3.0
+hard_enemy_scene = ExtResource("5_rx8fs")
+hard_spawn_cooldown = 4.0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint10"]
 modulate = Color(1, 0, 0, 1)
 visibility_layer = 2
-scale = Vector2(20, 20)
+scale = Vector2(20, 40)
 mesh = SubResource("QuadMesh_mwujv")
+texture = ExtResource("7_gjfym")
 
-[node name="MainCharacter" parent="." node_paths=PackedStringArray("flying_boomerang") instance=ExtResource("6_6l7fb")]
+[node name="MainCharacter" parent="." node_paths=PackedStringArray("flying_boomerang") instance=ExtResource("6_spuai")]
 position = Vector2(-1508.33, 1490)
 flying_boomerang = NodePath("../Boomerang")
 
-[node name="Boomerang" parent="." instance=ExtResource("7_n8v4d")]
+[node name="Boomerang" parent="." instance=ExtResource("7_3qbcp")]
 position = Vector2(-1508.33, 1490)
 max_fly_time = 3.0
 
-[node name="Gateway" parent="." instance=ExtResource("8_2rvbi")]
-position = Vector2(-1365, -915)
+[node name="Interactable" parent="." instance=ExtResource("9_ucyf3")]
+position = Vector2(1246.67, 488.333)
 
-[node name="Interactable" parent="." instance=ExtResource("9_6tcpw")]
-position = Vector2(1161.67, 481.667)
-
-[node name="EnemyRanged" parent="." instance=ExtResource("5_ulyds")]
-position = Vector2(-1190, 1166.67)
-
-[node name="EnemyWalking" parent="." instance=ExtResource("4_4ihp7")]
-position = Vector2(-1628.33, 1105)
+[node name="Gateway" parent="." instance=ExtResource("8_xkyuj")]
+position = Vector2(-1308.33, -955)
+opening_time = 15.0

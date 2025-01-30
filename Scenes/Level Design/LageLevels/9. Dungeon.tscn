@@ -1,19 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://4jgh1yqcs67e"]
+[gd_scene load_steps=14 format=3 uid="uid://4jgh1yqcs67e"]
 
 [ext_resource type="Script" path="res://Scripts/GameManagement/GameLevel.gd" id="1_85dpi"]
 [ext_resource type="PackedScene" uid="uid://bbnmuxwg3t7rf" path="res://Scenes/Level Design/LageLevels/V.tscn" id="2_pioy5"]
 [ext_resource type="Texture2D" uid="uid://dyyked7oujucm" path="res://Assets/Placeholders/Ground300.png" id="2_q6kne"]
 [ext_resource type="PackedScene" uid="uid://l8vxen63cqn3" path="res://Scenes/Enemies/EnemySpawnPoint.tscn" id="3_ap2cq"]
-[ext_resource type="PackedScene" uid="uid://1jxgf3akb6ir" path="res://Scenes/Enemies/EnemyWalking.tscn" id="4_svmh1"]
-[ext_resource type="PackedScene" uid="uid://c4xmmv3ww4l3p" path="res://Scenes/Enemies/EnemyRanged.tscn" id="5_gdsmx"]
+[ext_resource type="PackedScene" uid="uid://scjdi4s2tsu" path="res://Scenes/Enemies/EnemyAssassin.tscn" id="5_8e83p"]
 [ext_resource type="PackedScene" uid="uid://blwtacw6rbdye" path="res://Scenes/MainCharacter.tscn" id="6_gt8dw"]
 [ext_resource type="PackedScene" uid="uid://b5p4evkgrownv" path="res://Scenes/Boomerang.tscn" id="7_vrpue"]
 [ext_resource type="PackedScene" uid="uid://wwc4re0x7ahn" path="res://Scenes/GameElements/Gateway.tscn" id="8_0smej"]
 [ext_resource type="PackedScene" uid="uid://denw63bk82e73" path="res://Scenes/GameElements/Interactable.tscn" id="9_0vbs3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_41o6l"]
-vertices = PackedVector2Array(1597.36, -868.398, 1720.01, -1414.99, 1960, -1959.98, 1720, 180.008, 1960, 1671.66, 1720, 360.008, 1720.01, -1594.99, 1735.11, -1744.99, 890, -196.656, 890, -376.656, 1533.34, -370.75, 1175.21, -12.6328, 1170, -12.6328, 1187.58, -1193.33, 1533.34, -847.563, 890, -841.656, 890, -1021.66, 605.672, -1193.33, 710, -1021.66, 1593.34, -864.391, 1597.34, -349.898, 1593.34, -872.422, 1593.34, -876.18, 1540.01, -1414.99, 1589.58, -876.18, 1217.67, -1248.09, 1217.67, -1253.33, -780.008, 1455.16, -780.008, 1208.16, -441.828, 1434.84, -441.828, 1494.84, 710, -841.656, 233.344, -376.656, -129, -342.469, -129.094, -342.469, -129.078, -588.617, 233.344, -841.656, 1960, 1731.66, 1960, 1960, -1960, 1959.98, -441, 1731.66, -1960, -1804.99, -1960, -1960, 1735.11, -1804.99, 1208.38, -1257.38, 1204.39, -1253.33, 891.289, -1253.33, 891.289, -1593.33, 1540.01, -1594.99, 446.977, -1193.34, 605.391, -1233.33, 605.672, -1233.33, 413.344, -1021.66, 233.344, -1021.66, 413.344, -841.656, 710, -376.656, 710, -196.656, 413.344, -196.656, 413.344, -376.656, 889, 665.969, 1170, 0.578125, 1170, 665.969, 689.992, 1208.17, 1166, -3.42188, 889, -12.6328, 888.242, -12.6328, 888.242, -13.3281, -631, 9.13281, -440, 9.13281, -440, 606.656, -1000, 606.656, -1000, 9.13281, -834.07, 9.13281, -631, -342.469, -417.578, -839.719, -834.07, -342.469, -417.578, -1193.34, -1006.66, -342.469, -1006.66, -1193.34, -417.594, -342.469, -417.578, -588.617, -129.078, -839.719, -129.078, -1193.34, 446.977, -1253.34, 446.852, -1253.34, 446.852, -1593.33, 605.391, -1593.33, 233.148, -1593.33, 233.148, -1253.34, -1006.66, -1253.34, -1006.66, -1253.73, -1066.66, -1253.73, -1066.66, -1253.34, -1630.3, -1253.34, -1960, -1744.99, -1630.3, -1193.34, -1066.66, -1193.34, -1066.66, -342.469, -1289.27, -342.469, -1570, -1010.39, -1289.27, 9.11719, -1060, 9.11719, -1060, 606.656, -1661.04, 606.656, -1661.04, 608.039, -1663.34, 608.039, -1663.34, 1671.66, -1663.76, 1671.66, -1960, 9.11719, -1663.76, 1731.66, -1663.34, 1731.66, -1663.34, 1731.94, -1603.34, 1731.94, -1603.34, 1731.66, -729.578, 1731.66, -1603.34, 666.656, -238.344, 666.656, -238.344, 899.297, -1059.68, 899.297, -178.344, 607.477, -178.961, 607.477, -178.961, 606.656, -380, 606.656, -380, 46.6563, 233.328, 46.6563, 233.328, 607.531, 54.9531, 607.531, -178.344, 899.367, -177, 899.383, 54.9531, 959.133, -177, 959.313, 475.047, 607.539, 293.328, 607.531, 293.328, 46.6563, 829, 46.6563, 630, 605.727, 829, 606.672, 690, 606.672, 690, 605.727, 690, 960.938, 690, 666.672, 887.172, 666.672, 887.172, 665.969, 1177.02, 665.969, 1177.02, 666.672, 689.992, 1434.84, 1448.33, 666.672, 1448.33, 1434.84, 630, 960.938, 629.992, 1208.17, 476.656, 1455.17, 629.992, 1455.17, 475.148, 1494.85, 476.656, 1208.17, 416.656, 1208.17, 416.656, 1434.84, -381.672, 1434.84, -177.617, 1270, -381.672, 1270, -177.617, 1210, 475.047, 959.133, -381.672, 1210, -381.672, 1209.83, -441.672, 1209.83, -441.672, 1434.84, -780.898, 1206.66, -780.898, 1208.16, -1405.78, 1206.66, -1405.78, 1208.16, -1406.67, 1208.16, -1346.67, 1455.16, -1346.67, 1266.66, -840.008, 1266.66, -995.883, 1434.31, -840.008, 1434.31, -995.883, 1494.31, -780.797, 1494.31, -780.797, 1455.16, -729.578, 1671.66, 475.148, 1455.17, 631.5, 1455.17, 631.5, 1494.84, 1448.33, 606.422, 1448.33, 606.672, 1230, 606.672, 1230, 17.4297, -1482.33, -342.469, -1570, -342.469, -1630, -1010.39, -1630, -342.469, -1960, -342.469, 1508.48, 1434.85, 1508.33, 1434.84, 1508.33, 606.422, 1540, 360.008, -1059.68, 959.297, 1540, 180.008, 1212.43, -1253.33, 1170, -7.40625, -129, -13.3281, 233.344, -196.656, -1603.34, 1671.66, -1406.67, 1455.16, -440.992, 1671.66, 1593.34, -340.477, 1593.34, -345.898, 1593.34, -353.898, 1587.92, -340.477, 1508.48, 1494.85, -1482.33, 9.11719)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 3), PackedInt32Array(2, 1, 6, 7), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(13, 14, 10, 15, 16), PackedInt32Array(17, 13, 16, 18), PackedInt32Array(19, 0, 3, 20), PackedInt32Array(1, 0, 21, 22), PackedInt32Array(23, 1, 22, 24, 25, 26), PackedInt32Array(27, 28, 29, 30), PackedInt32Array(15, 10, 9, 31), PackedInt32Array(32, 33, 34, 35, 36), PackedInt32Array(37, 38, 39, 40), PackedInt32Array(41, 42, 2, 43), PackedInt32Array(44, 45, 46, 47, 48), PackedInt32Array(49, 50, 51, 17, 52, 53), PackedInt32Array(18, 31, 54, 52, 17), PackedInt32Array(31, 9, 55, 54), PackedInt32Array(55, 56, 57, 58), PackedInt32Array(54, 55, 58, 36), PackedInt32Array(36, 58, 32), PackedInt32Array(59, 60, 61, 62), PackedInt32Array(63, 60, 59, 64, 8), PackedInt32Array(64, 65, 66, 8), PackedInt32Array(67, 68, 69, 70), PackedInt32Array(70, 71, 72), PackedInt32Array(67, 70, 72, 73), PackedInt32Array(74, 73, 72, 75, 76), PackedInt32Array(75, 77, 78, 76), PackedInt32Array(79, 73, 74, 80), PackedInt32Array(35, 80, 74, 81), PackedInt32Array(81, 82, 49, 53), PackedInt32Array(83, 84, 85, 86), PackedInt32Array(87, 88, 89, 90), PackedInt32Array(91, 92, 93, 94), PackedInt32Array(95, 96, 97, 98, 99), PackedInt32Array(100, 101, 102, 103), PackedInt32Array(103, 104, 105), PackedInt32Array(105, 106, 107, 108), PackedInt32Array(109, 110, 111, 39), PackedInt32Array(112, 113, 114), PackedInt32Array(115, 116, 117, 118), PackedInt32Array(119, 120, 121), PackedInt32Array(121, 122, 123, 124), PackedInt32Array(121, 124, 125, 126, 119), PackedInt32Array(127, 119, 126, 128), PackedInt32Array(128, 126, 129, 130), PackedInt32Array(131, 132, 133, 134, 135), PackedInt32Array(134, 136, 137, 138), PackedInt32Array(139, 140, 141), PackedInt32Array(141, 142, 59), PackedInt32Array(62, 61, 143, 144, 145), PackedInt32Array(144, 146, 147, 145), PackedInt32Array(141, 59, 62, 139), PackedInt32Array(148, 139, 62, 149), PackedInt32Array(150, 149, 151, 152), PackedInt32Array(149, 150, 153, 148), PackedInt32Array(154, 155, 156, 157), PackedInt32Array(156, 158, 157), PackedInt32Array(154, 157, 159, 130, 129, 160), PackedInt32Array(159, 161, 162), PackedInt32Array(163, 164, 29, 28, 165), PackedInt32Array(28, 166, 165), PackedInt32Array(167, 168, 169, 115), PackedInt32Array(170, 171, 172, 173), PackedInt32Array(172, 174, 173), PackedInt32Array(170, 173, 175), PackedInt32Array(176, 177, 27, 30, 178), PackedInt32Array(152, 179, 150), PackedInt32Array(151, 180, 181, 152), PackedInt32Array(182, 183, 184, 185), PackedInt32Array(186, 187, 99), PackedInt32Array(188, 189, 190, 94), PackedInt32Array(191, 192, 193), PackedInt32Array(193, 194, 5, 4, 191), PackedInt32Array(134, 138, 135), PackedInt32Array(160, 131, 135, 148, 153), PackedInt32Array(160, 153, 154), PackedInt32Array(195, 130, 159, 162), PackedInt32Array(195, 162, 163, 165), PackedInt32Array(193, 182, 185, 196, 194), PackedInt32Array(115, 118, 195, 167), PackedInt32Array(99, 188, 94, 95), PackedInt32Array(48, 23, 26, 197, 44), PackedInt32Array(195, 165, 167), PackedInt32Array(8, 12, 198, 63), PackedInt32Array(56, 8, 66, 199), PackedInt32Array(57, 56, 199), PackedInt32Array(200, 57, 199), PackedInt32Array(200, 199, 33, 32), PackedInt32Array(36, 35, 81, 53), PackedInt32Array(50, 49, 83, 86), PackedInt32Array(7, 43, 2), PackedInt32Array(94, 7, 6, 48), PackedInt32Array(201, 115, 169, 202), PackedInt32Array(178, 201, 202, 170, 175), PackedInt32Array(178, 175, 176), PackedInt32Array(114, 178, 30, 203, 40), PackedInt32Array(94, 48, 47, 86), PackedInt32Array(94, 86, 85), PackedInt32Array(94, 85, 87), PackedInt32Array(94, 87, 90, 91), PackedInt32Array(204, 205, 20, 3), PackedInt32Array(20, 206, 19), PackedInt32Array(207, 204, 3, 196, 185), PackedInt32Array(208, 191, 4), PackedInt32Array(181, 208, 4, 203, 152), PackedInt32Array(30, 152, 203), PackedInt32Array(114, 40, 39, 112), PackedInt32Array(111, 112, 39), PackedInt32Array(109, 39, 108, 107), PackedInt32Array(105, 108, 209, 103), PackedInt32Array(100, 103, 209, 98), PackedInt32Array(98, 209, 186), PackedInt32Array(98, 186, 99), PackedInt32Array(94, 93, 95)])
+vertices = PackedVector2Array(1960, -1959.98, 1960, 1671.66, 1720, 360.008, 1720, 180.008, 1720.01, -1414.99, 1720.01, -1594.99, 1735.11, -1744.99, 1533.34, -370.75, 1175.91, -13.3281, 890, -196.656, 890, -376.656, -129, -13.3281, 710, -196.656, 413.344, -196.656, 233.344, -196.656, 1187.58, -1193.33, 1533.34, -847.563, 890, -841.656, 890, -1021.66, 605.672, -1193.33, 710, -1021.66, -129, -342.469, 233.344, -376.656, 970, 654.039, 969.992, 1332.64, 887.172, 666.672, 887.172, 606.672, 1030, 654.039, 1170, 46.6719, 1170, 665.969, 1029.99, 1332.64, 863.703, 46.6719, -780.008, 1455.16, -780.008, 1208.16, -441.828, 1434.84, -441.828, 1494.84, 690, 606.672, 690, 605.727, 710, -841.656, -381.672, 1210, -381.672, 959.297, -177, 959.313, -177.617, 1210, -129.094, -342.469, -129.078, -588.617, 233.344, -841.656, 54.9531, 959.133, 415, 959.133, 414.992, 1434.84, -177.617, 1270, -381.672, 1671.66, -381.672, 1494.84, 475.148, 1494.85, 1960, 1731.66, 1960, 1960, -1960, 1959.98, -441, 1731.66, -1960, -1804.99, -1960, -1960, 1735.11, -1804.99, 1540.01, -1414.99, 1597.36, -868.398, -381.672, 1434.84, -381.672, 1270, -177, 899.383, 54.9531, 607.531, -1059.68, 959.297, -441.672, 959.297, -441.672, 1434.84, -780.898, 1206.66, -780.898, 1208.16, -1405.78, 1206.66, -1405.78, 1208.16, -1406.67, 1208.16, -1603.34, 666.656, -1346.67, 1455.16, -1346.67, 1266.66, -840.008, 1266.66, -995.883, 1434.31, -840.008, 1434.31, -995.883, 1494.31, -1603.34, 1671.66, -780.797, 1494.31, -780.797, 1455.16, -441.672, 1729.18, -441.672, 1494.84, -441, 1729.18, -729.578, 1731.66, -1482.33, -342.469, -1570, -342.469, -1570, -1193.34, -1066.66, -1193.34, -1066.66, -342.469, -1289.27, -342.469, -1482.33, 9.11719, -1289.27, 9.11719, -1661.51, 606.656, -1060, 9.11719, -1060, 606.656, -1960, 9.11719, -1663.34, 608.039, -1661.51, 608.039, -1663.34, 1671.66, -1663.76, 1671.66, -1663.76, 1731.66, -1663.34, 1731.66, -1663.34, 1731.94, -1603.34, 1731.94, -1603.34, 1731.66, -381.828, 666.656, -381.828, 665.969, -380, 665.969, -238.344, 899.297, -380, 46.6563, 863.703, 46.6563, -238.344, 607.477, 690, 960.938, 690, 666.672, 1177.02, 665.969, 1177.02, 666.672, 1448.33, 666.672, 1448.33, 1434.84, 629.992, 1455.17, 631.5, 1455.17, 631.5, 1494.84, 1448.33, 606.422, 1448.33, 606.672, 1230, 606.672, 1230, 17.4297, 1208.38, -1257.38, 1204.39, -1253.33, 891.289, -1253.33, 891.289, -1593.33, 1540.01, -1594.99, 446.977, -1193.34, 605.391, -1233.33, 605.672, -1233.33, 413.344, -1021.66, 233.344, -1021.66, 413.344, -841.656, 710, -376.656, 413.344, -376.656, -631, 9.13281, -440, 9.13281, -440, 606.656, -1000, 606.656, -1000, 9.13281, -834.07, 9.13281, -631, -342.469, -417.578, -839.719, -834.07, -342.469, -417.578, -1193.34, -1006.66, -342.469, -1006.66, -1193.34, -417.594, -342.469, -417.578, -588.617, -129.078, -839.719, -129.078, -1193.34, 446.977, -1253.34, 605.391, -1593.33, 446.852, -1253.34, 446.852, -1593.33, 233.148, -1593.33, 233.148, -1253.34, -1006.66, -1253.34, -1006.66, -1253.73, -1066.66, -1253.73, -1066.66, -1253.34, -1630.3, -1253.34, -1960, -1744.99, -1630.3, -1193.34, -1630, -1193.34, -1630, -342.469, -1960, -342.469, 475.148, 1435.46, 474.992, 1435.44, 475, 959.133, 475.047, 959.133, 630, 960.938, 629.992, 1208.17, -178.344, 899.367, -178.344, 607.477, 1508.48, 1434.85, 1508.33, 1434.84, 1508.33, 606.422, 1540, 360.008, 689.992, 1434.84, 689.992, 1208.17, 1508.48, 1494.85, 630, 605.727, 1540, 180.008, 1593.34, -353.898, 1593.34, -864.391, 1597.34, -349.898, 1217.67, -1253.33, 1212.43, -1253.33, 1593.34, -876.18, 1589.58, -876.18, 1217.67, -1248.09, 1593.34, -340.477, 1593.34, -345.898, 1587.92, -340.477, 1593.34, -872.422, -729.578, 1671.66, -1406.67, 1455.16, -1059.68, 899.297, 475.047, 607.539)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(0, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(9, 8, 11, 12), PackedInt32Array(13, 12, 11), PackedInt32Array(14, 13, 11), PackedInt32Array(15, 16, 7, 17, 18), PackedInt32Array(19, 15, 18, 20), PackedInt32Array(14, 11, 21, 22), PackedInt32Array(23, 24, 25, 26), PackedInt32Array(27, 28, 29, 30), PackedInt32Array(31, 28, 27, 23, 26), PackedInt32Array(32, 33, 34, 35), PackedInt32Array(31, 26, 36, 37), PackedInt32Array(17, 7, 10, 38), PackedInt32Array(39, 40, 41, 42), PackedInt32Array(22, 21, 43, 44, 45), PackedInt32Array(46, 47, 48, 49, 42, 41), PackedInt32Array(50, 51, 52, 1), PackedInt32Array(53, 54, 55, 56), PackedInt32Array(57, 58, 0, 59), PackedInt32Array(60, 4, 3, 61), PackedInt32Array(48, 62, 63, 49), PackedInt32Array(46, 41, 64, 65), PackedInt32Array(66, 67, 68, 34, 69), PackedInt32Array(33, 70, 69), PackedInt32Array(71, 72, 73, 74), PackedInt32Array(75, 76, 77, 78), PackedInt32Array(77, 79, 78), PackedInt32Array(75, 78, 80, 81), PackedInt32Array(82, 83, 32, 35, 84), PackedInt32Array(35, 85, 84), PackedInt32Array(84, 86, 56, 55, 87), PackedInt32Array(88, 89, 90, 91), PackedInt32Array(91, 92, 93), PackedInt32Array(88, 91, 93, 94), PackedInt32Array(94, 93, 95, 96), PackedInt32Array(95, 97, 98, 96), PackedInt32Array(99, 94, 96, 100), PackedInt32Array(96, 101, 100), PackedInt32Array(100, 102, 103), PackedInt32Array(104, 105, 106, 55), PackedInt32Array(107, 108, 87), PackedInt32Array(109, 110, 111, 112), PackedInt32Array(111, 113, 114, 31, 115), PackedInt32Array(116, 117, 25, 24), PackedInt32Array(29, 118, 119, 30), PackedInt32Array(119, 120, 121, 30), PackedInt32Array(122, 123, 124, 52), PackedInt32Array(125, 126, 127, 128), PackedInt32Array(129, 130, 131, 132, 133), PackedInt32Array(134, 135, 136, 19, 137, 138), PackedInt32Array(20, 38, 139, 137, 19), PackedInt32Array(38, 10, 140, 139), PackedInt32Array(140, 12, 13, 141), PackedInt32Array(139, 140, 141, 45), PackedInt32Array(45, 141, 22), PackedInt32Array(142, 143, 144, 145), PackedInt32Array(145, 146, 147), PackedInt32Array(142, 145, 147, 148), PackedInt32Array(149, 148, 147, 150, 151), PackedInt32Array(150, 152, 153, 151), PackedInt32Array(154, 148, 149, 155), PackedInt32Array(44, 155, 149, 156), PackedInt32Array(45, 44, 156), PackedInt32Array(45, 156, 157, 138), PackedInt32Array(138, 157, 134), PackedInt32Array(135, 134, 158, 159), PackedInt32Array(158, 160, 161, 159), PackedInt32Array(162, 163, 164, 165), PackedInt32Array(166, 167, 168, 169), PackedInt32Array(170, 171, 172, 173), PackedInt32Array(170, 173, 169, 168), PackedInt32Array(174, 175, 176, 177, 178, 179), PackedInt32Array(64, 180, 181, 65), PackedInt32Array(182, 183, 184, 185), PackedInt32Array(30, 121, 186, 24), PackedInt32Array(24, 186, 187, 116), PackedInt32Array(178, 116, 187, 179), PackedInt32Array(185, 2, 1, 188, 182), PackedInt32Array(55, 99, 100, 103), PackedInt32Array(55, 103, 104), PackedInt32Array(31, 37, 189), PackedInt32Array(185, 184, 125, 128, 190), PackedInt32Array(6, 59, 0), PackedInt32Array(169, 6, 5, 133), PackedInt32Array(191, 192, 61, 193), PackedInt32Array(60, 194, 195, 129, 133), PackedInt32Array(196, 197, 198, 194, 60), PackedInt32Array(199, 200, 193, 3), PackedInt32Array(190, 128, 201, 199, 3), PackedInt32Array(61, 202, 196), PackedInt32Array(55, 106, 107), PackedInt32Array(80, 82, 84, 203), PackedInt32Array(55, 107, 87), PackedInt32Array(84, 87, 203), PackedInt32Array(80, 203, 81), PackedInt32Array(204, 75, 81), PackedInt32Array(204, 81, 74, 73), PackedInt32Array(69, 71, 74, 66), PackedInt32Array(165, 166, 169, 162), PackedInt32Array(162, 169, 133, 161), PackedInt32Array(159, 161, 133), PackedInt32Array(132, 159, 133), PackedInt32Array(34, 33, 69), PackedInt32Array(205, 66, 74), PackedInt32Array(205, 74, 109, 112), PackedInt32Array(115, 112, 111), PackedInt32Array(181, 115, 31), PackedInt32Array(65, 181, 31, 189, 206), PackedInt32Array(206, 189, 178, 177), PackedInt32Array(174, 179, 122, 52), PackedInt32Array(1, 52, 124, 188), PackedInt32Array(61, 196, 60), PackedInt32Array(61, 3, 193)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1996.67, -1988.33, -1991.67, 1990, 1990, 2003.33, 2000, -1991.67)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3fm6"]
@@ -110,7 +109,7 @@ modulate = Color(0.247059, 0.301961, 0.356863, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
 [node name="SmallSquare2" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
-position = Vector2(1630, 270.006)
+position = Vector2(1630, 325.006)
 rotation = -1.57079
 scale = Vector2(8, 8)
 collision_layer = 8
@@ -176,6 +175,34 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_k3fm6")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare6"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="SmallSquare7" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(799.999, 323.336)
+rotation = -1.57079
+scale = Vector2(8, 8)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare7"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare7"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="SmallSquare8" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(323.332, 323.335)
+rotation = -1.57079
+scale = Vector2(8, 8)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare8"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare8"]
 modulate = Color(0.247059, 0.301961, 0.356863, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
@@ -362,9 +389,9 @@ modulate = Color(0.247059, 0.301961, 0.356863, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
 [node name="WallV4" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
-position = Vector2(-920.002, 636.663)
+position = Vector2(-1021.67, 636.663)
 rotation = -1.57079
-scale = Vector2(2, 73.104)
+scale = Vector2(2, 62.984)
 collision_layer = 8
 collision_mask = 0
 
@@ -386,6 +413,20 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_k3fm6")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV5"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="WallV16" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(1028.33, 16.6704)
+rotation = -1.57079
+scale = Vector2(2, 15.464)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallV16"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV16"]
 modulate = Color(0.247059, 0.301961, 0.356863, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
@@ -566,9 +607,9 @@ modulate = Color(0.247059, 0.301961, 0.356863, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
 [node name="WallH2" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
-position = Vector2(-1600, -663.339)
+position = Vector2(-1600, -765.006)
 rotation = -3.14159
-scale = Vector2(2, 33.705)
+scale = Vector2(2, 44.6383)
 collision_layer = 8
 collision_mask = 0
 
@@ -622,7 +663,7 @@ modulate = Color(0.247059, 0.301961, 0.356863, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
 [node name="WallH5" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
-position = Vector2(859, 326.67)
+position = Vector2(444.996, 1125)
 rotation = -3.14159
 scale = Vector2(2, 32.93)
 collision_layer = 8
@@ -636,7 +677,7 @@ modulate = Color(0.247059, 0.301961, 0.356863, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
 [node name="WallH6" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
-position = Vector2(263.332, 326.668)
+position = Vector2(999.996, 993.337)
 rotation = -3.14159
 scale = Vector2(2, 32.93)
 collision_layer = 8
@@ -708,7 +749,7 @@ mesh = SubResource("QuadMesh_sps2i")
 [node name="WallH13" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
 position = Vector2(-411.672, 1333.33)
 rotation = -3.14159
-scale = Vector2(2, 11.35)
+scale = Vector2(2, 38.585)
 collision_layer = 8
 collision_mask = 0
 
@@ -716,20 +757,6 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_k3fm6")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH13"]
-modulate = Color(0.247059, 0.301961, 0.356863, 1)
-mesh = SubResource("QuadMesh_sps2i")
-
-[node name="WallH14" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
-position = Vector2(446.662, 1331.67)
-rotation = -3.14159
-scale = Vector2(2, 11.35)
-collision_layer = 8
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallH14"]
-shape = SubResource("RectangleShape2D_k3fm6")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH14"]
 modulate = Color(0.247059, 0.301961, 0.356863, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
@@ -789,82 +816,113 @@ shape = SubResource("RectangleShape2D_k3fm6")
 modulate = Color(0.247059, 0.301961, 0.356863, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
-[node name="EnemySpawnPoint_Ranged" parent="." instance=ExtResource("3_ap2cq")]
+[node name="EnemySpawnPoint" parent="." instance=ExtResource("3_ap2cq")]
 position = Vector2(-1878.33, 1866.67)
-enemy_scene = ExtResource("5_gdsmx")
-spawn_cooldown = 10.0
+enemy_scene = ExtResource("5_8e83p")
+spawn_cooldown = 1.0
 initial_spawn_wait_time = 0.0
-max_enemies_number = 5
-hard_enemy_scene = ExtResource("5_gdsmx")
+max_enemies_number = 2
+hard_enemy_scene = ExtResource("5_8e83p")
 hard_spawn_cooldown = 6.0
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint_Ranged"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint"]
 modulate = Color(1, 0, 0, 1)
 visibility_layer = 2
 scale = Vector2(20, 20)
 mesh = SubResource("QuadMesh_mwujv")
 
-[node name="EnemySpawnPoint_Ranged2" parent="." instance=ExtResource("3_ap2cq")]
+[node name="EnemySpawnPoint2" parent="." instance=ExtResource("3_ap2cq")]
 position = Vector2(1841.67, -1868.33)
-enemy_scene = ExtResource("5_gdsmx")
-spawn_cooldown = 10.0
+enemy_scene = ExtResource("5_8e83p")
+spawn_cooldown = 1.0
 initial_spawn_wait_time = 0.0
-max_enemies_number = 5
-hard_enemy_scene = ExtResource("5_gdsmx")
+hard_enemy_scene = ExtResource("5_8e83p")
 hard_spawn_cooldown = 6.0
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint_Ranged2"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint2"]
 modulate = Color(1, 0, 0, 1)
 visibility_layer = 2
 scale = Vector2(20, 20)
 mesh = SubResource("QuadMesh_mwujv")
 
-[node name="EnemySpawnPoint_Melee" parent="." instance=ExtResource("3_ap2cq")]
+[node name="EnemySpawnPoint3" parent="." instance=ExtResource("3_ap2cq")]
 position = Vector2(-480, 1815)
-enemy_scene = ExtResource("4_svmh1")
-spawn_cooldown = 2.0
-initial_spawn_wait_time = 1.0
-max_enemies_number = 5
-hard_enemy_scene = ExtResource("4_svmh1")
+enemy_scene = ExtResource("5_8e83p")
+spawn_cooldown = 1.0
+initial_spawn_wait_time = 0.0
+max_enemies_number = 1
+hard_enemy_scene = ExtResource("5_8e83p")
 hard_spawn_cooldown = 5.0
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint_Melee"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint3"]
 modulate = Color(1, 0, 0, 1)
 visibility_layer = 2
 scale = Vector2(20, 20)
 mesh = SubResource("QuadMesh_mwujv")
 
-[node name="EnemySpawnPoint_Melee2" parent="." instance=ExtResource("3_ap2cq")]
-position = Vector2(313.333, -551.667)
-enemy_scene = ExtResource("4_svmh1")
+[node name="EnemySpawnPoint4" parent="." instance=ExtResource("3_ap2cq")]
+position = Vector2(1585, 283.333)
+enemy_scene = ExtResource("5_8e83p")
 spawn_cooldown = 8.0
 initial_spawn_wait_time = 0.0
-max_enemies_number = -1
-hard_enemy_scene = ExtResource("4_svmh1")
+max_enemies_number = 1
+hard_enemy_scene = ExtResource("5_8e83p")
 hard_spawn_cooldown = 5.0
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint_Melee2"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint4"]
 modulate = Color(1, 0, 0, 1)
 visibility_layer = 2
 scale = Vector2(20, 20)
 mesh = SubResource("QuadMesh_mwujv")
 
-[node name="EnemySpawnPoint_Melee3" parent="." instance=ExtResource("3_ap2cq")]
-position = Vector2(788.333, 356.667)
-enemy_scene = ExtResource("4_svmh1")
-spawn_cooldown = 8.0
+[node name="EnemySpawnPoint5" parent="." instance=ExtResource("3_ap2cq")]
+position = Vector2(1343.33, 286.667)
+spawn_cooldown = 0.0
+initial_spawn_wait_time = 0.0
+max_enemies_number = 0
+hard_enemy_scene = ExtResource("5_8e83p")
+hard_spawn_cooldown = 5.0
+hard_max_enemies_number = 3
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint5"]
+modulate = Color(1, 0, 0, 1)
+visibility_layer = 2
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_mwujv")
+
+[node name="EnemySpawnPoint6" parent="." instance=ExtResource("3_ap2cq")]
+position = Vector2(1080, 286.667)
+spawn_cooldown = 0.0
+initial_spawn_wait_time = 0.0
+max_enemies_number = 0
+hard_enemy_scene = ExtResource("5_8e83p")
+hard_spawn_cooldown = 5.0
+hard_max_enemies_number = 3
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint6"]
+modulate = Color(1, 0, 0, 1)
+visibility_layer = 2
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_mwujv")
+
+[node name="EnemySpawnPoint7" parent="." instance=ExtResource("3_ap2cq")]
+position = Vector2(1345, 913.333)
+enemy_scene = ExtResource("5_8e83p")
+spawn_cooldown = 12.0
 initial_spawn_wait_time = 0.0
 max_enemies_number = -1
-hard_enemy_scene = ExtResource("4_svmh1")
+hard_enemy_scene = ExtResource("5_8e83p")
 hard_spawn_cooldown = 5.0
+hard_max_enemies_number = 3
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint_Melee3"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint7"]
 modulate = Color(1, 0, 0, 1)
 visibility_layer = 2
 scale = Vector2(20, 20)
 mesh = SubResource("QuadMesh_mwujv")
 
 [node name="MainCharacter" parent="." node_paths=PackedStringArray("flying_boomerang") instance=ExtResource("6_gt8dw")]
+visible = false
 position = Vector2(318.333, 741.667)
 flying_boomerang = NodePath("../Boomerang")
 
@@ -877,6 +935,3 @@ position = Vector2(290, 1370)
 
 [node name="Interactable" parent="." instance=ExtResource("9_0vbs3")]
 position = Vector2(320, 86.6667)
-
-[node name="EnemyRanged" parent="." instance=ExtResource("5_gdsmx")]
-position = Vector2(-971.667, 725)

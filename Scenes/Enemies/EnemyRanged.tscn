@@ -8,7 +8,7 @@ radius = 145.0
 
 [node name="EnemyRanged" type="CharacterBody2D"]
 z_index = 10
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.6, 0.6)
 collision_layer = 4
 collision_mask = 14
 motion_mode = 1
@@ -16,11 +16,11 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_1at0e")
 
 [node name="ThrowingAxeGiantV1" type="Sprite2D" parent="."]
+position = Vector2(-13.3333, 5)
 rotation = -1.57079
 texture = ExtResource("2_vn5kx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(20, 0)
 shape = SubResource("CircleShape2D_w56bn")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

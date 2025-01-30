@@ -8,7 +8,7 @@ radius = 50.0
 
 [node name="EnemyWalking" type="CharacterBody2D" groups=["Enemies"]]
 z_index = 10
-scale = Vector2(0.55, 0.55)
+scale = Vector2(0.8, 0.8)
 collision_layer = 4
 collision_mask = 14
 motion_mode = 1
@@ -17,11 +17,11 @@ script = ExtResource("1_oxpao")
 MOVEMENT_SPEED = 150.0
 
 [node name="AssassinV1" type="Sprite2D" parent="."]
+position = Vector2(3.75, 0)
 rotation = -1.57079
 texture = ExtResource("2_s6d6p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.63636, 1.81818)
 shape = SubResource("CircleShape2D_6hjse")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
