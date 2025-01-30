@@ -332,7 +332,6 @@ script = ExtResource("6_4bvjg")
 
 [node name="Panel" type="Panel" parent="PauseMenu"]
 process_mode = 2
-visible = false
 custom_minimum_size = Vector2(400, 500)
 layout_mode = 1
 anchors_preset = -1
