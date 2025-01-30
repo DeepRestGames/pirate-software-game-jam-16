@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dwmnwwfbcm0xb"]
+[gd_scene load_steps=23 format=3 uid="uid://dwmnwwfbcm0xb"]
 
 [ext_resource type="Script" path="res://Scripts/UI/HUD_BoomerangFlyTime.gd" id="1_bu7ua"]
 [ext_resource type="Texture2D" uid="uid://crx3lnqsfoy8l" path="res://Assets/UI/ProgressBar.png" id="2_5m6f8"]
@@ -50,7 +50,7 @@ _data = {
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwlqo"]
-bg_color = Color(0, 0, 0, 0.392157)
+bg_color = Color(0.117647, 0.117647, 0.117647, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -64,6 +64,20 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ywubh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0u58j"]
+bg_color = Color(0.294118, 0.92549, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xtmy"]
+bg_color = Color(0.294118, 0.698039, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g5s8p"]
 
@@ -318,7 +332,6 @@ script = ExtResource("6_4bvjg")
 
 [node name="Panel" type="Panel" parent="PauseMenu"]
 process_mode = 2
-visible = false
 custom_minimum_size = Vector2(400, 500)
 layout_mode = 1
 anchors_preset = -1
@@ -513,6 +526,8 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_0u58j")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_4xtmy")
 min_value = -30.0
 max_value = 0.0
 step = 0.1
@@ -537,6 +552,8 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_0u58j")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_4xtmy")
 min_value = -30.0
 max_value = 0.0
 step = 0.1
