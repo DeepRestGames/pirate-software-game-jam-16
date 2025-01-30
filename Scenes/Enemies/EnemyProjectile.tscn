@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://3aa1qwnwseh8"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/EnemyProjectile.gd" id="1_nyg1c"]
-[ext_resource type="Texture2D" uid="uid://cicbcdqxw7oec" path="res://Assets/Placeholders/WhiteCircle.png" id="2_64niy"]
+[ext_resource type="Texture2D" uid="uid://ckkfub8xrhfbk" path="res://Assets/Sprites/Enemies/ThrownAxe_v1.png" id="3_qap7l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bi23y"]
-radius = 24.0
+radius = 25.0
 
 [node name="EnemyProjectile" type="StaticBody2D" groups=["Enemies"]]
 z_index = 10
@@ -12,10 +12,10 @@ collision_layer = 16
 collision_mask = 10
 script = ExtResource("1_nyg1c")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.934969, 0.000710795, 0.934963, 1)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_64niy")
+[node name="ThrownAxeV1" type="Sprite2D" parent="."]
+scale = Vector2(0.425, 0.425)
+texture = ExtResource("3_qap7l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_bi23y")

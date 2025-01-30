@@ -1,25 +1,26 @@
 [gd_scene load_steps=4 format=3 uid="uid://c4xmmv3ww4l3p"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/EnemyRanged.gd" id="1_1at0e"]
-[ext_resource type="Texture2D" uid="uid://vrfkmlq6h0im" path="res://icon.svg" id="2_eejnf"]
+[ext_resource type="Texture2D" uid="uid://tguiaccuehlo" path="res://Assets/Sprites/Enemies/ThrowingAxeGiant_v1.png" id="2_vn5kx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w56bn"]
-radius = 35.0
+radius = 145.0
 
 [node name="EnemyRanged" type="CharacterBody2D"]
 z_index = 10
+scale = Vector2(0.4, 0.4)
 collision_layer = 4
 collision_mask = 14
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_1at0e")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.485003, 0.0242831, 0.532642, 1)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_eejnf")
+[node name="ThrowingAxeGiantV1" type="Sprite2D" parent="."]
+rotation = -1.57079
+texture = ExtResource("2_vn5kx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, 0)
 shape = SubResource("CircleShape2D_w56bn")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

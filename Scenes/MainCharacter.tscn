@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://blwtacw6rbdye"]
+[gd_scene load_steps=10 format=3 uid="uid://blwtacw6rbdye"]
 
 [ext_resource type="Script" path="res://Scripts/MainCharacter.gd" id="1_niili"]
 [ext_resource type="Texture2D" uid="uid://vrfkmlq6h0im" path="res://icon.svg" id="2_puhgc"]
 [ext_resource type="Script" path="res://Scripts/GameManagement/ScreenShake.gd" id="2_vpcr6"]
 [ext_resource type="Texture2D" uid="uid://b7oyj8163kmxq" path="res://Assets/Placeholders/YellowMjolnir.png" id="3_kcmxj"]
+[ext_resource type="Texture2D" uid="uid://bdlbgws33hnra" path="res://Assets/Sprites/Character/Bard_v1.png" id="3_pd0wh"]
+[ext_resource type="Texture2D" uid="uid://cicbcdqxw7oec" path="res://Assets/Placeholders/WhiteCircle.png" id="4_rx0xj"]
 [ext_resource type="PackedScene" uid="uid://dwmnwwfbcm0xb" path="res://Scenes/UI/HUD.tscn" id="5_k0fps"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4meyu"]
@@ -21,7 +23,12 @@ script = ExtResource("1_niili")
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("2_vpcr6")
 
+[node name="BardV1" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_pd0wh")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0, 1, 0, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_puhgc")

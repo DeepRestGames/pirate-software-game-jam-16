@@ -12,6 +12,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	rotate(.2)
+	
 	var collision = move_and_collide(direction * PROJECTILE_SPEED * delta)
 	
 	if collision != null:
