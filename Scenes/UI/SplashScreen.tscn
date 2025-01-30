@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlpfx2oiixl44"]
+[gd_scene load_steps=7 format=3 uid="uid://dlpfx2oiixl44"]
 
 [ext_resource type="Script" path="res://Scripts/UI/SplashScreen.gd" id="1_561m1"]
-[ext_resource type="Texture2D" uid="uid://vrfkmlq6h0im" path="res://icon.svg" id="2_2y2lc"]
 [ext_resource type="Texture2D" uid="uid://dkw7c428a7w2" path="res://Assets/Logos/240423_DRG_Full_Logo_white.png" id="2_jupup"]
-[ext_resource type="FontFile" uid="uid://vqr151sphmyi" path="res://Assets/UI/Fonts/CaesarDressing-Regular.ttf" id="4_4t2gy"]
+[ext_resource type="Texture2D" uid="uid://dho3co05kxway" path="res://Assets/UI/Godin.png" id="3_ia5u0"]
 
 [sub_resource type="Animation" id="Animation_sbd65"]
 length = 0.001
@@ -34,34 +33,10 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MadeWith_RichTextLabel:modulate")
+tracks/2/path = NodePath("GodotLogo_AspectRatioContainer:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Godot_RichTextLabel:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("GodotLogo_AspectRatioContainer:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -98,34 +73,10 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MadeWith_RichTextLabel:modulate")
+tracks/2/path = NodePath("GodotLogo_AspectRatioContainer:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 3.8, 4.6, 5.6, 6.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Godot_RichTextLabel:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 3.8, 4.6, 5.6, 6.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("GodotLogo_AspectRatioContainer:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 3.8, 4.6, 5.6, 6.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
@@ -160,19 +111,16 @@ metadata/_edit_use_anchors_ = true
 [node name="DeepRestLogo_AspectRatioContainer" type="AspectRatioContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -300.0
-offset_right = 300.0
-offset_bottom = 300.0
+anchors_preset = -1
+anchor_left = 0.254098
+anchor_top = 0.125
+anchor_right = 0.745902
+anchor_bottom = 0.875
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.7, 0.7)
 pivot_offset = Vector2(300, 300)
+metadata/_edit_use_anchors_ = true
 
 [node name="Logo_TextureRect" type="TextureRect" parent="DeepRestLogo_AspectRatioContainer"]
 layout_mode = 2
@@ -183,21 +131,18 @@ metadata/_edit_use_anchors_ = true
 [node name="GodotLogo_AspectRatioContainer" type="AspectRatioContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
+anchors_preset = -1
+anchor_left = 0.22623
+anchor_top = 0.0825
+anchor_right = 0.773771
+anchor_bottom = 0.9175
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Logo_TextureRect" type="TextureRect" parent="GodotLogo_AspectRatioContainer"]
 layout_mode = 2
-texture = ExtResource("2_2y2lc")
+texture = ExtResource("3_ia5u0")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
@@ -207,46 +152,5 @@ libraries = {
 "": SubResource("AnimationLibrary_b6fhh")
 }
 autoplay = "splash_screen"
-
-[node name="MadeWith_RichTextLabel" type="RichTextLabel" parent="."]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(470, 109)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.307377
-anchor_top = 0.175
-anchor_right = 0.692623
-anchor_bottom = 0.31125
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/default_color = Color(0.929412, 0.690196, 0.4, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("4_4t2gy")
-theme_override_font_sizes/normal_font_size = 80
-bbcode_enabled = true
-text = "[center]Made with[/center]"
-scroll_active = false
-metadata/_edit_use_anchors_ = true
-
-[node name="Godot_RichTextLabel" type="RichTextLabel" parent="."]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(470, 105)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.307377
-anchor_top = 0.67
-anchor_right = 0.692623
-anchor_bottom = 0.80125
-offset_top = 3.05176e-05
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/default_color = Color(0.929412, 0.690196, 0.4, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("4_4t2gy")
-theme_override_font_sizes/normal_font_size = 80
-bbcode_enabled = true
-text = "[center]godot[/center]"
-scroll_active = false
-metadata/_edit_use_anchors_ = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
