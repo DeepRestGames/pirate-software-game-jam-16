@@ -69,6 +69,7 @@ func _physics_process(delta: float) -> void:
 		var direction = (mouse_position - global_position).normalized()
 		character_sprite.rotation = lerp_angle(character_sprite.rotation, direction.angle(), ROTATION_SPEED * delta)
 		meelee_boomerang.position = direction * MEELEE_BOOMERANG_OFFSET
+		meelee_boomerang.rotation = lerp_angle(meelee_boomerang.rotation, direction.angle(), ROTATION_SPEED * delta)
 		meelee_boomerang.look_at(direction)
 	
 	# If boomerang is flying, character looks at boomerang
@@ -129,6 +130,7 @@ func boomerang_reached():
 	boomerang_on_ground = false
 	boomerang_in_hand = true
 	EventBus.emit_signal("fly_time_reset")
+	
 	meelee_boomerang.show()
 	meelee_boomerang.process_mode = Node.PROCESS_MODE_INHERIT
 	path_calculation_timer.stop()
