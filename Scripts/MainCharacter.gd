@@ -99,7 +99,7 @@ func _physics_process(delta: float) -> void:
 
 func take_damage():
 	EventBus.emit_signal("player_death")
-	hide()
+	process_mode = PROCESS_MODE_DISABLED
 
 
 func teleport_boomerang():
