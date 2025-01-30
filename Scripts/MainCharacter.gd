@@ -1,6 +1,7 @@
 class_name MainCharacter
 extends CharacterBody2D
 
+@onready var character_sprite = $BardV1 as Sprite2D
 @onready var navigation_agent = $NavigationAgent2D as NavigationAgent2D
 @onready var path_calculation_timer = $PathCalculationTimer as Timer
 @onready var boomerang_teleport_timer = $BoomerangTeleportTimer as Timer
@@ -12,6 +13,7 @@ extends CharacterBody2D
 var current_boomerang_teleport_cooldown: float = 0
 
 const MOVEMENT_SPEED: float = 300
+const ROTATION_SPEED: float = 5
 const MEELEE_BOOMERANG_OFFSET = 100
 
 var boomerang_on_ground: bool = false
@@ -53,7 +55,10 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	# Get navigation agent path only if boomerang is on the ground
 	if boomerang_on_ground:
-		var direction = to_local(navigation_agent.get_next_path_position()).normalized()
+		var next_point = navigation_agent.get_next_path_position()
+		var direction = (next_point - global_position).normalized()
+		
+		character_sprite.rotation = lerp_angle(character_sprite.rotation, direction.angle(), ROTATION_SPEED * delta)
 		velocity = direction * MOVEMENT_SPEED
 	else:
 		velocity = Vector2.ZERO
@@ -62,8 +67,15 @@ func _physics_process(delta: float) -> void:
 	if boomerang_in_hand:
 		var mouse_position = get_global_mouse_position()
 		var direction = (mouse_position - global_position).normalized()
+		character_sprite.rotation = lerp_angle(character_sprite.rotation, direction.angle(), ROTATION_SPEED * delta)
 		meelee_boomerang.position = direction * MEELEE_BOOMERANG_OFFSET
 		meelee_boomerang.look_at(direction)
+	
+	# If boomerang is flying, character looks at boomerang
+	if not boomerang_in_hand and not boomerang_on_ground:
+		var direction = (flying_boomerang.global_position - global_position).normalized()
+		character_sprite.rotation = lerp_angle(character_sprite.rotation, direction.angle(), ROTATION_SPEED * delta)
+	
 	
 	if move_and_slide():
 		for i in get_slide_collision_count():
