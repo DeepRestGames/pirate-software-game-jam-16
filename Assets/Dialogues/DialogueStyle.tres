@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=17 format=3 uid="uid://dhnkollq22yts"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_3b2ym"]
+[ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="2_nlgp5"]
+[ext_resource type="PackedScene" uid="uid://cy1y14inwkplb" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Portraits/vn_portrait_layer.tscn" id="3_hwcg4"]
+[ext_resource type="PackedScene" uid="uid://bquja8jyk8kbr" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.tscn" id="4_ddifw"]
+[ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="5_g4nrb"]
+[ext_resource type="PackedScene" uid="uid://dsbwnp5hegnu3" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Glossary/glossary_popup_layer.tscn" id="6_5yrb1"]
+[ext_resource type="PackedScene" uid="uid://dhk6j6eb6e3q" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.tscn" id="7_53mde"]
+[ext_resource type="PackedScene" uid="uid://cvgf4c6gg0tsy" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_TextInput/text_input_layer.tscn" id="8_3vd6p"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="10_icnyu"]
+
+[sub_resource type="Resource" id="Resource_cafox"]
+script = ExtResource("1_3b2ym")
+scene = ExtResource("2_nlgp5")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_1ognc"]
+script = ExtResource("1_3b2ym")
+scene = ExtResource("3_hwcg4")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_pfjih"]
+script = ExtResource("1_3b2ym")
+scene = ExtResource("4_ddifw")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_de31i"]
+script = ExtResource("1_3b2ym")
+scene = ExtResource("5_g4nrb")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_a0md3"]
+script = ExtResource("1_3b2ym")
+scene = ExtResource("6_5yrb1")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_c3373"]
+script = ExtResource("1_3b2ym")
+scene = ExtResource("7_53mde")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_iyqbc"]
+script = ExtResource("1_3b2ym")
+scene = ExtResource("8_3vd6p")
+overrides = {}
+
+[resource]
+script = ExtResource("10_icnyu")
+name = "DialogueStyle"
+base_overrides = {
+"global_bg_color": "Color(0.0392157, 0.0392157, 0.0392157, 1)",
+"global_font": "\"res://Assets/UI/Fonts/CaesarDressing-Regular.ttf\"",
+"global_font_size": "25.0"
+}
+layers = Array[ExtResource("1_3b2ym")]([SubResource("Resource_cafox"), SubResource("Resource_1ognc"), SubResource("Resource_pfjih"), SubResource("Resource_de31i"), SubResource("Resource_a0md3"), SubResource("Resource_c3373"), SubResource("Resource_iyqbc")])
+metadata/_latest_layer = -1

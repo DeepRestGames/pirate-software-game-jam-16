@@ -106,3 +106,8 @@ signal play_enemy_spawn_sound
 
 @warning_ignore("unused_signal")
 signal play_enemy_death_sound
+
+
+# Dialogues
+@warning_ignore("unused_signal")
+signal play_timeline(timeline_name)
