@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt3n8ctpkwxse"]
+
+[ext_resource type="Script" path="res://Scripts/GameManagement/SoundManager.gd" id="1_byrpm"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_vwkls"]
+polyphony = 128
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_byrpm")
+
+[node name="Music_StreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 2
+bus = &"Music"
+
+[node name="SFX_StreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPolyphonic_vwkls")
+max_polyphony = 64
+bus = &"SFX"

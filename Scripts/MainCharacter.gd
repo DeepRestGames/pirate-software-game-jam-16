@@ -124,6 +124,7 @@ func throw_boomerang():
 	boomerang_just_thrown = true
 	
 	EventBus.emit_signal("throw_boomerang", meelee_boomerang.global_position)
+	EventBus.emit_signal("play_throw_sound")
 
 
 func boomerang_reached():
@@ -134,6 +135,8 @@ func boomerang_reached():
 	meelee_boomerang.show()
 	meelee_boomerang.process_mode = Node.PROCESS_MODE_INHERIT
 	path_calculation_timer.stop()
+	
+	EventBus.emit_signal("play_pickup_sound")
 
 
 func move_to_boomerang() -> void:

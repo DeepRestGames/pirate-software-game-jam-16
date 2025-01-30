@@ -30,3 +30,4 @@ func _on_body_entered(body: Node2D) -> void:
 		
 		EventBus.emit_signal("start_opening_gateway")
 		EventBus.emit_signal("difficulty_ramp_up")
+		EventBus.emit_signal("play_gate_open_sfx")

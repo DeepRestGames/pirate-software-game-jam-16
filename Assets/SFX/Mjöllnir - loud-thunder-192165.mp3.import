@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://wje2xd1lv0sh"
+path="res://.godot/imported/Mjöllnir - loud-thunder-192165.mp3-c7a3f094c5852c9b90ff7b7a05823012.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Mjöllnir - loud-thunder-192165.mp3"
+dest_files=["res://.godot/imported/Mjöllnir - loud-thunder-192165.mp3-c7a3f094c5852c9b90ff7b7a05823012.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

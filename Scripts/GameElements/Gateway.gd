@@ -9,7 +9,7 @@ extends Area2D
 
 @export var opening_time: float = 10
 @export var always_open = false
-var time_left: float
+var time_left: float = 1
 var open = false
 var just_closed = false
 
@@ -36,6 +36,7 @@ func _process(delta: float) -> void:
 	
 	if time_left <= 0 and not just_closed:
 		just_closed = true
+		EventBus.emit_signal("play_gate_close_sfx")
 		EventBus.emit_signal("difficulty_down")
 		open = false
 		show_gateway_open_animation(false)
@@ -44,8 +45,8 @@ func _process(delta: float) -> void:
 	EventBus.emit_signal("gateway_time_left", time_left)
 
 
-func show_gateway_open_animation(show: bool):
-	if show:
+func show_gateway_open_animation(show_animation: bool):
+	if show_animation:
 		sprite.hide()
 		gateway_particles.rotation = 0
 		gateway_particles.show()

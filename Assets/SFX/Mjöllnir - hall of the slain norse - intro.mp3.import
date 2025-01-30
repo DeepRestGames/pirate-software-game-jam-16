@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dddq0nlxrw524"
+path="res://.godot/imported/Mjöllnir - hall of the slain norse - intro.mp3-0dae86b8f93030056a1e3c6b90de4fd5.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Mjöllnir - hall of the slain norse - intro.mp3"
+dest_files=["res://.godot/imported/Mjöllnir - hall of the slain norse - intro.mp3-0dae86b8f93030056a1e3c6b90de4fd5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
