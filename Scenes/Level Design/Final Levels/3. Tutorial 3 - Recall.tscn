@@ -34,6 +34,8 @@ size = Vector2(20, 20)
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_wtaep")
 next_level_scene = ExtResource("2_t06pg")
+signal_name_trigger = "play_gate_close_sfx"
+triggered_dialogue_name = "RecallTimeline"
 
 [node name="Environment" type="Node2D" parent="."]
 rotation = -1.5708

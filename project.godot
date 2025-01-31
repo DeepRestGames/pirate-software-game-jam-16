@@ -28,7 +28,16 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 directories/dch_directory={}
 directories/dtl_directory={
-"RecallTimeline": "res://Assets/Dialogues/RecallTimeline.dtl"
+"AlarmTimeline": "res://Assets/Dialogues/AlarmTimeline.dtl",
+"AssassinsTimeline": "res://Assets/Dialogues/AssassinsTimeline.dtl",
+"BossTimeline": "res://Assets/Dialogues/BossTimeline.dtl",
+"HammerDropTimeline": "res://Assets/Dialogues/HammerDropTimeline.dtl",
+"OpenPortalTimeline": "res://Assets/Dialogues/OpenPortalTimeline.dtl",
+"RangedEnemiesTimeline": "res://Assets/Dialogues/RangedEnemiesTimeline.dtl",
+"RecallTimeline": "res://Assets/Dialogues/RecallTimeline.dtl",
+"ThorTimeline": "res://Assets/Dialogues/ThorTimeline.dtl",
+"ThrowHammerTimeline": "res://Assets/Dialogues/ThrowHammerTimeline.dtl",
+"WalkingEnemiesTimeline": "res://Assets/Dialogues/WalkingEnemiesTimeline.dtl"
 }
 layout/style_list=["res://Assets/Dialogues/DialogueStyle.tres"]
 layout/default_style="res://Assets/Dialogues/DialogueStyle.tres"

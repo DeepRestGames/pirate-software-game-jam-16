@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/GameManagement/GameLevel.gd" id="1_7jrmr"]
 [ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="1_fxpc2"]
-[ext_resource type="PackedScene" uid="uid://4jgh1yqcs67e" path="res://Scenes/Level Design/LageLevels/9. Dungeon.tscn" id="2_42li0"]
+[ext_resource type="PackedScene" uid="uid://4jgh1yqcs67e" path="res://Scenes/Level Design/Final Levels/9. Dungeon Assassins.tscn" id="2_42li0"]
 [ext_resource type="Texture2D" uid="uid://dyyked7oujucm" path="res://Assets/Placeholders/Ground300.png" id="2_54wto"]
 [ext_resource type="PackedScene" uid="uid://l8vxen63cqn3" path="res://Scenes/Enemies/EnemySpawnPoint.tscn" id="3_v8you"]
 [ext_resource type="PackedScene" uid="uid://1jxgf3akb6ir" path="res://Scenes/Enemies/EnemyWalking.tscn" id="4_8ww7u"]

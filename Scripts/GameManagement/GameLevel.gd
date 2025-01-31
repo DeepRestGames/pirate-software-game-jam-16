@@ -12,11 +12,11 @@ extends Node2D
 
 
 func _ready() -> void:
-	EventBus.emit_signal("level_started", self)
 	EventBus.connect(signal_name_trigger, trigger_dialogue)
+	EventBus.emit_signal("level_started", self)
 
 
-func trigger_dialogue():
+func trigger_dialogue(_fake_parameter = null):
 	Dialogic.start(triggered_dialogue_name).process_mode = Node.PROCESS_MODE_ALWAYS
 	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
 	Dialogic.timeline_ended.connect(func():get_tree().set('paused', false))

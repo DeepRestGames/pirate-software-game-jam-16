@@ -40,6 +40,8 @@ scale = Vector2(0.6, 0.6)
 script = ExtResource("1_ft3og")
 level_number = 12
 next_level_scene = ExtResource("2_cnh1c")
+signal_name_trigger = "level_started"
+triggered_dialogue_name = "BossTimeline"
 
 [node name="Environment" type="Node2D" parent="."]
 rotation = -1.5708

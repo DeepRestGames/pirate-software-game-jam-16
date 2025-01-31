@@ -29,6 +29,8 @@ scale = Vector2(0.6, 0.6)
 script = ExtResource("1_vnm0m")
 level_number = 9
 next_level_scene = ExtResource("2_hprw8")
+signal_name_trigger = "level_started"
+triggered_dialogue_name = "AssassinsTimeline"
 
 [node name="Environment" type="Node2D" parent="."]
 rotation = -1.5708

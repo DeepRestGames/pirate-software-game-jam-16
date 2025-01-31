@@ -44,6 +44,8 @@ script = ExtResource("1_xwhxf")
 level_number = 11
 level_name = "test2"
 next_level_scene = ExtResource("2_n5y7w")
+signal_name_trigger = "level_started"
+triggered_dialogue_name = "ThorTimeline"
 
 [node name="Environment" type="Node2D" parent="."]
 

@@ -39,6 +39,8 @@ scale = Vector2(0.6, 0.6)
 script = ExtResource("1_xrvoy")
 level_number = 5
 next_level_scene = ExtResource("2_ho6d8")
+signal_name_trigger = "level_started"
+triggered_dialogue_name = "WalkingEnemiesTimeline"
 
 [node name="Environment" type="Node2D" parent="."]
 rotation = -1.5708
