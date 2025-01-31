@@ -1108,7 +1108,7 @@ mesh = SubResource("QuadMesh_6p15g")
 [node name="EnemySpawnPoint" parent="." instance=ExtResource("5_lbcj8")]
 position = Vector2(-278.333, -2376.67)
 enemy_scene = ExtResource("6_j6tdd")
-spawn_cooldown = 6.0
+spawn_cooldown = 10.0
 initial_spawn_wait_time = 0.0
 max_enemies_number = -1
 hard_enemy_scene = ExtResource("6_j6tdd")
@@ -1125,7 +1125,7 @@ texture = ExtResource("7_muycn")
 [node name="EnemySpawnPoint2" parent="." instance=ExtResource("5_lbcj8")]
 position = Vector2(320, -2376.67)
 enemy_scene = ExtResource("6_j6tdd")
-spawn_cooldown = 6.0
+spawn_cooldown = 10.0
 initial_spawn_wait_time = 0.0
 max_enemies_number = -1
 hard_enemy_scene = ExtResource("6_j6tdd")
@@ -1142,11 +1142,11 @@ texture = ExtResource("7_muycn")
 [node name="EnemySpawnPoint3" parent="." instance=ExtResource("5_lbcj8")]
 position = Vector2(-320, -571.667)
 enemy_scene = ExtResource("6_j6tdd")
-spawn_cooldown = 6.0
+spawn_cooldown = 10.0
 initial_spawn_wait_time = -5.0
 max_enemies_number = -1
 hard_enemy_scene = ExtResource("6_j6tdd")
-hard_spawn_cooldown = 1.5
+hard_spawn_cooldown = 3.0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint3"]
 modulate = Color(1, 0, 0, 1)
@@ -1159,11 +1159,11 @@ texture = ExtResource("7_muycn")
 [node name="EnemySpawnPoint4" parent="." instance=ExtResource("5_lbcj8")]
 position = Vector2(358.333, -571.667)
 enemy_scene = ExtResource("6_j6tdd")
-spawn_cooldown = 6.0
+spawn_cooldown = 10.0
 initial_spawn_wait_time = -5.0
 max_enemies_number = -1
 hard_enemy_scene = ExtResource("6_j6tdd")
-hard_spawn_cooldown = 1.5
+hard_spawn_cooldown = 3.0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint4"]
 modulate = Color(1, 0, 0, 1)

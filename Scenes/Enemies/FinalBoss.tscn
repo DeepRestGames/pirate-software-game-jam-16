@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/Enemies/FinalBoss.gd" id="1_i4h10"]
 [ext_resource type="Texture2D" uid="uid://bewcxe2s2qd12" path="res://Assets/Sprites/Enemies/Boss_v1.png" id="2_cmlg3"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lnduc"]
-radius = 204.01
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5jxdh"]
+radius = 120.0
+height = 380.0
 
 [node name="FinalBoss" type="CharacterBody2D" groups=["Enemies"]]
 z_index = 10
@@ -32,7 +33,6 @@ wait_time = 0.3
 autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, -4)
-shape = SubResource("CircleShape2D_lnduc")
+shape = SubResource("CapsuleShape2D_5jxdh")
 
 [connection signal="timeout" from="PathCalculationTimer" to="." method="_on_path_calculation_timer_timeout"]

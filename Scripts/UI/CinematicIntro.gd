@@ -72,5 +72,5 @@ func next_slide():
 		12:
 			animation_player.play_backwards("loading_screen")
 			await animation_player.animation_finished
-			get_tree().change_scene_to_file("res://Scenes/Level Design/LageLevels/1. Tutorial 1 - Gate.tscn")
+			get_tree().change_scene_to_file("res://Scenes/Level Design/Final Levels/1. Tutorial 1 - Gate.tscn")
 		

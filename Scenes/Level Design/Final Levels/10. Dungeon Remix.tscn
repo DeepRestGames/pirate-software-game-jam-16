@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://dg8k8ixq20dyj"]
 
 [ext_resource type="Script" path="res://Scripts/GameManagement/GameLevel.gd" id="1_08b7n"]
-[ext_resource type="PackedScene" uid="uid://q3djbt1u8x1v" path="res://Scenes/Level Design/LageLevels/HorizontalWalls.tscn" id="2_3pgco"]
+[ext_resource type="PackedScene" uid="uid://q3djbt1u8x1v" path="res://Scenes/Level Design/Final Levels/11. HorizontalWalls.tscn" id="2_4pvfa"]
 [ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="3_wx462"]
 [ext_resource type="Texture2D" uid="uid://dyyked7oujucm" path="res://Assets/Placeholders/Ground300.png" id="4_jmelf"]
 [ext_resource type="PackedScene" uid="uid://l8vxen63cqn3" path="res://Scenes/Enemies/EnemySpawnPoint.tscn" id="5_fku58"]
@@ -37,7 +37,7 @@ rotation = 1.5708
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_08b7n")
 level_number = 10
-next_level_scene = ExtResource("2_3pgco")
+next_level_scene = ExtResource("2_4pvfa")
 
 [node name="Environment" type="Node2D" parent="."]
 rotation = -1.5708
@@ -942,7 +942,7 @@ max_fly_time = 3.0
 [node name="Gateway" parent="." instance=ExtResource("14_h4n2g")]
 position = Vector2(-578.333, 1318.33)
 rotation = -1.5708
-opening_time = 35.0
+opening_time = 50.0
 
 [node name="Interactable" parent="." instance=ExtResource("15_w56re")]
 position = Vector2(783.333, 375)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo8vbq2ju5cn0"]
+[gd_scene load_steps=5 format=3 uid="uid://bo8vbq2ju5cn0"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/EnemyRangedStatic.gd" id="1_4fjkt"]
-[ext_resource type="Texture2D" uid="uid://vrfkmlq6h0im" path="res://icon.svg" id="2_lmwd1"]
+[ext_resource type="Texture2D" uid="uid://bcw6b4ibb72t5" path="res://Assets/Sprites/Enemies/Totem_v1.png" id="2_la8u3"]
+[ext_resource type="PackedScene" uid="uid://dpkf15a4llbcl" path="res://Scenes/Enemies/EnemyProjectileFireball.tscn" id="2_vpdmu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w56bn"]
 radius = 35.0
@@ -11,14 +12,14 @@ z_index = 10
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_4fjkt")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.485003, 0.0242831, 0.532642, 1)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_lmwd1")
+projectile_scene = ExtResource("2_vpdmu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_w56bn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_la8u3")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 collision_mask = 9

@@ -16,6 +16,7 @@ var just_closed = false
 
 func _ready() -> void:
 	if always_open:
+		EventBus.emit_signal("play_gate_open_sfx")
 		open = true
 		show_gateway_open_animation(true)
 	else:
@@ -67,6 +68,7 @@ func start_opening_gateway():
 
 func _on_body_entered(body: Node2D) -> void:
 	if open and body is MainCharacter:
+		EventBus.emit_signal("play_gate_close_sfx")
 		EventBus.emit_signal("next_level")
 
 
