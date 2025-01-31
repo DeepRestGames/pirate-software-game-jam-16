@@ -296,45 +296,6 @@ grow_vertical = 2
 mouse_force_pass_scroll_events = false
 flat = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HUD/CreditsPanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -281.0
-offset_right = 300.0
-offset_bottom = 281.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 0
-theme_override_fonts/normal_font = ExtResource("5_71go0")
-bbcode_enabled = true
-text = "[center]
-
-[font_size={40}]Deep Rest Games is:[/font_size]
-
-[font_size={28}]DughiBoogie[/font_size]
-[font_size={24}]Programming & Music[/font_size]
-
-[font_size={28}]enirfo[/font_size]
-[font_size={24}]Art & Graphics[/font_size]
-
-[font_size={28}]DughiBoogie & Enirfo[/font_size]
-[font_size={24}]Everything else[/font_size]
-
-
-[font_size={24}][url=https://deeprestgames.itch.io/pizza-time]Leave us a feedback on the game here[/url][/font_size]
-[font_size={20}]or[/font_size]
-[font_size={24}][url=https://discord.gg/J7BjxXnQ]Come say hi on our discord server[/url][/font_size]
-
-[/center]"
-scroll_active = false
-
 [node name="Style" type="Control" parent="HUD/CreditsPanel"]
 layout_mode = 1
 anchors_preset = 15
@@ -451,6 +412,47 @@ texture = ExtResource("6_nr8yl")
 expand_mode = 5
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/CreditsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -286.0
+offset_right = 232.0
+offset_bottom = 281.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/normal_font = ExtResource("5_71go0")
+bbcode_enabled = true
+text = "[center]
+
+[font_size={40}]Deep Rest Games is:[/font_size]
+
+[font_size={28}]DughiBoogie[/font_size]
+[font_size={24}]Programming[/font_size]
+
+[font_size={28}]enirfo[/font_size]
+[font_size={24}]Art[/font_size]
+
+[font_size={28}]DughiBoogie & Enirfo[/font_size]
+[font_size={24}]Everything else[/font_size]
+
+[font_size={24}]All audio was taken from open libraries (links in the description)[/font_size]
+
+[font_size={24}][url=https://deeprestgames.itch.io/mjolnir]Leave us a feedback on the game here[/url][/font_size]
+[font_size={20}]or[/font_size]
+[font_size={24}][url=https://discord.gg/9Ujv8xbX3H]Come say hi on our discord server[/url][/font_size]
+
+[/center]"
+scroll_active = false
+autowrap_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="HUD"]
 visible = false
