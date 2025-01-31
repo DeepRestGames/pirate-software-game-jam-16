@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://q3djbt1u8x1v"]
 
 [ext_resource type="Script" path="res://Scripts/GameManagement/GameLevel.gd" id="1_xwhxf"]
-[ext_resource type="PackedScene" uid="uid://nlvte7253604" path="res://Scenes/Level Design/LageLevels/0. Template Dungeon.tscn" id="2_o2quf"]
+[ext_resource type="PackedScene" uid="uid://c5q7ycc0uodow" path="res://Scenes/Level Design/Final Levels/12. Boss.tscn" id="2_n5y7w"]
 [ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="2_xpvw0"]
 [ext_resource type="Texture2D" uid="uid://dyyked7oujucm" path="res://Assets/Placeholders/Ground300.png" id="3_x1eb7"]
 [ext_resource type="PackedScene" uid="uid://l8vxen63cqn3" path="res://Scenes/Enemies/EnemySpawnPoint.tscn" id="4_c2b0y"]
@@ -41,9 +41,9 @@ size = Vector2(20, 20)
 [node name="MainScene" type="Node2D"]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_xwhxf")
-level_number = 3
+level_number = 11
 level_name = "test2"
-next_level_scene = ExtResource("2_o2quf")
+next_level_scene = ExtResource("2_n5y7w")
 
 [node name="Environment" type="Node2D" parent="."]
 
