@@ -1,15 +1,15 @@
 [gd_scene load_steps=15 format=3 uid="uid://cspwfxx7g07ve"]
 
-[ext_resource type="Script" path="res://Scripts/GameManagement/GameLevel.gd" id="1_doroo"]
-[ext_resource type="PackedScene" uid="uid://bbnmuxwg3t7rf" path="res://Scenes/Level Design/LageLevels/V.tscn" id="2_qdpio"]
-[ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="3_c6h57"]
-[ext_resource type="Texture2D" uid="uid://dyyked7oujucm" path="res://Assets/Placeholders/Ground300.png" id="4_5if56"]
-[ext_resource type="PackedScene" uid="uid://l8vxen63cqn3" path="res://Scenes/Enemies/EnemySpawnPoint.tscn" id="5_0to2u"]
-[ext_resource type="PackedScene" uid="uid://c4xmmv3ww4l3p" path="res://Scenes/Enemies/EnemyRanged.tscn" id="6_km2ta"]
-[ext_resource type="PackedScene" uid="uid://blwtacw6rbdye" path="res://Scenes/MainCharacter.tscn" id="7_e4kpc"]
-[ext_resource type="PackedScene" uid="uid://b5p4evkgrownv" path="res://Scenes/Boomerang.tscn" id="8_d28il"]
-[ext_resource type="PackedScene" uid="uid://wwc4re0x7ahn" path="res://Scenes/GameElements/Gateway.tscn" id="9_e1xva"]
-[ext_resource type="PackedScene" uid="uid://denw63bk82e73" path="res://Scenes/GameElements/Interactable.tscn" id="10_a6jxu"]
+[ext_resource type="Script" path="res://Scripts/GameManagement/GameLevel.gd" id="1_fxuan"]
+[ext_resource type="PackedScene" uid="uid://dyoae2i0eyarw" path="res://Scenes/Level Design/Final Levels/3. Tutorial 3 - Recall.tscn" id="2_2xqui"]
+[ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="3_nl2f1"]
+[ext_resource type="Texture2D" uid="uid://dyyked7oujucm" path="res://Assets/Placeholders/Ground300.png" id="4_7yk48"]
+[ext_resource type="PackedScene" uid="uid://l8vxen63cqn3" path="res://Scenes/Enemies/EnemySpawnPoint.tscn" id="5_c6vnc"]
+[ext_resource type="PackedScene" uid="uid://c4xmmv3ww4l3p" path="res://Scenes/Enemies/EnemyRanged.tscn" id="6_fio4f"]
+[ext_resource type="PackedScene" uid="uid://blwtacw6rbdye" path="res://Scenes/MainCharacter.tscn" id="7_pm70a"]
+[ext_resource type="PackedScene" uid="uid://b5p4evkgrownv" path="res://Scenes/Boomerang.tscn" id="8_m0stq"]
+[ext_resource type="PackedScene" uid="uid://wwc4re0x7ahn" path="res://Scenes/GameElements/Gateway.tscn" id="9_gskdf"]
+[ext_resource type="PackedScene" uid="uid://denw63bk82e73" path="res://Scenes/GameElements/Interactable.tscn" id="10_dt026"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_41o6l"]
 vertices = PackedVector2Array(141.672, -401.656, 401.672, -401.656, 401.656, -141.656, -1958.34, -151.672, -1958.33, -401.672, -1158.33, -401.672, -1158.34, -141.672, -1958.34, 398.328, 401.672, -1959.99, 401.672, -1166.66, 141.672, -1166.66, -398.328, -1959.99, 1160, -141.656, 1160, -401.656, 1960, -401.656, 1960, 398.344, 1160, 398.344, 1160, 138.344, 401.656, 138.344, 401.656, 398.344, 141.656, 398.344, -138.328, -401.656, 141.656, 1160, 401.656, 1160, 401.656, 1960, 0, 1960, -398.344, 1959.99, -398.344, 1160, -138.344, 1160, -138.344, 398.344, -1158.34, 138.328, -1158.34, 398.328, -398.344, 138.328, -1116.3, -141.672, -413.703, -141.656, -413.703, -141.672, -398.344, -141.672, -138.328, -1166.66, -398.328, -1166.66, -398.344, 398.328, -398.328, -401.656)
@@ -25,8 +25,9 @@ size = Vector2(20, 20)
 
 [node name="MainScene" type="Node2D"]
 scale = Vector2(0.6, 0.6)
-script = ExtResource("1_doroo")
-next_level_scene = ExtResource("2_qdpio")
+script = ExtResource("1_fxuan")
+level_number = 2
+next_level_scene = ExtResource("2_2xqui")
 
 [node name="Environment" type="Node2D" parent="."]
 rotation = -1.5708
@@ -38,13 +39,13 @@ navigation_polygon = SubResource("NavigationPolygon_41o6l")
 modulate = Color(0.06, 0.082, 0.12, 1)
 position = Vector2(-1.66666, 5)
 scale = Vector2(76.33, 76.33)
-texture = ExtResource("3_c6h57")
+texture = ExtResource("3_nl2f1")
 
 [node name="Ground300" type="Sprite2D" parent="Environment/NavigationRegion2D"]
 modulate = Color(0.9, 0.9, 0.9, 1)
 position = Vector2(-1.66666, 5)
 scale = Vector2(0.97, 0.97)
-texture = ExtResource("4_5if56")
+texture = ExtResource("4_7yk48")
 
 [node name="Walls" type="Node2D" parent="Environment/NavigationRegion2D"]
 
@@ -943,13 +944,13 @@ shape = SubResource("RectangleShape2D_k3fm6")
 modulate = Color(0.247059, 0.301961, 0.356863, 1)
 mesh = SubResource("QuadMesh_sps2i")
 
-[node name="EnemySpawnPoint_Ranged" parent="." instance=ExtResource("5_0to2u")]
+[node name="EnemySpawnPoint_Ranged" parent="." instance=ExtResource("5_c6vnc")]
 position = Vector2(3340, 545)
-enemy_scene = ExtResource("6_km2ta")
+enemy_scene = ExtResource("6_fio4f")
 spawn_cooldown = 10.0
 initial_spawn_wait_time = 0.0
 max_enemies_number = 5
-hard_enemy_scene = ExtResource("6_km2ta")
+hard_enemy_scene = ExtResource("6_fio4f")
 hard_spawn_cooldown = 6.0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint_Ranged"]
@@ -958,16 +959,16 @@ visibility_layer = 2
 scale = Vector2(20, 20)
 mesh = SubResource("QuadMesh_mwujv")
 
-[node name="MainCharacter" parent="." node_paths=PackedStringArray("flying_boomerang") instance=ExtResource("7_e4kpc")]
+[node name="MainCharacter" parent="." node_paths=PackedStringArray("flying_boomerang") instance=ExtResource("7_pm70a")]
 position = Vector2(-1560, 0)
 flying_boomerang = NodePath("../Boomerang")
 
-[node name="Boomerang" parent="." instance=ExtResource("8_d28il")]
+[node name="Boomerang" parent="." instance=ExtResource("8_m0stq")]
 position = Vector2(-1560, 0)
 max_fly_time = 3.0
 
-[node name="Gateway" parent="." instance=ExtResource("9_e1xva")]
+[node name="Gateway" parent="." instance=ExtResource("9_gskdf")]
 opening_time = 30.0
 
-[node name="Interactable" parent="." instance=ExtResource("10_a6jxu")]
+[node name="Interactable" parent="." instance=ExtResource("10_dt026")]
 position = Vector2(0, 1565)

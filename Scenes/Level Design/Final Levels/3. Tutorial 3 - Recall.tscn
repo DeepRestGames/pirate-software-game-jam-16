@@ -1,20 +1,21 @@
-[gd_scene load_steps=18 format=3 uid="uid://dyoae2i0eyarw"]
+[gd_scene load_steps=19 format=3 uid="uid://dyoae2i0eyarw"]
 
-[ext_resource type="Script" path="res://Scripts/GameManagement/GameLevel.gd" id="1_24mkc"]
-[ext_resource type="PackedScene" uid="uid://bbnmuxwg3t7rf" path="res://Scenes/Level Design/LageLevels/V.tscn" id="2_jtlkv"]
-[ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="3_h6cfg"]
-[ext_resource type="Texture2D" uid="uid://dyyked7oujucm" path="res://Assets/Placeholders/Ground300.png" id="4_3x1wa"]
-[ext_resource type="PackedScene" uid="uid://l8vxen63cqn3" path="res://Scenes/Enemies/EnemySpawnPoint.tscn" id="5_at6lf"]
-[ext_resource type="PackedScene" uid="uid://c4xmmv3ww4l3p" path="res://Scenes/Enemies/EnemyRanged.tscn" id="6_ttuhu"]
-[ext_resource type="Texture2D" uid="uid://dkw7c428a7w2" path="res://Assets/Logos/240423_DRG_Full_Logo_white.png" id="7_28qb2"]
-[ext_resource type="PackedScene" uid="uid://blwtacw6rbdye" path="res://Scenes/MainCharacter.tscn" id="8_dwf00"]
-[ext_resource type="PackedScene" uid="uid://b5p4evkgrownv" path="res://Scenes/Boomerang.tscn" id="9_yfbha"]
-[ext_resource type="PackedScene" uid="uid://wwc4re0x7ahn" path="res://Scenes/GameElements/Gateway.tscn" id="10_dtptk"]
-[ext_resource type="PackedScene" uid="uid://denw63bk82e73" path="res://Scenes/GameElements/Interactable.tscn" id="11_1s42e"]
+[ext_resource type="Script" path="res://Scripts/GameManagement/GameLevel.gd" id="1_wtaep"]
+[ext_resource type="PackedScene" uid="uid://b1j8arndi2cko" path="res://Scenes/Level Design/Final Levels/4. Tutorial 4 - HammerDrop.tscn" id="2_t06pg"]
+[ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="3_wkjp1"]
+[ext_resource type="Texture2D" uid="uid://dyyked7oujucm" path="res://Assets/Placeholders/Ground300.png" id="4_qyxmg"]
+[ext_resource type="PackedScene" uid="uid://l8vxen63cqn3" path="res://Scenes/Enemies/EnemySpawnPoint.tscn" id="5_6f4d1"]
+[ext_resource type="Texture2D" uid="uid://bjrwci62u8hsi" path="res://Assets/Sprites/Environment/EnvironmentFillSprite_16.png" id="5_oxwdl"]
+[ext_resource type="PackedScene" uid="uid://c4xmmv3ww4l3p" path="res://Scenes/Enemies/EnemyRanged.tscn" id="6_o87xg"]
+[ext_resource type="PackedScene" uid="uid://blwtacw6rbdye" path="res://Scenes/MainCharacter.tscn" id="8_ydpdh"]
+[ext_resource type="PackedScene" uid="uid://b5p4evkgrownv" path="res://Scenes/Boomerang.tscn" id="9_bky83"]
+[ext_resource type="PackedScene" uid="uid://wwc4re0x7ahn" path="res://Scenes/GameElements/Gateway.tscn" id="10_v8yev"]
+[ext_resource type="PackedScene" uid="uid://denw63bk82e73" path="res://Scenes/GameElements/Interactable.tscn" id="11_pehee"]
+[ext_resource type="Texture2D" uid="uid://37k2oowayubh" path="res://Assets/Sprites/Environment/EnvironmentFillSprite_27.png" id="12_85qfp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_41o6l"]
-vertices = PackedVector2Array(-851.656, 291.656, -851.672, 291.656, -851.656, 51.6563, -591.656, 51.6563, -310, 51.6719, -51.6563, 51.6719, -51.6719, 311.68, -590.828, -867.672, -590.844, -867.672, -590.828, -1145, -51.6563, 311.68, -51.6719, 591.68, -51.6797, 591.68, -590.828, -427.672, -590.844, -427.672, -310.5, -825, -310.5, -765, 1245.84, -1144.99, 1245.84, -824.977, 658.5, -824.977, 658.5, -825, 649.508, -1145, 638.5, -765, 638.5, -764.977, -310.5, -428.344, 1245.84, -764.977, 1245.84, -558.313, 727.172, -428.328, 1245.8, -8.3125, 658.469, -8.3125, 658.469, -8.32813, 727.172, -368.328, 1245.81, -268.313, -245.828, -8.32813, -245.828, -368.328, -310.5, -427.656, -310.828, -427.656, -310.844, 51, -310, 51, -51.6797, 851.672, -291.68, 851.672, -291.68, 851.656, -851.68, 851.656, -851.68, 611.656, -851.672, 611.656, -591.656, 51, -590.844, 51, 1245.83, -268.313)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(7, 8, 9), PackedInt32Array(6, 10, 11, 12), PackedInt32Array(13, 14, 7, 15, 16), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(9, 21, 17, 20, 15, 7), PackedInt32Array(16, 22, 23, 24, 13), PackedInt32Array(23, 25, 26, 27, 24), PackedInt32Array(28, 29, 30, 31, 32), PackedInt32Array(30, 33, 34, 31), PackedInt32Array(24, 35, 36, 13), PackedInt32Array(37, 38, 4, 3), PackedInt32Array(12, 39, 40, 41), PackedInt32Array(41, 42, 43, 44), PackedInt32Array(3, 45, 46), PackedInt32Array(26, 47, 32, 31, 27), PackedInt32Array(46, 13, 36, 37), PackedInt32Array(6, 12, 41, 44, 0, 3, 4), PackedInt32Array(46, 37, 3)])
+vertices = PackedVector2Array(-590.828, -867.672, -590.844, -867.672, -590.828, -1145, -590.828, -427.672, -590.844, -427.672, -310.492, -825, -310.492, -765, -310.5, -428.344, 1245.84, -1145, 1245.84, -824.977, 658.5, -824.977, 658.5, -825, 638.5, -765, 638.5, -764.977, 1245.84, -764.977, 1245.84, -558.313, 727.172, -428.328, -2.53125, -8.32813, -245.828, -8.32813, -245.828, -368.328, 727.156, -368.328, 1245.8, -8.32031, 648.469, -8.32031, 1245.81, -268.313, -310.5, -427.656, -310.828, -427.656, -310.844, 51, -310, 51, -310, 51.6719, -591.656, 51.6563, -51.6563, 51.6719, -51.6563, 291.68, -51.6719, 291.68, -51.6719, 591.68, -51.6797, 591.68, -851.656, 311.656, -851.656, 51.6563, -51.6797, 851.672, -291.68, 851.672, -291.68, 851.656, -851.68, 851.656, -851.68, 611.656, -851.672, 611.656, -851.672, 311.656, -591.656, 51, -590.844, 51, 1245.83, -268.313)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 0, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(2, 8, 11, 5, 0), PackedInt32Array(6, 12, 13, 7), PackedInt32Array(13, 14, 15, 16, 7), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(21, 22, 17, 20, 23), PackedInt32Array(7, 24, 25, 3), PackedInt32Array(26, 27, 28, 29), PackedInt32Array(28, 30, 31, 32), PackedInt32Array(29, 28, 32, 33, 34, 35, 36), PackedInt32Array(34, 37, 38, 39), PackedInt32Array(39, 40, 41, 42), PackedInt32Array(42, 43, 35, 34, 39), PackedInt32Array(29, 44, 45), PackedInt32Array(15, 46, 23, 20, 16), PackedInt32Array(45, 3, 25, 26), PackedInt32Array(45, 26, 29)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-881.667, 19.9968, -883.336, 881.663, -23.3365, 878.333, -20.0001, 21.6666, 1275, 23.3379, 1278.34, -1176.66, -623.33, -1176.67, -628.333, 19.9977)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3fm6"]
@@ -31,8 +32,8 @@ size = Vector2(20, 20)
 
 [node name="MainScene" type="Node2D"]
 scale = Vector2(0.6, 0.6)
-script = ExtResource("1_24mkc")
-next_level_scene = ExtResource("2_jtlkv")
+script = ExtResource("1_wtaep")
+next_level_scene = ExtResource("2_t06pg")
 
 [node name="Environment" type="Node2D" parent="."]
 rotation = -1.5708
@@ -44,12 +45,12 @@ navigation_polygon = SubResource("NavigationPolygon_41o6l")
 modulate = Color(0.06, 0.082, 0.12, 1)
 position = Vector2(-3.33332, 10)
 scale = Vector2(76.33, 76.33)
-texture = ExtResource("3_h6cfg")
+texture = ExtResource("3_wkjp1")
 
 [node name="Ground300" type="Sprite2D" parent="Environment/NavigationRegion2D"]
 modulate = Color(0.9, 0.9, 0.9, 1)
 position = Vector2(-1.66666, 5)
-texture = ExtResource("4_3x1wa")
+texture = ExtResource("4_qyxmg")
 
 [node name="Walls" type="Node2D" parent="Environment/NavigationRegion2D"]
 
@@ -650,13 +651,18 @@ shape = SubResource("RectangleShape2D_vilyh")
 modulate = Color(0.247059, 0.301961, 0.356863, 1)
 mesh = SubResource("QuadMesh_mr7ms")
 
-[node name="EnemySpawnPoint_Ranged" parent="." instance=ExtResource("5_at6lf")]
+[node name="EnvironmentFillSprite16" type="Sprite2D" parent="Environment/NavigationRegion2D"]
+modulate = Color(0, 0, 0, 0.203922)
+position = Vector2(-413.33, -841.668)
+texture = ExtResource("5_oxwdl")
+
+[node name="EnemySpawnPoint_Ranged" parent="." instance=ExtResource("5_6f4d1")]
 position = Vector2(3340, 545)
-enemy_scene = ExtResource("6_ttuhu")
+enemy_scene = ExtResource("6_o87xg")
 spawn_cooldown = 10.0
 initial_spawn_wait_time = 0.0
 max_enemies_number = 5
-hard_enemy_scene = ExtResource("6_ttuhu")
+hard_enemy_scene = ExtResource("6_o87xg")
 hard_spawn_cooldown = 6.0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint_Ranged"]
@@ -665,21 +671,23 @@ visibility_layer = 2
 scale = Vector2(20, 20)
 mesh = SubResource("QuadMesh_mwujv")
 
-[node name="240423DrgFullLogoWhite" type="Sprite2D" parent="."]
-position = Vector2(-981.667, 456.667)
-scale = Vector2(0.14, 0.14)
-texture = ExtResource("7_28qb2")
-
-[node name="MainCharacter" parent="." node_paths=PackedStringArray("flying_boomerang") instance=ExtResource("8_dwf00")]
+[node name="MainCharacter" parent="." node_paths=PackedStringArray("flying_boomerang") instance=ExtResource("8_ydpdh")]
 position = Vector2(448.333, 451.667)
 flying_boomerang = NodePath("../Boomerang")
 
-[node name="Boomerang" parent="." instance=ExtResource("9_yfbha")]
+[node name="Boomerang" parent="." instance=ExtResource("9_bky83")]
 position = Vector2(448.333, 451.667)
 max_fly_time = 3.0
 
-[node name="Gateway" parent="." instance=ExtResource("10_dtptk")]
+[node name="Gateway" parent="." instance=ExtResource("10_v8yev")]
 position = Vector2(-983.333, -890)
 
-[node name="Interactable" parent="." instance=ExtResource("11_1s42e")]
+[node name="Interactable" parent="." instance=ExtResource("11_pehee")]
 position = Vector2(-188.333, 20)
+
+[node name="EnvironmentFillSprite27" type="Sprite2D" parent="."]
+modulate = Color(0.37, 0.979, 1, 0.392157)
+position = Vector2(-1015, 485)
+rotation = -0.241587
+scale = Vector2(2, 2)
+texture = ExtResource("12_85qfp")

@@ -1,12 +1,12 @@
 [gd_scene load_steps=16 format=3 uid="uid://c8segplromw60"]
 
 [ext_resource type="Script" path="res://Scripts/GameManagement/GameLevel.gd" id="1_yrbcg"]
-[ext_resource type="PackedScene" uid="uid://bbnmuxwg3t7rf" path="res://Scenes/Level Design/LageLevels/V.tscn" id="2_h0neu"]
+[ext_resource type="PackedScene" uid="uid://6ybqjauplq3j" path="res://Scenes/Level Design/Final Levels/8. VerticalWalls.tscn" id="2_0jh3r"]
 [ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="3_4xqp8"]
 [ext_resource type="Texture2D" uid="uid://dyyked7oujucm" path="res://Assets/Placeholders/Ground300.png" id="4_ji5oy"]
 [ext_resource type="PackedScene" uid="uid://l8vxen63cqn3" path="res://Scenes/Enemies/EnemySpawnPoint.tscn" id="5_7x5ug"]
 [ext_resource type="PackedScene" uid="uid://c4xmmv3ww4l3p" path="res://Scenes/Enemies/EnemyRanged.tscn" id="6_650ng"]
-[ext_resource type="Texture2D" uid="uid://kb8bo6vnh7cf" path="res://Assets/UI/ArrowC.png" id="7_tmge5"]
+[ext_resource type="Texture2D" uid="uid://h7i3d2ym3pmq" path="res://Assets/Sprites/Environment/EnvironmentFillSprite_33.png" id="7_r4jqg"]
 [ext_resource type="PackedScene" uid="uid://blwtacw6rbdye" path="res://Scenes/MainCharacter.tscn" id="7_wgxyn"]
 [ext_resource type="PackedScene" uid="uid://b5p4evkgrownv" path="res://Scenes/Boomerang.tscn" id="8_dclye"]
 [ext_resource type="PackedScene" uid="uid://wwc4re0x7ahn" path="res://Scenes/GameElements/Gateway.tscn" id="9_56wpq"]
@@ -27,7 +27,8 @@ size = Vector2(20, 20)
 [node name="MainScene" type="Node2D"]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_yrbcg")
-next_level_scene = ExtResource("2_h0neu")
+level_number = 7
+next_level_scene = ExtResource("2_0jh3r")
 
 [node name="Environment" type="Node2D" parent="."]
 rotation = -1.5708
@@ -705,9 +706,10 @@ hard_max_enemies_number = 3
 [node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint_Ranged"]
 modulate = Color(1, 0, 0, 1)
 visibility_layer = 2
-scale = Vector2(20, 40)
+rotation = 3.14159
+scale = Vector2(-30, 40)
 mesh = SubResource("QuadMesh_pijgo")
-texture = ExtResource("7_tmge5")
+texture = ExtResource("7_r4jqg")
 
 [node name="EnemySpawnPoint_Ranged2" parent="." instance=ExtResource("5_7x5ug")]
 position = Vector2(-440, 1386.67)
@@ -722,9 +724,10 @@ hard_max_enemies_number = 3
 [node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint_Ranged2"]
 modulate = Color(1, 0, 0, 1)
 visibility_layer = 2
-scale = Vector2(20, 40)
+rotation = 3.14159
+scale = Vector2(-30, 40)
 mesh = SubResource("QuadMesh_pijgo")
-texture = ExtResource("7_tmge5")
+texture = ExtResource("7_r4jqg")
 
 [node name="EnemySpawnPoint_Ranged3" parent="." instance=ExtResource("5_7x5ug")]
 position = Vector2(-445, -1323.33)
@@ -739,9 +742,10 @@ hard_max_enemies_number = 3
 [node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint_Ranged3"]
 modulate = Color(1, 0, 0, 1)
 visibility_layer = 2
-scale = Vector2(20, 40)
+rotation = 3.14159
+scale = Vector2(-30, 40)
 mesh = SubResource("QuadMesh_pijgo")
-texture = ExtResource("7_tmge5")
+texture = ExtResource("7_r4jqg")
 
 [node name="EnemySpawnPoint_Ranged5" parent="." instance=ExtResource("5_7x5ug")]
 position = Vector2(-1361.67, 1388.33)
@@ -755,9 +759,10 @@ hard_max_enemies_number = 3
 [node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint_Ranged5"]
 modulate = Color(1, 0, 0, 1)
 visibility_layer = 2
-scale = Vector2(20, 40)
+rotation = 3.14159
+scale = Vector2(-30, 40)
 mesh = SubResource("QuadMesh_pijgo")
-texture = ExtResource("7_tmge5")
+texture = ExtResource("7_r4jqg")
 
 [node name="EnemySpawnPoint_Ranged8" parent="." instance=ExtResource("5_7x5ug")]
 position = Vector2(453.333, -1321.67)
@@ -771,9 +776,10 @@ hard_max_enemies_number = 3
 [node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint_Ranged8"]
 modulate = Color(1, 0, 0, 1)
 visibility_layer = 2
-scale = Vector2(20, 40)
+rotation = 3.14159
+scale = Vector2(-30, 40)
 mesh = SubResource("QuadMesh_pijgo")
-texture = ExtResource("7_tmge5")
+texture = ExtResource("7_r4jqg")
 
 [node name="EnemySpawnPoint_Ranged4" parent="." instance=ExtResource("5_7x5ug")]
 position = Vector2(451.667, 1386.67)
@@ -788,9 +794,10 @@ hard_max_enemies_number = 3
 [node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint_Ranged4"]
 modulate = Color(1, 0, 0, 1)
 visibility_layer = 2
-scale = Vector2(20, 40)
+rotation = 3.14159
+scale = Vector2(-30, 40)
 mesh = SubResource("QuadMesh_pijgo")
-texture = ExtResource("7_tmge5")
+texture = ExtResource("7_r4jqg")
 
 [node name="MainCharacter" parent="." node_paths=PackedStringArray("flying_boomerang") instance=ExtResource("7_wgxyn")]
 position = Vector2(-1755, 23.3334)

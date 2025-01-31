@@ -14,7 +14,7 @@ collision_mask = 14
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_oxpao")
-MOVEMENT_SPEED = 150.0
+MOVEMENT_SPEED = 200.0
 
 [node name="AssassinV1" type="Sprite2D" parent="."]
 position = Vector2(3.75, 0)
