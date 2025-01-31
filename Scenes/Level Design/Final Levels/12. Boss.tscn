@@ -38,6 +38,7 @@ size = Vector2(20, 20)
 [node name="MainScene" type="Node2D"]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_ft3og")
+level_number = 12
 next_level_scene = ExtResource("2_cnh1c")
 
 [node name="Environment" type="Node2D" parent="."]
