@@ -35,17 +35,15 @@ func _physics_process(delta: float) -> void:
 				colliding_with_hammer = true
 				
 				if collided_with_hammer_last_frame:
-					print("Still colliding with hammer")
 					return
 				
 				take_damage()
 				collided_with_hammer_last_frame = true
-				print("Taken damage from collision")
 				return
 	
 	colliding_with_hammer = false
 	collided_with_hammer_last_frame = false
-	print("Not colliding with hammer anymore")
+
 
 
 func take_damage():
@@ -55,7 +53,6 @@ func take_damage():
 	
 	current_hp -= 1
 	
-	print("Boss HP: " + str(current_hp))
 	
 	if current_hp <= 0:
 		EventBus.emit_signal("final_boss_defeated")
