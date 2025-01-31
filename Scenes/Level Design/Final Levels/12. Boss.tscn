@@ -1,0 +1,887 @@
+[gd_scene load_steps=21 format=3 uid="uid://c5q7ycc0uodow"]
+
+[ext_resource type="Script" path="res://Scripts/GameManagement/GameLevel.gd" id="1_ft3og"]
+[ext_resource type="PackedScene" uid="uid://bbnmuxwg3t7rf" path="res://Scenes/Level Design/LageLevels/V.tscn" id="2_cnh1c"]
+[ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="3_pwns1"]
+[ext_resource type="Texture2D" uid="uid://dyyked7oujucm" path="res://Assets/Placeholders/Ground300.png" id="4_x2ab7"]
+[ext_resource type="PackedScene" uid="uid://blwtacw6rbdye" path="res://Scenes/MainCharacter.tscn" id="5_gel01"]
+[ext_resource type="PackedScene" uid="uid://b5p4evkgrownv" path="res://Scenes/Boomerang.tscn" id="6_no858"]
+[ext_resource type="PackedScene" uid="uid://wwc4re0x7ahn" path="res://Scenes/GameElements/Gateway.tscn" id="7_kuh8l"]
+[ext_resource type="PackedScene" uid="uid://denw63bk82e73" path="res://Scenes/GameElements/Interactable.tscn" id="8_wslcn"]
+[ext_resource type="PackedScene" uid="uid://l8vxen63cqn3" path="res://Scenes/Enemies/EnemySpawnPoint.tscn" id="9_wat4q"]
+[ext_resource type="PackedScene" uid="uid://c4xmmv3ww4l3p" path="res://Scenes/Enemies/EnemyRanged.tscn" id="10_saxjf"]
+[ext_resource type="PackedScene" uid="uid://bgg417iwsyvcy" path="res://Scenes/Enemies/FinalBoss.tscn" id="11_74tf3"]
+[ext_resource type="Texture2D" uid="uid://h7i3d2ym3pmq" path="res://Assets/Sprites/Environment/EnvironmentFillSprite_33.png" id="11_gv4hy"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_41o6l"]
+vertices = PackedVector2Array(1361.66, 836.672, 1950, 865.938, 865.938, 1949.99, 864.992, 1341.67, 864.992, 1161.67, 1181.66, 836.672, 862.633, -1936.66, 1950, -849.289, 865.008, -1296.66, -1175, 836.656, -1175, 656.656, 1181.66, 656.672, 684.992, 1161.67, -668.344, 1161.66, 865, -1116.66, 1361.67, -831.656, 1181.67, -831.656, 1361.67, -651.656, 1361.66, 656.672, -870.953, -1936.66, 685.008, -1296.66, -668.328, -1296.67, -855.961, 1949.99, 684.992, 1341.67, -668.344, 1341.66, -848.344, 1341.66, -848.344, 1161.66, -1950, 855.953, -1355, 836.656, 1181.67, -651.656, -1950, -857.609, -1355, 656.656, -1175, -651.672, 685, -1116.66, -848.328, -1116.67, -668.328, -1116.67, -1175, -831.672, -1355, -651.672, -1355, -831.672, -848.328, -1296.67)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8), PackedInt32Array(9, 10, 11, 5, 4, 12, 13), PackedInt32Array(14, 8, 7, 15, 16), PackedInt32Array(17, 15, 7, 1), PackedInt32Array(17, 1, 0, 18), PackedInt32Array(19, 6, 8, 20, 21), PackedInt32Array(3, 2, 22, 23), PackedInt32Array(23, 22, 24, 12), PackedInt32Array(25, 24, 22), PackedInt32Array(9, 26, 25, 22, 27, 28), PackedInt32Array(29, 17, 18, 11), PackedInt32Array(12, 24, 13), PackedInt32Array(9, 13, 26), PackedInt32Array(28, 27, 30, 31), PackedInt32Array(14, 16, 29, 11, 10, 32, 33), PackedInt32Array(34, 35, 33, 32, 36), PackedInt32Array(37, 32, 10, 31), PackedInt32Array(37, 31, 30), PackedInt32Array(38, 37, 30), PackedInt32Array(34, 36, 38, 30, 19, 39), PackedInt32Array(33, 35, 21, 20), PackedInt32Array(19, 21, 39)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1996.67, -871.674, -1996.67, 884.993, -883.341, 1993.33, 891.659, 2003.34, 1998.33, 855.007, 1995, -876.659, 868.341, -1991.67, -893.326, -1983.34)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3fm6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_sps2i"]
+size = Vector2(20, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vilyh"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_mr7ms"]
+size = Vector2(20, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2dfp"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_drxjr"]
+size = Vector2(20, 20)
+
+[sub_resource type="QuadMesh" id="QuadMesh_vb5yf"]
+
+[node name="MainScene" type="Node2D"]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_ft3og")
+next_level_scene = ExtResource("2_cnh1c")
+
+[node name="Environment" type="Node2D" parent="."]
+rotation = -1.5708
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Environment"]
+navigation_polygon = SubResource("NavigationPolygon_41o6l")
+
+[node name="Background" type="Sprite2D" parent="Environment/NavigationRegion2D"]
+modulate = Color(0.06, 0.082, 0.12, 1)
+position = Vector2(-3.33332, 10)
+scale = Vector2(76.33, 76.33)
+texture = ExtResource("3_pwns1")
+
+[node name="Ground300" type="Sprite2D" parent="Environment/NavigationRegion2D"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+position = Vector2(-1.66666, 5)
+scale = Vector2(0.97, 0.97)
+texture = ExtResource("4_x2ab7")
+
+[node name="Background2" type="Sprite2D" parent="Environment/NavigationRegion2D"]
+modulate = Color(0.06, 0.082, 0.12, 1)
+position = Vector2(2044.99, 2081.67)
+rotation = -0.785397
+scale = Vector2(17.37, 17.37)
+texture = ExtResource("3_pwns1")
+
+[node name="Background3" type="Sprite2D" parent="Environment/NavigationRegion2D"]
+modulate = Color(0.06, 0.082, 0.12, 1)
+position = Vector2(-2084.99, -2041.67)
+rotation = -0.785397
+scale = Vector2(17.37, 17.37)
+texture = ExtResource("3_pwns1")
+
+[node name="Background4" type="Sprite2D" parent="Environment/NavigationRegion2D"]
+modulate = Color(0.06, 0.082, 0.12, 1)
+position = Vector2(2070.01, -2041.66)
+rotation = -0.785397
+scale = Vector2(17.37, 17.37)
+texture = ExtResource("3_pwns1")
+
+[node name="Background5" type="Sprite2D" parent="Environment/NavigationRegion2D"]
+modulate = Color(0.06, 0.082, 0.12, 1)
+position = Vector2(-2045.01, 2088.33)
+rotation = -0.785397
+scale = Vector2(17.37, 17.37)
+texture = ExtResource("3_pwns1")
+
+[node name="Walls" type="Node2D" parent="Environment/NavigationRegion2D"]
+
+[node name="FrameWall1" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-2000, 0)
+scale = Vector2(4, 90)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/FrameWall1"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/FrameWall1"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+position = Vector2(0.555454, 0.011111)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="FrameWall2" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(2000, 0)
+scale = Vector2(4, 90)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/FrameWall2"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/FrameWall2"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="FrameWall3" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-11.6595, -1986.67)
+rotation = -1.57079
+scale = Vector2(4, 90)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/FrameWall3"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/FrameWall3"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="FrameWall4" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(0, 2000)
+rotation = -1.57079
+scale = Vector2(4, 90)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/FrameWall4"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/FrameWall4"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="SmallSquare" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(775.004, -1206.66)
+rotation = -1.57079
+scale = Vector2(8, 8)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="SmallSquare2" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(774.995, 1251.67)
+rotation = -1.57079
+scale = Vector2(8, 8)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare2"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare2"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="SmallSquare3" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-758.329, -1206.67)
+rotation = -1.57079
+scale = Vector2(8, 8)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare3"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare3"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="SmallSquare4" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-758.338, 1251.66)
+rotation = -1.57079
+scale = Vector2(8, 8)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare4"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare4"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="SmallSquare5" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(1271.67, -741.662)
+rotation = -1.57079
+scale = Vector2(8, 8)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare5"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare5"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="SmallSquare6" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(1271.66, 746.671)
+rotation = -1.57079
+scale = Vector2(8, 8)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare6"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare6"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="SmallSquare7" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1265, -741.671)
+rotation = -1.57079
+scale = Vector2(8, 8)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare7"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare7"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="SmallSquare8" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1265, 746.662)
+rotation = -1.57079
+scale = Vector2(8, 8)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare8"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/SmallSquare8"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="WallDiag" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(1435.01, -1434.99)
+rotation = -3.92699
+scale = Vector2(4, 80)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallDiag"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallDiag"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="WallDiag2" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(1444.99, 1441.67)
+rotation = -2.35619
+scale = Vector2(4, 80)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallDiag2"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallDiag2"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="WallDiag3" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1435.01, 1441.66)
+rotation = -0.785397
+scale = Vector2(4, 80)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallDiag3"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallDiag3"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="WallDiag4" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1444.99, -1433.34)
+rotation = 0.785397
+scale = Vector2(4, 80)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallDiag4"]
+shape = SubResource("RectangleShape2D_k3fm6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallDiag4"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_sps2i")
+
+[node name="WallV2" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-738.316, -4941.66)
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallV2"]
+shape = SubResource("RectangleShape2D_vilyh")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV2"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_mr7ms")
+
+[node name="WallV1" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-738.316, -4641.66)
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallV1"]
+shape = SubResource("RectangleShape2D_vilyh")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV1"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_mr7ms")
+
+[node name="WallV3" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-738.326, -4341.66)
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallV3"]
+shape = SubResource("RectangleShape2D_vilyh")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV3"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_mr7ms")
+
+[node name="WallV4" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1598.32, -4941.67)
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallV4"]
+shape = SubResource("RectangleShape2D_vilyh")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV4"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_mr7ms")
+
+[node name="WallV5" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1598.32, -4641.67)
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallV5"]
+shape = SubResource("RectangleShape2D_vilyh")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV5"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_mr7ms")
+
+[node name="WallV6" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1598.33, -4341.67)
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallV6"]
+shape = SubResource("RectangleShape2D_vilyh")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV6"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_mr7ms")
+
+[node name="WallH2" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-868.316, -5071.66)
+rotation = -1.57079
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallH2"]
+shape = SubResource("RectangleShape2D_vilyh")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH2"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_mr7ms")
+
+[node name="WallH3" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1168.32, -5071.66)
+rotation = -1.57079
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallH3"]
+shape = SubResource("RectangleShape2D_vilyh")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH3"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_mr7ms")
+
+[node name="WallH4" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1468.32, -5071.67)
+rotation = -1.57079
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallH4"]
+shape = SubResource("RectangleShape2D_vilyh")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH4"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_mr7ms")
+
+[node name="WallH5" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-868.326, -4211.66)
+rotation = -1.57079
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallH5"]
+shape = SubResource("RectangleShape2D_vilyh")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH5"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_mr7ms")
+
+[node name="WallH6" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1168.33, -4211.66)
+rotation = -1.57079
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallH6"]
+shape = SubResource("RectangleShape2D_vilyh")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH6"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_mr7ms")
+
+[node name="WallH7" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1468.33, -4211.67)
+rotation = -1.57079
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallH7"]
+shape = SubResource("RectangleShape2D_vilyh")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH7"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_mr7ms")
+
+[node name="WallV7" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1081.66, -5508.32)
+rotation = 1.5708
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallV7"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV7"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallV8" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1381.66, -5508.32)
+rotation = 1.5708
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallV8"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV8"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallV9" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1681.66, -5508.34)
+rotation = 1.5708
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallV9"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV9"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallV10" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1381.65, -5803.32)
+rotation = 1.5708
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallV10"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV10"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallV11" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-521.66, -5508.32)
+rotation = 1.5708
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallV11"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV11"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallV12" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-821.66, -5508.32)
+rotation = 1.5708
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallV12"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV12"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallV13" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-821.65, -5803.32)
+rotation = 1.5708
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallV13"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV13"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallH8" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-391.66, -5638.32)
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallH8"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH8"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallH11" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-951.651, -5638.32)
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallH11"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH11"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallH12" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1251.65, -5638.33)
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallH12"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH12"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallH9" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-391.659, -5938.32)
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallH9"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH9"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallH10" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-391.646, -6238.32)
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallH10"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH10"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallH13" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1811.66, -5638.34)
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallH13"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH13"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallH14" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1811.66, -5938.34)
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallH14"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH14"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallH15" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1811.65, -6238.34)
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallH15"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH15"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallV14" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1081.64, -6968.32)
+rotation = 1.5708
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallV14"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV14"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallV15" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1381.64, -6968.33)
+rotation = 1.5708
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallV15"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV15"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallV16" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1681.64, -6968.34)
+rotation = 1.5708
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallV16"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV16"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallV17" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-521.642, -6968.32)
+rotation = 1.5708
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallV17"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV17"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallV18" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-821.642, -6968.32)
+rotation = 1.5708
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallV18"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallV18"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallH16" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-391.653, -6538.32)
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallH16"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH16"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallH17" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-391.642, -6838.32)
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallH17"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH17"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallH18" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1811.66, -6538.34)
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallH18"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH18"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="WallH19" type="StaticBody2D" parent="Environment/NavigationRegion2D/Walls"]
+position = Vector2(-1811.65, -6838.34)
+scale = Vector2(2, 15)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NavigationRegion2D/Walls/WallH19"]
+shape = SubResource("RectangleShape2D_u2dfp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Environment/NavigationRegion2D/Walls/WallH19"]
+modulate = Color(0.247059, 0.301961, 0.356863, 1)
+mesh = SubResource("QuadMesh_drxjr")
+
+[node name="MainCharacter" parent="." node_paths=PackedStringArray("flying_boomerang") instance=ExtResource("5_gel01")]
+position = Vector2(6.66667, 228.333)
+flying_boomerang = NodePath("../Boomerang")
+
+[node name="Boomerang" parent="." instance=ExtResource("6_no858")]
+position = Vector2(6.66667, 228.333)
+max_fly_time = 3.0
+
+[node name="Gateway" parent="." instance=ExtResource("7_kuh8l")]
+position = Vector2(3406.67, 1370)
+
+[node name="Interactable" parent="." instance=ExtResource("8_wslcn")]
+position = Vector2(3378.33, 86.6667)
+
+[node name="EnemySpawnPoint_Ranged" parent="." instance=ExtResource("9_wat4q")]
+position = Vector2(6.66675, -1755)
+enemy_scene = ExtResource("10_saxjf")
+spawn_cooldown = 12.0
+initial_spawn_wait_time = 0.0
+max_enemies_number = -1
+hard_enemy_scene = ExtResource("10_saxjf")
+hard_spawn_cooldown = 4.0
+hard_max_enemies_number = 3
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint_Ranged"]
+modulate = Color(1, 0, 0, 1)
+visibility_layer = 2
+rotation = 3.14159
+scale = Vector2(-30, 40)
+mesh = SubResource("QuadMesh_vb5yf")
+texture = ExtResource("11_gv4hy")
+
+[node name="EnemySpawnPoint_Ranged2" parent="." instance=ExtResource("9_wat4q")]
+position = Vector2(1723.33, -1.66663)
+enemy_scene = ExtResource("10_saxjf")
+spawn_cooldown = 12.0
+initial_spawn_wait_time = 15.0
+max_enemies_number = -1
+hard_enemy_scene = ExtResource("10_saxjf")
+hard_spawn_cooldown = 4.0
+hard_max_enemies_number = 3
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint_Ranged2"]
+modulate = Color(1, 0, 0, 1)
+visibility_layer = 2
+rotation = 3.14159
+scale = Vector2(-30, 40)
+mesh = SubResource("QuadMesh_vb5yf")
+texture = ExtResource("11_gv4hy")
+
+[node name="EnemySpawnPoint_Ranged3" parent="." instance=ExtResource("9_wat4q")]
+position = Vector2(0, 1721.67)
+enemy_scene = ExtResource("10_saxjf")
+spawn_cooldown = 12.0
+initial_spawn_wait_time = 30.0
+max_enemies_number = -1
+hard_enemy_scene = ExtResource("10_saxjf")
+hard_spawn_cooldown = 4.0
+hard_max_enemies_number = 3
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint_Ranged3"]
+modulate = Color(1, 0, 0, 1)
+visibility_layer = 2
+rotation = 3.14159
+scale = Vector2(-30, 40)
+mesh = SubResource("QuadMesh_vb5yf")
+texture = ExtResource("11_gv4hy")
+
+[node name="EnemySpawnPoint_Ranged4" parent="." instance=ExtResource("9_wat4q")]
+position = Vector2(-1693.33, 1.6665)
+enemy_scene = ExtResource("10_saxjf")
+spawn_cooldown = 12.0
+initial_spawn_wait_time = 45.0
+max_enemies_number = -1
+hard_enemy_scene = ExtResource("10_saxjf")
+hard_spawn_cooldown = 4.0
+hard_max_enemies_number = 3
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="EnemySpawnPoint_Ranged4"]
+modulate = Color(1, 0, 0, 1)
+visibility_layer = 2
+rotation = 3.14159
+scale = Vector2(-30, 40)
+mesh = SubResource("QuadMesh_vb5yf")
+texture = ExtResource("11_gv4hy")
+
+[node name="FinalBoss" parent="." instance=ExtResource("11_74tf3")]
+position = Vector2(-1.66669, -873.333)
