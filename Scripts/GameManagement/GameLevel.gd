@@ -24,9 +24,9 @@ extends Node2D
 #var dialogue11 = ResourceLoader.load("res://Assets/Dialogues/WalkingEnemiesTimeline.dtl")
 
 
-#func _ready() -> void:
+func _ready() -> void:
 	#EventBus.connect(signal_name_trigger, trigger_dialogue)
-	#EventBus.emit_signal("level_started", self)
+	EventBus.emit_signal("level_started", self)
 #
 #
 #func trigger_dialogue(_fake_parameter = null):
