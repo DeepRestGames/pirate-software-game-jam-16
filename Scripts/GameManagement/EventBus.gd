@@ -68,3 +68,46 @@ signal spawn_spark_particles(global_position)
 
 @warning_ignore("unused_signal")
 signal spawn_blood_particles(global_position)
+
+
+# Audio
+@warning_ignore("unused_signal")
+signal play_music
+
+@warning_ignore("unused_signal")
+signal update_music_volume(music_volume)
+
+@warning_ignore("unused_signal")
+signal update_sfx_volume(sfx_volume)
+
+@warning_ignore("unused_signal")
+signal play_lightning_sfx(volume)
+
+@warning_ignore("unused_signal")
+signal play_thunder_sfx
+
+@warning_ignore("unused_signal")
+signal play_projectile_deflect_sfx
+
+@warning_ignore("unused_signal")
+signal play_gate_open_sfx
+
+@warning_ignore("unused_signal")
+signal play_gate_close_sfx
+
+@warning_ignore("unused_signal")
+signal play_throw_sound
+
+@warning_ignore("unused_signal")
+signal play_pickup_sound
+
+@warning_ignore("unused_signal")
+signal play_enemy_spawn_sound
+
+@warning_ignore("unused_signal")
+signal play_enemy_death_sound
+
+
+# Dialogues
+@warning_ignore("unused_signal")
+signal play_timeline(timeline_name)

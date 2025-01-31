@@ -19,5 +19,7 @@ func stop_chasing_player():
 func take_damage():
 	EventBus.emit_signal("spawn_blood_particles", global_position)
 	EventBus.emit_signal("spawn_spark_particles", global_position)
+	EventBus.emit_signal("play_thunder_sfx")
+	EventBus.emit_signal("play_lightning_sfx", -5)
 	EventBus.emit_signal("screen_shake")
 	queue_free()

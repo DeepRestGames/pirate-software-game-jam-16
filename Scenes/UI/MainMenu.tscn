@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://doekc1fh2fvsm"]
+[gd_scene load_steps=16 format=3 uid="uid://doekc1fh2fvsm"]
 
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu.gd" id="1_l4b7b"]
 [ext_resource type="Texture2D" uid="uid://ctdwfv58t2cdu" path="res://Assets/Placeholders/WhiteSprites.png" id="2_8v5u1"]
@@ -48,14 +48,21 @@ _data = {
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ar8qn"]
-bg_color = Color(0.92549, 0.690196, 0.4, 1)
+bg_color = Color(0.294118, 0.92549, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5h8x"]
+bg_color = Color(0.294118, 0.698039, 1, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ki6nt"]
-bg_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+bg_color = Color(0.117647, 0.117647, 0.117647, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -92,7 +99,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Background" type="TextureRect" parent="HUD"]
-modulate = Color(0.156863, 0.156863, 0.156863, 1)
+modulate = Color(0.0392157, 0.0392157, 0.0392157, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -165,28 +172,6 @@ theme_override_constants/separation = 25
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="ContinueButtonContainer" type="AspectRatioContainer" parent="HUD/MenuItems"]
-layout_mode = 2
-alignment_vertical = 2
-
-[node name="CONTINUE" type="Button" parent="HUD/MenuItems/ContinueButtonContainer"]
-visible = false
-layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_hover_color = Color(0.294118, 0.92549, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.294118, 0.698039, 1, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 20
-theme_override_fonts/font = ExtResource("5_71go0")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = SubResource("StyleBoxFlat_6wl68")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_6wl68")
-theme_override_styles/hover = SubResource("StyleBoxFlat_6wl68")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6wl68")
-theme_override_styles/normal = SubResource("StyleBoxFlat_6wl68")
-text = "Continue"
-
 [node name="NewGameButtonContainer" type="AspectRatioContainer" parent="HUD/MenuItems"]
 layout_mode = 2
 alignment_vertical = 2
@@ -255,36 +240,10 @@ layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ar8qn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_l5h8x")
 min_value = -30.0
 max_value = 0.0
-
-[node name="SFXSliderContainer" type="VBoxContainer" parent="HUD/MenuItems"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 0
-alignment = 1
-
-[node name="SFX_Label" type="Label" parent="HUD/MenuItems/SFXSliderContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 20
-theme_override_fonts/font = ExtResource("5_71go0")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxFlat_6wl68")
-text = "SFX
-"
-horizontal_alignment = 1
-
-[node name="SFXVolumeSlider" type="HSlider" parent="HUD/MenuItems/SFXSliderContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 2
-size_flags_vertical = 4
-focus_mode = 0
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ar8qn")
-min_value = -30.0
-max_value = 0.0
+value = -5.0
 
 [node name="CREDITSButtonContainer" type="AspectRatioContainer" parent="HUD/MenuItems"]
 layout_mode = 2
@@ -505,6 +464,7 @@ color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="HUD/MenuItems/NewGameButtonContainer/NEWGAME" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="HUD/MenuItems/LevelSelectionButtonContainer/LEVEL_SELECTION" to="." method="_on_level_selection_pressed"]
+[connection signal="value_changed" from="HUD/MenuItems/MUSICSliderContainer/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
 [connection signal="pressed" from="HUD/MenuItems/CREDITSButtonContainer/CREDITS" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="HUD/CreditsPanel/CreditsPanelMask" to="." method="_on_credits_panel_mask_pressed"]
 [connection signal="meta_clicked" from="HUD/CreditsPanel/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]

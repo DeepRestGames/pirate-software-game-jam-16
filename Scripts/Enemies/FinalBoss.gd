@@ -42,10 +42,10 @@ func _physics_process(delta: float) -> void:
 				collided_with_hammer_last_frame = true
 				print("Taken damage from collision")
 				return
-		
-		colliding_with_hammer = false
-		collided_with_hammer_last_frame = false
-		print("Not colliding with hammer anymore")
+	
+	colliding_with_hammer = false
+	collided_with_hammer_last_frame = false
+	print("Not colliding with hammer anymore")
 
 
 func take_damage():

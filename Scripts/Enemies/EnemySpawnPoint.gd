@@ -78,6 +78,8 @@ func _on_enemies_spawn_timer_timeout() -> void:
 		enemy_instance = hard_enemy_scene.instantiate()
 	
 	enemies_parent_node.add_child(enemy_instance)
+	EventBus.emit_signal("play_enemy_spawn_sound")
+	
 	enemy_spawn_flare_particles.restart()
 	
 	enemies_left_to_spawn -= 1

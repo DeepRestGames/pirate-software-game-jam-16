@@ -72,6 +72,7 @@ func enable_boomerang(starting_global_position):
 	is_flying = true
 
 
-func _on_body_entered(body: Node) -> void:
+func _on_body_entered(_body: Node) -> void:
 	EventBus.emit_signal("spawn_spark_particles", global_position)
+	EventBus.emit_signal("play_lightning_sfx", 0)
 	
