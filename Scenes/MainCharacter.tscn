@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://blwtacw6rbdye"]
+[gd_scene load_steps=8 format=3 uid="uid://blwtacw6rbdye"]
 
 [ext_resource type="Script" path="res://Scripts/MainCharacter.gd" id="1_niili"]
 [ext_resource type="Script" path="res://Scripts/GameManagement/ScreenShake.gd" id="2_vpcr6"]
