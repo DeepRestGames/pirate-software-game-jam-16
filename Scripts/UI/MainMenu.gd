@@ -10,7 +10,6 @@ func _ready():
 	animation_player.play("loading_screen", -1, -1, true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	#await get_tree().create_timer(2).timeout
 	EventBus.emit_signal("play_music")
 
 
