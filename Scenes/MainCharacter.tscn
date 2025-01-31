@@ -20,6 +20,7 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_niili")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
 script = ExtResource("2_vpcr6")
 
 [node name="BardV1" type="Sprite2D" parent="."]

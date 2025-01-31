@@ -8,10 +8,14 @@
 
 config_version=5
 
+[animation]
+
+warnings/check_invalid_track_paths=false
+
 [application]
 
 config/name="Wooferang"
-run/main_scene="res://Scenes/Tests/TestRangedEnemies_MainScene.tscn"
+run/main_scene="res://Scenes/UI/SplashScreen.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0.0980392, 0.12549, 0.172549, 1)
 config/icon="res://icon.svg"

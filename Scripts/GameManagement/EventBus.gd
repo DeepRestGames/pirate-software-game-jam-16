@@ -34,7 +34,10 @@ signal difficulty_ramp_up
 signal difficulty_down
 
 @warning_ignore("unused_signal")
-signal screen_shake
+signal screen_shake(magnitude, duration)
+
+@warning_ignore("unused_signal")
+signal final_boss_defeated
 
 
 # Interactables

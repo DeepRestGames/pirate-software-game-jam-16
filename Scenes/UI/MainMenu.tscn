@@ -195,6 +195,7 @@ text = "New Game"
 flat = true
 
 [node name="LevelSelectionButtonContainer" type="AspectRatioContainer" parent="HUD/MenuItems"]
+visible = false
 layout_mode = 2
 alignment_vertical = 2
 
