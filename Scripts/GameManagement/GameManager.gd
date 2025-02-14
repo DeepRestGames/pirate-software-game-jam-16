@@ -9,7 +9,7 @@ var next_level: PackedScene
 
 func _ready() -> void:
 	EventBus.connect("level_started", on_level_started)
-	EventBus.connect("next_level", go_to_next_level)
+	EventBus.connect("next_level", prepare_for_next_level)
 
 
 func _input(event: InputEvent) -> void:
@@ -23,6 +23,10 @@ func on_level_started(game_level: GameLevel):
 	
 	if current_level_number > max_level_reached:
 		max_level_reached = current_level_number
+
+
+func prepare_for_next_level():
+	call_deferred("go_to_next_level")
 
 
 func go_to_next_level():
