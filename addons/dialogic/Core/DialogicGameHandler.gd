@@ -22,7 +22,7 @@ enum States {
 enum ClearFlags {
 	FULL_CLEAR = 0, 		## Clears all subsystems
 	KEEP_VARIABLES = 1, 	## Clears all subsystems and info except for variables
-	TIMLEINE_INFO_ONLY = 2	## Doesn't clear subsystems but current timeline and index
+	TIMELINE_INFO_ONLY = 2	## Doesn't clear subsystems but current timeline and index
 	}
 
 ## Reference to the currently executed timeline.
@@ -30,56 +30,69 @@ var current_timeline: DialogicTimeline = null
 ## Copy of the [member current_timeline]'s events.
 var current_timeline_events: Array = []
 
-## Index of the event the timeline handeling is currently at.
+## Index of the event the timeline handling is currently at.
 var current_event_idx: int = 0
-## Contains all information that subsystems consider
-## relevant for the current situation
+## Contains all information that subsystems consider relevant for
+## the current situation
 var current_state_info: Dictionary = {}
-## Current state (see [member States] enum)
+
+## Current state (see [member States] enum).
 var current_state := States.IDLE:
 	get:
 		return current_state
+
 	set(new_state):
 		current_state = new_state
-		emit_signal('state_changed', new_state)
+		state_changed.emit(new_state)
+
 ## Emitted when [member current_state] change.
 signal state_changed(new_state:States)
 
-## When `true`, many dialogic processes won't continue until it's false again.
+## When `true`, many dialogic processes won't continue until it's `false` again.
 var paused := false:
 	set(value):
 		paused = value
+
 		if paused:
+
 			for subsystem in get_children():
+
 				if subsystem is DialogicSubsystem:
 					(subsystem as DialogicSubsystem).pause()
+
 			dialogic_paused.emit()
+
 		else:
 			for subsystem in get_children():
+
 				if subsystem is DialogicSubsystem:
 					(subsystem as DialogicSubsystem).resume()
+
 			dialogic_resumed.emit()
 
-## Emitted when [member paused] changes to true.
+## Emitted when [member paused] changes to `true`.
 signal dialogic_paused
-## Emitted when [member paused] changes to false.
+## Emitted when [member paused] changes to `false`.
 signal dialogic_resumed
 
 
-## Emitted when dialog ends (by a timeline end being reached OR end_timeline() being called).
+## Emitted when the timeline ends.
+## This can be a timeline ending or [method end_timeline] being called.
 signal timeline_ended
-## Emitted when a timeline was started with [method start] or [method start_timeline].
+## Emitted when a timeline starts by calling either [method start]
+## or [method start_timeline].
 signal timeline_started
-## Emitted when an event has just been executed (not necessarily when the event finished).
-signal event_handled(resource:DialogicEvent)
+## Emitted when an event starts being executed.
+## The event may not have finished executing yet.
+signal event_handled(resource: DialogicEvent)
 
-## Emitted when the `Signal Event` was reached
-signal signal_event(argument:Variant)
-## Emitted when `[signal]` effect was reached in text.
-signal text_signal(argument:String)
+## Emitted when a [class SignalEvent] event was reached.
+signal signal_event(argument: Variant)
+## Emitted when a signal event gets fired from a [class TextEvent] event.
+signal text_signal(argument: String)
 
 
-# Careful, this section is repopulated automatically at certain moments
+# Careful, this section is repopulated automatically at certain moments.
 #region SUBSYSTEMS
 
 var Audio := preload("res://addons/dialogic/Modules/Audio/subsystem_audio.gd").new():
@@ -90,6 +103,9 @@ var Backgrounds := preload("res://addons/dialogic/Modules/Background/subsystem_b
 
 var Portraits := preload("res://addons/dialogic/Modules/Character/subsystem_portraits.gd").new():
 	get: return get_subsystem("Portraits")
+
+var PortraitContainers := preload("res://addons/dialogic/Modules/Character/subsystem_containers.gd").new():
+	get: return get_subsystem("PortraitContainers")
 
 var Choices := preload("res://addons/dialogic/Modules/Choice/subsystem_choices.gd").new():
 	get: return get_subsystem("Choices")
@@ -138,8 +154,6 @@ var Voice := preload("res://addons/dialogic/Modules/Voice/subsystem_voice.gd").n
 
 ## Autoloads are added first, so this happens REALLY early on game startup.
 func _ready() -> void:
-	DialogicResourceUtil.update()
-
 	_collect_subsystems()
 
 	clear()
@@ -153,7 +167,7 @@ func _ready() -> void:
 ## -> returns the layout node
 func start(timeline:Variant, label:Variant="") -> Node:
 	# If we don't have a style subsystem, default to just start_timeline()
-	if !has_subsystem('Styles'):
+	if not has_subsystem('Styles'):
 		printerr("[Dialogic] You called Dialogic.start() but the Styles subsystem is missing!")
 		clear(ClearFlags.KEEP_VARIABLES)
 		start_timeline(timeline, label)
@@ -165,12 +179,12 @@ func start(timeline:Variant, label:Variant="") -> Node:
 		scene = self.Styles.load_style()
 	else:
 		scene = self.Styles.get_layout_node()
+		scene.show()
 
 	if not scene.is_node_ready():
 		scene.ready.connect(clear.bind(ClearFlags.KEEP_VARIABLES))
 		scene.ready.connect(start_timeline.bind(timeline, label))
 	else:
-		clear(ClearFlags.KEEP_VARIABLES)
 		start_timeline(timeline, label)
 
 	return scene
@@ -192,10 +206,12 @@ func start_timeline(timeline:Variant, label_or_idx:Variant = "") -> void:
 		printerr("[Dialogic] There was an error loading this timeline. Check the filename, and the timeline for errors")
 		return
 
-	await (timeline as DialogicTimeline).process()
+	(timeline as DialogicTimeline).process()
 
 	current_timeline = timeline
 	current_timeline_events = current_timeline.events
+	for event in current_timeline_events:
+		event.dialogic = self
 	current_event_idx = -1
 
 	if typeof(label_or_idx) == TYPE_STRING:
@@ -219,21 +235,21 @@ func preload_timeline(timeline_resource:Variant) -> Variant:
 		if timeline_resource == null:
 			printerr("[Dialogic] There was an error preloading this timeline. Check the filename, and the timeline for errors")
 			return null
-		else:
-			await (timeline_resource as DialogicTimeline).process()
-			return timeline_resource
+
+	(timeline_resource as DialogicTimeline).process()
+
 	return timeline_resource
 
 
 ## Clears and stops the current timeline.
 func end_timeline() -> void:
-	clear(ClearFlags.TIMLEINE_INFO_ONLY)
+	await clear(ClearFlags.TIMELINE_INFO_ONLY)
 	_on_timeline_ended()
 	timeline_ended.emit()
 
 
 ## Handles the next event.
-func handle_next_event(ignore_argument:Variant = "") -> void:
+func handle_next_event(_ignore_argument: Variant = "") -> void:
 	handle_event(current_event_idx+1)
 
 
@@ -243,8 +259,7 @@ func handle_event(event_index:int) -> void:
 	if not current_timeline:
 		return
 
-	if has_meta('previous_event') and get_meta('previous_event') is DialogicEvent and (get_meta('previous_event') as DialogicEvent).event_finished.is_connected(handle_next_event):
-		(get_meta('previous_event') as DialogicEvent).event_finished.disconnect(handle_next_event)
+	_cleanup_previous_event()
 
 	if paused:
 		await dialogic_resumed
@@ -269,25 +284,38 @@ func handle_event(event_index:int) -> void:
 	event_handled.emit(current_timeline_events[event_index])
 
 
-## Resets dialogics state fully or partially.
-## By using the clear flags from the [member ClearFlags] enum you can specify what info should be kept.
-## For example at timeline end usually it doesn't clear node or subsystem info
-func clear(clear_flags:=ClearFlags.FULL_CLEAR) -> bool:
+## Resets Dialogic's state fully or partially.
+## By using the clear flags from the [member ClearFlags] enum you can specify
+## what info should be kept.
+## For example, at timeline end usually it doesn't clear node or subsystem info.
+func clear(clear_flags := ClearFlags.FULL_CLEAR) -> void:
+	_cleanup_previous_event()
 
-	if !clear_flags & ClearFlags.TIMLEINE_INFO_ONLY:
+	if !clear_flags & ClearFlags.TIMELINE_INFO_ONLY:
 		for subsystem in get_children():
 			if subsystem is DialogicSubsystem:
 				(subsystem as DialogicSubsystem).clear_game_state(clear_flags)
 
-	# Resetting variables
-	if current_timeline:
-		current_timeline.clean()
+	var timeline := current_timeline
 
 	current_timeline = null
 	current_event_idx = -1
 	current_timeline_events = []
 	current_state = States.IDLE
-	return true
+
+	# Resetting variables
+	if timeline:
+		await timeline.clean()
+
+
+## Cleanup after previous event (if any).
+func _cleanup_previous_event():
+	if has_meta('previous_event') and get_meta('previous_event') is DialogicEvent:
+		var event := get_meta('previous_event') as DialogicEvent
+		if event.event_finished.is_connected(handle_next_event):
+			event.event_finished.disconnect(handle_next_event)
+		event._clear_state()
+		remove_meta("previous_event")
 
 #endregion
 
@@ -305,6 +333,9 @@ func get_full_state() -> Dictionary:
 	else:
 		current_state_info['current_event_idx'] = -1
 		current_state_info['current_timeline'] = null
+
+	for subsystem in get_children():
+		(subsystem as DialogicSubsystem).save_game_state()
 
 	return current_state_info.duplicate(true)
 
@@ -392,4 +423,11 @@ func _on_timeline_ended() -> void:
 				@warning_ignore("unsafe_method_access")
 				self.Styles.get_layout_node().hide()
 
+
+func print_debug_moment() -> void:
+	if not current_timeline:
+		return
+
+	printerr("\tAt event ", current_event_idx+1, " (",current_timeline_events[current_event_idx].event_name, ' Event) in timeline "', DialogicResourceUtil.get_unique_identifier(current_timeline.resource_path), '" (',current_timeline.resource_path,').')
+	print("\n")
 #endregion
