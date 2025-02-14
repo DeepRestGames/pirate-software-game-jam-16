@@ -43,8 +43,8 @@ directories/dtl_directory={
 "ThrowHammerTimeline": "res://Assets/Dialogues/ThrowHammerTimeline.dtl",
 "WalkingEnemiesTimeline": "res://Assets/Dialogues/WalkingEnemiesTimeline.dtl"
 }
-layout/style_list=["res://Assets/Dialogues/DialogueStyle.tres"]
-layout/default_style="res://Assets/Dialogues/DialogueStyle.tres"
+layout/style_list=["res://Assets/Dialogues/DefaultStyle.tres"]
+layout/default_style="res://Assets/Dialogues/DefaultStyle.tres"
 variables={}
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true

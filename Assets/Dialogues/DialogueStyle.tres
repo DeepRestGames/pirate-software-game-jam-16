@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogicStyle" load_steps=17 format=3 uid="uid://dhnkollq22yts"]
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=18 format=3 uid="uid://efj63xxpywf2"]
 
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_3b2ym"]
 [ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="2_nlgp5"]
@@ -10,37 +10,41 @@
 [ext_resource type="PackedScene" uid="uid://cvgf4c6gg0tsy" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_TextInput/text_input_layer.tscn" id="8_3vd6p"]
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="10_icnyu"]
 
-[sub_resource type="Resource" id="Resource_cafox"]
+[sub_resource type="Resource" id="Resource_2qyb6"]
+script = ExtResource("1_3b2ym")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_tqw0o"]
 script = ExtResource("1_3b2ym")
 scene = ExtResource("2_nlgp5")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_1ognc"]
+[sub_resource type="Resource" id="Resource_bo02w"]
 script = ExtResource("1_3b2ym")
 scene = ExtResource("3_hwcg4")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_pfjih"]
+[sub_resource type="Resource" id="Resource_pdu1h"]
 script = ExtResource("1_3b2ym")
 scene = ExtResource("4_ddifw")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_de31i"]
+[sub_resource type="Resource" id="Resource_rpgqo"]
 script = ExtResource("1_3b2ym")
 scene = ExtResource("5_g4nrb")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_a0md3"]
+[sub_resource type="Resource" id="Resource_4mo13"]
 script = ExtResource("1_3b2ym")
 scene = ExtResource("6_5yrb1")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_c3373"]
+[sub_resource type="Resource" id="Resource_ng420"]
 script = ExtResource("1_3b2ym")
 scene = ExtResource("7_53mde")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_iyqbc"]
+[sub_resource type="Resource" id="Resource_ptctt"]
 script = ExtResource("1_3b2ym")
 scene = ExtResource("8_3vd6p")
 overrides = {}
@@ -48,10 +52,17 @@ overrides = {}
 [resource]
 script = ExtResource("10_icnyu")
 name = "DialogueStyle"
-base_overrides = {
-"global_bg_color": "Color(0.0392157, 0.0392157, 0.0392157, 1)",
-"global_font": "\"res://Assets/UI/Fonts/CaesarDressing-Regular.ttf\"",
-"global_font_size": "25.0"
+layer_list = Array[String](["10", "11", "12", "13", "14", "15", "16"])
+layer_info = {
+"": SubResource("Resource_2qyb6"),
+"10": SubResource("Resource_tqw0o"),
+"11": SubResource("Resource_bo02w"),
+"12": SubResource("Resource_pdu1h"),
+"13": SubResource("Resource_rpgqo"),
+"14": SubResource("Resource_4mo13"),
+"15": SubResource("Resource_ng420"),
+"16": SubResource("Resource_ptctt")
 }
-layers = Array[ExtResource("1_3b2ym")]([SubResource("Resource_cafox"), SubResource("Resource_1ognc"), SubResource("Resource_pfjih"), SubResource("Resource_de31i"), SubResource("Resource_a0md3"), SubResource("Resource_c3373"), SubResource("Resource_iyqbc")])
-metadata/_latest_layer = -1
+base_overrides = {}
+layers = Array[ExtResource("1_3b2ym")]([])
+metadata/_latest_layer = "12"

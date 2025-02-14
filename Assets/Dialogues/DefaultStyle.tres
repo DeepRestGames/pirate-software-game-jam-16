@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=8 format=3 uid="uid://b5w3bcanvm6f1"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_4mj45"]
+[ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="4_08hr4"]
+[ext_resource type="PackedScene" uid="uid://bslivn5jb8erj" path="res://Assets/Dialogues/Styles/Layers/VisualNovelTextbox/custom_visual_novel_textbox.tscn" id="5_5n2r7"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="10_7ak7d"]
+
+[sub_resource type="Resource" id="Resource_abb2v"]
+script = ExtResource("1_4mj45")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_wrl8k"]
+script = ExtResource("1_4mj45")
+scene = ExtResource("4_08hr4")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_iotgx"]
+script = ExtResource("1_4mj45")
+scene = ExtResource("5_5n2r7")
+overrides = {}
+
+[resource]
+script = ExtResource("10_7ak7d")
+name = "DefaultStyle"
+layer_list = Array[String](["12", "13"])
+layer_info = {
+"": SubResource("Resource_abb2v"),
+"12": SubResource("Resource_wrl8k"),
+"13": SubResource("Resource_iotgx")
+}
+base_overrides = {}
+layers = Array[ExtResource("1_4mj45")]([])
+metadata/_latest_layer = "10"
